@@ -1,4 +1,4 @@
-import { Hero, Problem, Solution } from "@/components/sections/Home";
+import { Hero, Problem, Solution, Pricing } from "@/components/sections/Home";
 import Features from "@/components/sections/Home/Features";
 
 export default function Home() {
@@ -8,6 +8,7 @@ export default function Home() {
       <Features />
       <Problem />
       <Solution />
+      <Pricing />
     </>
   );
 }
