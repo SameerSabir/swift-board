@@ -192,7 +192,6 @@ export default function Header() {
 
           <div className="mt-6 flow-root">
             <div className=" flex flex-col min-h-[calc(100vh-120px)]">
-              {/* Navigation Items at the top */}
               <div className="space-y-2 py-6 flex flex-col">
                 {navItems.map((item) => (
                   <button

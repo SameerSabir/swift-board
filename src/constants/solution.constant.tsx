@@ -1,3 +1,13 @@
+import {
+  LayoutGrid,
+  ShieldCheck,
+  Layers,
+  MessageSquare,
+  Zap,
+  UserPlus,
+  UserCog,
+} from "lucide-react";
+
 export const FEATURES = [
   {
     number: "01",
@@ -12,6 +22,7 @@ export const FEATURES = [
       "Clean structure, zero clutter",
     ],
     tagline: "No more messy folders. No more lost discussions.",
+    icon: <LayoutGrid size={22} strokeWidth={1.8} />,
   },
   {
     number: "02",
@@ -26,6 +37,7 @@ export const FEATURES = [
       "Roles can be updated anytime",
     ],
     tagline: "Collaboration with clarity and control.",
+    icon: <ShieldCheck size={22} strokeWidth={1.8} />,
   },
   {
     number: "03",
@@ -40,6 +52,7 @@ export const FEATURES = [
       "Everything connected to one discussion",
     ],
     tagline: "Ideas stay where they belong.",
+    icon: <Layers size={22} strokeWidth={1.8} />,
   },
   {
     number: "04",
@@ -53,6 +66,7 @@ export const FEATURES = [
       "Messages always connected to the project",
     ],
     tagline: "Communication without fragmentation.",
+    icon: <MessageSquare size={22} strokeWidth={1.8} />,
   },
   {
     number: "05",
@@ -67,6 +81,7 @@ export const FEATURES = [
       "Never miss important changes",
     ],
     tagline: "Visibility replaces confusion.",
+    icon: <Zap size={22} strokeWidth={1.8} />,
   },
   {
     number: "06",
@@ -81,6 +96,7 @@ export const FEATURES = [
       "Change roles anytime",
     ],
     tagline: "Onboarding without friction.",
+    icon: <UserPlus size={22} strokeWidth={1.8} />,
   },
   {
     number: "07",
@@ -96,5 +112,6 @@ export const FEATURES = [
       "Account deletion option",
     ],
     tagline: "Simple. Transparent. User-first.",
+    icon: <UserCog size={22} strokeWidth={1.8} />,
   },
 ];

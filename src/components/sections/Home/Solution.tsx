@@ -1,42 +1,196 @@
 "use client";
 
-export default function Solution() {
+import { useEffect, useRef, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Check } from "lucide-react";
+import { FEATURES } from "@/constants/solution.constant";
+import { getPalette } from "@/utils/helper";
+
+function FeatureCard({
+  feature,
+  i,
+  activeIndex,
+}: {
+  feature: (typeof FEATURES)[0];
+  i: number;
+  activeIndex: number;
+}) {
+  const isActive = activeIndex === i;
+  const { cardBg, iconBg, iconColor } = getPalette(i);
+
   return (
-    <section className="relative overflow-hidden bg-secondary flex flex-col items-center pb-12 sm:pb-16 lg:pb-20 ">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2  bg-[radial-gradient(ellipse,rgba(155,50,255,0.18)_0%,transparent_70%)] pointer-events-none" />
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(155,50,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(155,50,255,0.04) 1px,transparent 1px)",
-          backgroundSize: "48px 48px",
-        }}
-      />
-      <div className="relative z-10">
-        <div className="flex items-center gap-3 mb-6">
-          <span
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold tracking-widest uppercase
-             bg-purple-100 text-purple-600 border border-purple-200"
+    <div
+      className="rounded-[20px] overflow-hidden relative transition-shadow duration-400 "
+      style={{
+        background: cardBg,
+        boxShadow: isActive ? "0 8px 40px rgba(155,50,255,0.10)" : "none",
+        border: `1.5px solid ${iconColor}26`,
+      }}
+    >
+      <div className="px-9 py-7">
+        <div className="flex items-start gap-4 mb-5">
+          <motion.span
+            animate={{
+              background: iconBg,
+              color: iconColor,
+            }}
+            transition={{ duration: 0.35 }}
+            className="inline-flex items-center justify-center rounded-2xl shrink-0 w-12 h-12"
           >
-            <span className="w-1.5 h-1.5 rounded-full inline-block bg-primary" />
-            Solutions
-          </span>
+            {feature.icon}
+          </motion.span>
+
+          <div className="flex-1 min-w-0">
+            <span
+              className="text-[11px] font-bold tracking-widest opacity-70 font-mono block mb-1"
+              style={{ color: iconColor }}
+            >
+              {feature.number}
+            </span>
+            <h3 className="font-bold text-gray-900 leading-snug mb-0.5 text-[clamp(15px,1.4vw,18px)]">
+              {feature.title}
+            </h3>
+            <p className="text-sm text-neutral-400 font-medium">
+              {feature.subtitle}
+            </p>
+          </div>
         </div>
 
-        <div className="mb-4">
-          <p className="text-4xl lg:text-5xl font-bold text-secondary">
-            The Features{" "}
-            <span className="block mt-1">
-              Collaboration —{" "}
-              <span className="text-primary">Without The Chaos.</span>
-            </span>
-          </p>
-        </div>
-        <p className="text-neutral-500 text-sm md:text-base mb-14 max-w-2xl">
-          Most tools scatter your team across chats, files, and apps. SwiftBoard
-          brings everything into structured boards with clear roles, real-time
-          updates, and controlled access.
+        <p className="text-sm leading-relaxed text-neutral-500 mb-5">
+          {feature.description}
         </p>
+
+        <ul className="flex flex-col gap-2.5">
+          {feature.bullets.map((b, j) => (
+            <motion.li
+              key={j}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.3, delay: j * 0.06 }}
+              className="flex items-start gap-2.5 text-sm"
+            >
+              <span
+                className="mt-0.5 shrink-0 flex items-center justify-center rounded-full w-4.5 h-4.5"
+                style={{ background: `${iconColor}18` }}
+              >
+                <Check
+                  size={10}
+                  strokeWidth={2.5}
+                  style={{ color: iconColor }}
+                />
+              </span>
+              <span className="text-neutral-600">{b}</span>
+            </motion.li>
+          ))}
+        </ul>
+
+        <AnimatePresence mode="wait">
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.35 }}
+            className="mt-5 pt-4 border-t border-black/20 flex items-start gap-2"
+          >
+            <p
+              className="text-sm italic font-medium leading-relaxed"
+              style={{ color: iconColor }}
+            >
+              {feature.tagline}
+            </p>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+    </div>
+  );
+}
+
+export default function Solutions() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const observers: IntersectionObserver[] = [];
+    itemRefs.current.forEach((el, i) => {
+      if (!el) return;
+      const obs = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) setActiveIndex(i);
+        },
+        { threshold: 0.4 }
+      );
+      obs.observe(el);
+      observers.push(obs);
+    });
+    return () => observers.forEach((o) => o.disconnect());
+  }, []);
+
+  const setItemRef = (el: HTMLDivElement | null, index: number) => {
+    itemRefs.current[index] = el;
+  };
+
+  return (
+    <section
+      className="bg-white px-4 sm:px-6 lg:px-8 py-10 sm:py-14"
+      id="solution"
+    >
+      <div className="mx-auto max-w-7xl py-12 sm:py-16">
+        <div className="flex flex-col lg:flex-row gap-10 lg:gap-16">
+          <div className="lg:w-2/5 w-full">
+            <div className="lg:sticky lg:top-40">
+              <motion.div
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="flex items-center gap-3 mb-6"
+              >
+                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold tracking-widest uppercase bg-purple-50 text-purple-600 border border-purple-200/60">
+                  <span className="w-2 h-2 rounded-full relative pulse-ring shrink-0 bg-primary" />{" "}
+                  Solutions
+                </span>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.55, delay: 0.08 }}
+                className="mb-4"
+              >
+                <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+                  The Features{" "}
+                  <span className="block mt-1">
+                    Collaboration —{" "}
+                    <span className="text-purple-600">Without The Chaos.</span>
+                  </span>
+                </h2>
+              </motion.div>
+
+              <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.16 }}
+                className="text-neutral-500 text-sm md:text-base mb-8 max-w-md"
+              >
+                Most tools scatter your team across chats, files, and apps.
+                SwiftBoard brings everything into structured boards with clear
+                roles, real-time updates, and controlled access.
+              </motion.p>
+            </div>
+          </div>
+
+          <div className="lg:w-3/5 w-full">
+            <div className="flex flex-col gap-4">
+              {FEATURES.map((feature, i) => (
+                <div key={i} ref={(el) => setItemRef(el, i)}>
+                  <FeatureCard
+                    feature={feature}
+                    i={i}
+                    activeIndex={activeIndex}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
