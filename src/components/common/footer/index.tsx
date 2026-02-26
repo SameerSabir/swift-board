@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer className="bg-[#101828]  overflow-hidden">
-      <div className="px-10 pt-12 pb-10 grid grid-cols-1 md:grid-cols-5 gap-10">
+      <div className=" px-4 sm:px-6 lg:px-8 pt-12 pb-10 grid grid-cols-1 md:grid-cols-5 gap-10">
         <div className="max-w-xs">
           <div className="flex items-center gap-2 mb-4">
             <span className="text-white font-bold text-lg md:text-xl">
@@ -98,7 +98,6 @@ export default function Footer() {
           </ul>
         </div>
 
-      
         <div>
           <p className="text-white font-bold text-base md:text-lg mb-4">
             Support
@@ -130,7 +129,7 @@ export default function Footer() {
             </li>
           </ul>
         </div>
-          <div>
+        <div>
           <p className="text-white font-bold text-base md:text-lg mb-4">
             Download The App
           </p>
@@ -147,8 +146,7 @@ export default function Footer() {
                 </div>
               </Link>
             </li>
-            <li >
-            
+            <li>
               <Link
                 href="#"
                 className="inline-flex items-center gap-3 px-8 py-2 bg-black text-white rounded-xl  transition duration-300"
@@ -163,16 +161,12 @@ export default function Footer() {
           </ul>
         </div>
       </div>
-      
 
-     <div className="relative w-full h-64 flex items-center justify-center">
-  
-  <p className="absolute text-[clamp(80px,8vw,300px)] text-center font-black text-gray-200/20 select-none leading-none pointer-events-none">
-    Swift Board
-  </p>
-
-  
-</div>
+      <div className="relative w-full h-64 flex items-center justify-center">
+        <p className="absolute text-[clamp(80px,8vw,300px)] text-center font-black text-gray-200/20 select-none leading-none pointer-events-none">
+          Swift Board
+        </p>
+      </div>
     </footer>
   );
 }

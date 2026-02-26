@@ -129,11 +129,8 @@ export default function Solutions() {
   };
 
   return (
-    <section
-      className="bg-white px-4 sm:px-6 lg:px-8 py-10 sm:py-14"
-      id="solution"
-    >
-      <div className="mx-auto max-w-7xl py-12 sm:py-16">
+    <section className="bg-white " id="solution">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-16">
           <div className="lg:w-2/5 w-full">
             <div className="lg:sticky lg:top-40">

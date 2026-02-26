@@ -25,11 +25,17 @@ const logos = [
 export default function Carousel() {
   const [emblaRef] = useEmblaCarousel(
     { loop: true, align: "start", dragFree: true },
-    [AutoScroll({ speed: 2, stopOnInteraction: false, stopOnMouseEnter: false })]
+    [
+      AutoScroll({
+        speed: 2,
+        stopOnInteraction: false,
+        stopOnMouseEnter: false,
+      }),
+    ]
   );
 
   return (
-    <section className="py-16 px-6">
+    <section className=" px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
       <p className="text-center lg:text-5xl text-4xl max-w-3xl mx-auto text-neutral-900 font-bold mb-10">
         Syncs with calender, tasks apps, and your health data
       </p>
