@@ -64,10 +64,10 @@ export default function Home() {
     <>
       <Hero />
       <Features />
+      <Carousel />
       <Problem />
       <Solution />
       <Pricing />
-      <Carousel />
       <FAQs
         title={faqData.title}
         description={faqData.description}

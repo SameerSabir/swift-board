@@ -3,7 +3,6 @@
 import { ChevronRight } from "lucide-react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { cn } from "@/lib/utils";
 
 interface FAQItem {
   question: string;
@@ -31,11 +30,11 @@ const FAQs = ({
     <div className="py-10 relative">
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          <div className="  max-w-lg h-fit ">
-            <p className="lg:text-7xl text-slate-900  font-bold">{title}</p>
+          <div className="max-w-lg h-fit">
+            <p className="font-extrabold text-secondary leading-tight mb-4 text-4xl lg:text-5xl">{title}</p>
 
             {description && (
-              <p className="mt-8 font-medium   text-xl text-slate-700 max-w-sm">
+              <p className="mt-5 font-medium text-xl text-secondary max-w-sm">
                 {description}
               </p>
             )}
@@ -48,11 +47,10 @@ const FAQs = ({
               return (
                 <div
                   key={index}
-                  className={`mb-4 rounded-2xl bg-gray-100 border transition ${
-                    isOpen
-                      ? "border-gray-300"
-                      : "border-transparent "
-                  }`}
+                  className={`mb-4 rounded-2xl bg-gray-100 border transition ${isOpen
+                    ? "border-gray-300"
+                    : "border-transparent "
+                    }`}
                 >
                   <button
                     onClick={() => togglePanel(index)}
@@ -64,9 +62,8 @@ const FAQs = ({
                     </span>
 
                     <span
-                      className={`ml-3 flex size-7 items-center justify-center rounded-full bg-gray-100 transition-transform duration-300 ${
-                        isOpen ? "rotate-90 text-slate-800" : "text-neutral-500"
-                      }`}
+                      className={`ml-3 flex size-7 items-center justify-center rounded-full bg-gray-100 transition-transform duration-300 ${isOpen ? "rotate-90 text-slate-800" : "text-neutral-500"
+                        }`}
                     >
                       <ChevronRight size={18} />
                     </span>
@@ -78,7 +75,7 @@ const FAQs = ({
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.25, ease: "easeInOut" }}
+                        transition={{ duration: 0.2, ease: "easeInOut" }}
                         className="overflow-hidden px-5 pb-4"
                       >
                         <p

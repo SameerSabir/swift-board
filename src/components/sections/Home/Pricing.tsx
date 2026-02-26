@@ -60,10 +60,10 @@ export default function Pricing() {
                         Get SwiftBoard{" "}
                         <span className="text-primary">Forever</span>
                     </h2>
-                    <p className="text-neutral-500 text-base sm:text-lg max-w-xl">
+                    <p className="text-secondary text-xl sm:text-lg max-w-xl">
                         One-time payment. No monthly fees. No subscriptions.{" "}
                     </p>
-                    <p className="text-base sm:text-lg max-w-xl font-semibold text-secondary">
+                    <p className="text-xl max-w-xl text-secondary">
                         This limited-time offer won&apos;t last.
                     </p>
                 </div>

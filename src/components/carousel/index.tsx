@@ -30,7 +30,7 @@ export default function Carousel() {
 
   return (
     <section className="py-16 px-6">
-      <p className="text-center text-xl text-neutral-900 font-bold mb-10">
+      <p className="text-center lg:text-5xl text-4xl max-w-3xl mx-auto text-neutral-900 font-bold mb-10">
         Syncs with calender, tasks apps, and your health data
       </p>
 
