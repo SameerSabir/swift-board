@@ -2,6 +2,7 @@
 
 import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useEffect, useRef } from "react";
 import { Stars } from "../ui/dynamicstars";
 
 const testimonials = [
@@ -42,11 +43,42 @@ const testimonials = [
 export default function Testimonials() {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "start",
-    dragFree: true,
+    dragFree: false,
   });
 
+  const sectionRef = useRef<HTMLElement>(null);
+  const scrollCooldown = useRef(false);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+
+    const onWheel = (e: WheelEvent) => {
+      e.preventDefault();
+
+      if (scrollCooldown.current) return;
+
+      scrollCooldown.current = true;
+      setTimeout(() => (scrollCooldown.current = false), 600);
+
+      if (e.deltaY > 0) {
+        if (emblaApi.canScrollNext()) {
+          emblaApi.scrollNext();
+        } else {
+          window.scrollBy({ top: window.innerHeight, behavior: "smooth" });
+        }
+      } else {
+        emblaApi.scrollPrev();
+      }
+    };
+
+    const viewport = emblaApi.rootNode();
+    viewport.addEventListener("wheel", onWheel, { passive: false });
+
+    return () => viewport.removeEventListener("wheel", onWheel);
+  }, [emblaApi]);
+
   return (
-    <section className="bg-white py-10 sm:py-14">
+    <section ref={sectionRef} className="bg-white py-10 sm:py-14">
       <div className="mx-auto max-w-7xl px-4 sm:px-0 py-10 sm:py-14">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-neutral-900 text-center leading-tight ">
           Teams Just Like Yours Are Already Using{" "}
@@ -59,7 +91,7 @@ export default function Testimonials() {
         </h2>
       </div>
 
-      <div className="flex justify-center items-center  px-6">
+      <div className="flex justify-center items-center px-6">
         <div className="overflow-hidden" ref={emblaRef}>
           <div className="flex items-stretch my-2">
             {[...testimonials, ...testimonials].map((t, i) => (
