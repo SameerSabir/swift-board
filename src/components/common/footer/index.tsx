@@ -4,6 +4,20 @@ import { Apple, Play } from "lucide-react";
 import Link from "next/link";
 
 export default function Footer() {
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      const headerOffset = 100; // same as header
+      const elementPosition =
+        element.getBoundingClientRect().top + window.scrollY;
+
+      window.scrollTo({
+        top: elementPosition - headerOffset,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <footer className="bg-[#101828]  overflow-hidden">
       <div className=" px-4 sm:px-6 lg:px-8 pt-12 pb-10 grid grid-cols-1 md:grid-cols-5 gap-10">
@@ -25,28 +39,28 @@ export default function Footer() {
           </p>
           <ul className="space-y-2">
             <li>
-              <Link
-                href="#"
-                className="text-white text-sm md:text-base hover:text-gray-400 transition-colors"
+              <button
+                onClick={() => scrollToSection("pricing")}
+                className="text-white text-sm md:text-base hover:text-gray-400 transition-colors cursor-pointer"
               >
                 Pricing
-              </Link>
+              </button>
             </li>
             <li>
-              <Link
-                href="#"
-                className="text-white text-sm md:text-base hover:text-gray-400 transition-colors"
+              <button
+                onClick={() => scrollToSection("solution")}
+                className="text-white text-sm md:text-base hover:text-gray-400 transition-colors cursor-pointer"
               >
                 Solution
-              </Link>
+              </button>
             </li>
             <li>
-              <Link
-                href="#"
-                className="text-white text-sm md:text-base hover:text-gray-400 transition-colors"
+              <button
+                onClick={() => scrollToSection("problem")}
+                className="text-white text-sm md:text-base hover:text-gray-400 transition-colors cursor-pointer"
               >
                 Problems
-              </Link>
+              </button>
             </li>
           </ul>
         </div>
@@ -58,7 +72,7 @@ export default function Footer() {
             <li>
               <Link
                 href="#"
-                className="text-white text-sm md:text-base hover:text-gray-400 transition-colors"
+                className="text-white text-sm md:text-base hover:text-gray-400 transition-colors cursor-pointer"
               >
                 About
               </Link>
@@ -66,7 +80,7 @@ export default function Footer() {
             <li>
               <Link
                 href="#"
-                className="text-white text-sm md:text-base hover:text-gray-400 transition-colors"
+                className="text-white text-sm md:text-base hover:text-gray-400 transition-colors cursor-pointer"
               >
                 Contact
               </Link>
@@ -74,7 +88,7 @@ export default function Footer() {
             <li>
               <Link
                 href="#"
-                className="text-white text-sm md:text-base hover:text-gray-400 transition-colors"
+                className="text-white text-sm md:text-base hover:text-gray-400 transition-colors cursor-pointer"
               >
                 Help & Resources
               </Link>
@@ -82,7 +96,7 @@ export default function Footer() {
             <li>
               <Link
                 href="#"
-                className="text-white text-sm md:text-base hover:text-gray-400 transition-colors"
+                className="text-white text-sm md:text-base hover:text-gray-400 transition-colors cursor-pointer"
               >
                 Privacy Policy
               </Link>
@@ -90,7 +104,7 @@ export default function Footer() {
             <li>
               <Link
                 href="#"
-                className="text-white text-sm md:text-base hover:text-gray-400 transition-colors"
+                className="text-white text-sm md:text-base hover:text-gray-400 transition-colors cursor-pointer"
               >
                 Term of use
               </Link>
@@ -106,7 +120,7 @@ export default function Footer() {
             <li>
               <Link
                 href="#"
-                className="text-white text-sm md:text-base hover:text-gray-400 transition-colors"
+                className="text-white text-sm md:text-base hover:text-gray-400 transition-colors cursor-pointer"
               >
                 support@focuzed.io
               </Link>
@@ -114,7 +128,7 @@ export default function Footer() {
             <li>
               <Link
                 href="#"
-                className="text-white text-sm md:text-base hover:text-gray-400 transition-colors"
+                className="text-white text-sm md:text-base hover:text-gray-400 transition-colors cursor-pointer"
               >
                 Terms Of Service
               </Link>
@@ -122,7 +136,7 @@ export default function Footer() {
             <li>
               <Link
                 href="#"
-                className="text-white text-sm md:text-base hover:text-gray-400 transition-colors"
+                className="text-white text-sm md:text-base hover:text-gray-400 transition-colors cursor-pointer"
               >
                 Privacy
               </Link>

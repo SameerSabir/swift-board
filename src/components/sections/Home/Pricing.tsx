@@ -53,7 +53,10 @@ export default function Pricing() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-white flex flex-col items-center ">
+    <section
+      className="relative overflow-hidden bg-white flex flex-col items-center "
+      id="pricing"
+    >
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
         {/* Header */}
         <div
