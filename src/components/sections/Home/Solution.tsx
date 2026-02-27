@@ -9,13 +9,12 @@ import { getPalette } from "@/utils/helper";
 function FeatureCard({
   feature,
   i,
-  activeIndex,
 }: {
   feature: (typeof FEATURES)[0];
   i: number;
-  activeIndex: number;
+  activeIndex?: number;
 }) {
-  const isActive = activeIndex === i;
+  // const isActive = activeIndex === i;
   const { cardBg, iconBg, iconColor } = getPalette(i);
 
   return (
@@ -23,8 +22,6 @@ function FeatureCard({
       className="rounded-[20px] overflow-hidden relative transition-shadow duration-400 "
       style={{
         background: cardBg,
-        boxShadow: isActive ? "0 8px 40px rgba(155,50,255,0.10)" : "none",
-        border: `1.5px solid ${iconColor}26`,
       }}
     >
       <div className="px-9 py-7">
