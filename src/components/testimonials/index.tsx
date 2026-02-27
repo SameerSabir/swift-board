@@ -61,7 +61,7 @@ export default function Testimonials() {
 
       <div className="flex justify-center items-center  px-6">
         <div className="overflow-hidden" ref={emblaRef}>
-          <div className="flex items-stretch">
+          <div className="flex items-stretch my-2">
             {[...testimonials, ...testimonials].map((t, i) => (
               <div key={i} className="flex-none w-72 md:w-80 px-2">
                 <div className="bg-white border border-neutral-200 rounded-2xl p-6 flex flex-col justify-between shadow-sm h-full">

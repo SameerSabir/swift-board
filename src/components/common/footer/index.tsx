@@ -177,8 +177,8 @@ export default function Footer() {
                 className="inline-flex items-center gap-3 px-8 py-2 bg-black text-white rounded-xl  transition duration-300"
               >
                 <svg
-                  width="24"
-                  height="24"
+                  width="20"
+                  height="20"
                   viewBox="0 0 512 512"
                   xmlns="http://www.w3.org/2000/svg"
                 >
