@@ -1,16 +1,13 @@
 "use client";
 
 import { ChevronRight } from "lucide-react";
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { faqData } from "@/constants/faq.constant";
 import Image from "next/image";
 
 const FAQs = ({}) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const titleRef = useRef<HTMLParagraphElement>(null);
-  const faqListRef = useRef<HTMLDivElement>(null);
-  const gridRef = useRef<HTMLDivElement>(null);
 
   const togglePanel = (index: number) => {
     setActiveIndex((prev) => (prev === index ? null : index));
@@ -35,15 +32,9 @@ const FAQs = ({}) => {
           className="absolute -bottom-17 left-1/2 -translate-x-1/2 hidden lg:block z-10 pointer-events-none"
         />
 
-        <div
-          ref={gridRef}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-14 relative"
-        >
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-14 relative">
           <div className="max-w-lg h-fit">
-            <p
-              ref={titleRef}
-              className="font-extrabold text-secondary leading-tight mb-4 text-4xl text-center lg:text-left lg:text-5xl"
-            >
+            <p className="font-extrabold text-secondary leading-tight mb-4 text-4xl text-center lg:text-left lg:text-5xl">
               {faqData.title}
             </p>
 
@@ -62,7 +53,7 @@ const FAQs = ({}) => {
             />
           </div>
 
-          <div ref={faqListRef} className="lg:min-h-225">
+          <div className="lg:min-h-225">
             {faqData.data.map((item, index) => {
               const isOpen = index === activeIndex;
 
