@@ -1,8 +1,9 @@
 "use client";
 
 import useEmblaCarousel from "embla-carousel-react";
+import { WheelGesturesPlugin } from "embla-carousel-wheel-gestures";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { Stars } from "../ui/dynamicstars";
 
 const testimonials = [
@@ -41,46 +42,42 @@ const testimonials = [
 ];
 
 export default function Testimonials() {
-  const [emblaRef, emblaApi] = useEmblaCarousel({
-    align: "start",
-    dragFree: false,
-  });
-
-  const sectionRef = useRef<HTMLElement>(null);
-  const scrollCooldown = useRef(false);
-
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    {
+      align: "start",
+      loop: false,
+      containScroll: "keepSnaps",
+      dragThreshold: 1,
+    },
+    [
+      WheelGesturesPlugin({ forceWheelAxis: "x" }),
+      WheelGesturesPlugin({ forceWheelAxis: "y" }),
+    ]
+  );
   useEffect(() => {
     if (!emblaApi) return;
 
-    const onWheel = (e: WheelEvent) => {
-      e.preventDefault();
+    let hasScrolledAway = false;
 
-      if (scrollCooldown.current) return;
-
-      scrollCooldown.current = true;
-      setTimeout(() => (scrollCooldown.current = false), 600);
-
-      if (e.deltaY > 0) {
-        if (emblaApi.canScrollNext()) {
-          emblaApi.scrollNext();
-        } else {
-          window.scrollBy({ top: window.innerHeight, behavior: "smooth" });
-        }
-      } else {
-        emblaApi.scrollPrev();
+    emblaApi.on("settle", () => {
+      if (!emblaApi.canScrollNext() && !hasScrolledAway) {
+        hasScrolledAway = true;
+        window.scrollBy({ top: window.innerHeight, behavior: "smooth" });
       }
-    };
+    });
 
-    const viewport = emblaApi.rootNode();
-    viewport.addEventListener("wheel", onWheel, { passive: false });
-
-    return () => viewport.removeEventListener("wheel", onWheel);
+    // Reset flag when user scrolls back into carousel area
+    emblaApi.on("scroll", () => {
+      if (emblaApi.canScrollNext()) {
+        hasScrolledAway = false;
+      }
+    });
   }, [emblaApi]);
 
   return (
-    <section ref={sectionRef} className="bg-white py-10 sm:py-14">
+    <section className="bg-white py-10 sm:py-14">
       <div className="mx-auto max-w-7xl px-4 sm:px-0 py-10 sm:py-14">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-neutral-900 text-center leading-tight ">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-neutral-900 text-center leading-tight">
           Teams Just Like Yours Are Already Using{" "}
           <span className="inline-flex items-center">
             <span className="bg-primary text-white px-3 py-1 rounded-lg mx-1">
@@ -118,6 +115,7 @@ export default function Testimonials() {
           </div>
         </div>
       </div>
+
       <div className="flex justify-end gap-3 mt-6 mr-10">
         <button
           onClick={() => emblaApi?.scrollPrev()}
