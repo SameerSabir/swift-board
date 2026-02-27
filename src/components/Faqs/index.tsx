@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { faqData } from "@/constants/faq.constant";
 import Image from "next/image";
 
-const FAQs = ({ }) => {
+const FAQs = ({}) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const togglePanel = (index: number) => {
@@ -14,23 +14,42 @@ const FAQs = ({ }) => {
   };
 
   return (
-    <div className="py-10 relative mb-10 ">
-      <div className="mx-auto  max-w-7xl bg-gray-50 px-10 py-10 lg:py-30 rounded-3xl  overflow-hidden">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+    <div className="py-10 sm:py-14 relative">
+      <div className="mx-auto  max-w-7xl bg-gray-50 px-10 py-10 sm:py-14 rounded-3xl  overflow-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-14">
           <div className="max-w-lg h-fit">
-            <Image src="/arrow-down.svg" alt="arrow down" width={200} height={200} className=" absolute top-0 left-1/2 -translate-x-1/2 hidden lg:block" />
-            <Image src="/arrow-downb.svg" alt="arrow down" width={200} height={200} className=" absolute bottom-1  left-1/2  -translate-x-1/2 hidden lg:block" />
+            <Image
+              src="/arrow-down.svg"
+              alt="arrow down"
+              width={200}
+              height={200}
+              className=" absolute top-0 left-1/2 -translate-x-1/2 hidden lg:block"
+            />
+            <Image
+              src="/arrow-downb.svg"
+              alt="arrow down"
+              width={200}
+              height={200}
+              className=" absolute bottom-1  left-1/2  -translate-x-1/2 hidden lg:block"
+            />
 
-            <p className="font-extrabold text-secondary leading-tight mb-4 text-4xl text-center lg:text-left lg:text-5xl">{faqData.title}</p>
+            <p className="font-extrabold text-secondary leading-tight mb-4 text-4xl text-center lg:text-left lg:text-5xl">
+              {faqData.title}
+            </p>
 
             {faqData.description && (
-              <p className="mt-5 font-medium text-xl text-secondary max-w-sm">
+              <p className="mt-4 text-neutral-500 text-sm md:text-base max-w-sm">
                 {faqData.description}
               </p>
             )}
 
-            <Image src="/backgrounddaqs.svg" alt="FAQ Illustration" width={300} height={300} className=" relative top-75 ml-20 hidden lg:block" />
-
+            <Image
+              src="/backgrounddaqs.svg"
+              alt="FAQ Illustration"
+              width={300}
+              height={300}
+              className=" relative top-75 ml-20 hidden lg:block"
+            />
           </div>
 
           <div className=" lg:min-h-225">
@@ -40,10 +59,9 @@ const FAQs = ({ }) => {
               return (
                 <div
                   key={index}
-                  className={`mb-4 rounded-2xl bg-white shadow-sm border transition ${isOpen
-                    ? "border-gray-300"
-                    : "border-transparent "
-                    }`}
+                  className={`mb-4 rounded-2xl bg-white shadow-sm border transition ${
+                    isOpen ? "border-gray-300" : "border-transparent "
+                  }`}
                 >
                   <button
                     onClick={() => togglePanel(index)}
@@ -55,8 +73,9 @@ const FAQs = ({ }) => {
                     </span>
 
                     <span
-                      className={`ml-3 flex size-7 items-center justify-center rounded-full bg-gray-100 transition-transform duration-300 ${isOpen ? "rotate-90 text-slate-800" : "text-neutral-500"
-                        }`}
+                      className={`ml-3 flex size-7 items-center justify-center rounded-full bg-gray-100 transition-transform duration-300 ${
+                        isOpen ? "rotate-90 text-slate-800" : "text-neutral-500"
+                      }`}
                     >
                       <ChevronRight size={18} />
                     </span>

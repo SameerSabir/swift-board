@@ -46,9 +46,9 @@ export default function Testimonials() {
   });
 
   return (
-    <section className="bg-white py-20">
-      <div className="mx-auto max-w-6xl px-6">
-        <h2 className="text-4xl md:text-5xl font-bold text-neutral-900 text-center leading-tight mb-14">
+    <section className="bg-white py-10 sm:py-14">
+      <div className="mx-auto max-w-7xl px-4 sm:px-0 py-10 sm:py-14">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-neutral-900 text-center leading-tight ">
           Teams Just Like Yours Are Already Using{" "}
           <span className="inline-flex items-center">
             <span className="bg-primary text-white px-3 py-1 rounded-lg mx-1">

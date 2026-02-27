@@ -1,6 +1,5 @@
 "use client";
 
-
 import ThemeButton from "@/components/ui/ThemeButton";
 import { TESTIMONIALS } from "@/constants/feature.constant";
 import { CheckCircle } from "lucide-react";
@@ -30,7 +29,7 @@ export default function Features() {
         }}
       />
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-0 py-10 sm:py-14">
         <div
           className={`
             flex justify-between sm:flex-row flex-col  gap-4 mb-10 sm:mb-14
@@ -58,7 +57,7 @@ export default function Features() {
               key={`mob-${i}`}
               className="flex flex-col items-center text-center px-3 sm:hidden"
             >
-             <Stars count={5} />
+              <Stars count={5} />
               <p className="text-xs leading-relaxed text-white/70 italic">
                 &ldquo;{t.quote}&rdquo;
               </p>
@@ -73,7 +72,7 @@ export default function Features() {
             ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-7"}
           `}
         >
-          <h1 className="font-extrabold text-white leading-tight mb-4  text-4xl lg:text-5xl">
+          <h1 className="font-extrabold text-white leading-tight mb-4 text-3xl md:text-4xl lg:text-5xl">
             Collaboration{" "}
             <span className="whitespace-nowrap">
               — <span className="text-primary">Made Swift.</span>

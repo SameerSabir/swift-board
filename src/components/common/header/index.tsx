@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X, Sparkles } from "lucide-react";
+import { motion, AnimatePresence, type Variants } from "framer-motion";
 import Image from "next/image";
 import LogoLight from "@/assets/logo-light.png";
 import ThemeButton from "@/components/ui/ThemeButton";
@@ -11,22 +11,99 @@ const navItems = [
   { name: "Solution", id: "solution" },
 ];
 
+const containerVariants: Variants = {
+  open: {
+    height: "auto",
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      ease: [0.22, 1, 0.36, 1] as const,
+      staggerChildren: 0.06,
+      delayChildren: 0.08,
+    },
+  },
+  closed: {
+    height: 0,
+    opacity: 0,
+    transition: {
+      duration: 0.4,
+      ease: [0.65, 0, 0.35, 1] as const,
+      staggerChildren: 0,
+      staggerDirection: -1,
+    },
+  },
+};
+
+const itemVariants: Variants = {
+  open: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.3, ease: "easeOut" as const },
+  },
+  closed: {
+    opacity: 0,
+    y: -10,
+    transition: { duration: 0.15 },
+  },
+};
+
+const footerVariants: Variants = {
+  open: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.3, ease: "easeOut" as const },
+  },
+  closed: {
+    opacity: 0,
+    y: 10,
+    transition: { duration: 0.15 },
+  },
+};
+
+function MenuIcon({ isOpen }: { isOpen: boolean }) {
+  return (
+    <div className="w-6 h-6 flex flex-col justify-center items-center gap-1.25">
+      <span
+        className={`block h-0.5 transition-all duration-300 ease-in-out origin-center ${
+          isOpen
+            ? "w-6 translate-y-1.75 rotate-45 bg-primary"
+            : "w-6 bg-gray-700"
+        }`}
+      />
+      <span
+        className={`block h-0.5 transition-all duration-200 ease-in-out ${
+          isOpen ? "w-0 opacity-0 bg-primary" : "w-6 opacity-100 bg-gray-700"
+        }`}
+      />
+      <span
+        className={`block h-0.5 transition-all duration-300 ease-in-out origin-center ${
+          isOpen
+            ? "w-6 -translate-y-1.75 -rotate-45 bg-primary"
+            : "w-6 bg-gray-700"
+        }`}
+      />
+    </div>
+  );
+}
+
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
 
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      const headerOffset = 100;
-      const elementPosition =
-        element.getBoundingClientRect().top + window.scrollY;
-      window.scrollTo({
-        top: elementPosition - headerOffset,
-        behavior: "smooth",
-      });
-      setMobileMenuOpen(false);
-    }
+    setMobileMenuOpen(false);
+    setTimeout(() => {
+      const element = document.getElementById(id);
+      if (element) {
+        const headerOffset = 100;
+        const elementPosition =
+          element.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({
+          top: elementPosition - headerOffset,
+          behavior: "smooth",
+        });
+      }
+    }, 350);
   };
 
   useEffect(() => {
@@ -42,32 +119,16 @@ export default function Header() {
           }
         }
       }
-      if (currentSection !== activeSection) {
-        setActiveSection(currentSection);
-      }
+      if (currentSection !== activeSection) setActiveSection(currentSection);
     };
 
     window.addEventListener("scroll", handleScroll);
-
     handleScroll();
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, [activeSection]);
 
-  useEffect(() => {
-    if (mobileMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
-
-    return () => {
-      document.body.style.overflow = "unset";
-    };
-  }, [mobileMenuOpen]);
-
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white">
+    <header className="fixed top-0 left-0 right-0 z-50">
       <div className="bg-secondary">
         <div className="flex items-center justify-center py-2.5 px-4">
           <a
@@ -97,7 +158,7 @@ export default function Header() {
               className="w-10 h-10"
             />
             <span className="text-2xl font-bold text-secondary hidden sm:inline">
-              Swift Board
+              SwiftBoard
             </span>
           </button>
 
@@ -108,22 +169,20 @@ export default function Header() {
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
                   className={`
-                      relative px-4 py-2 text-base font-semibold cursor-pointer transition-colors duration-300
-
-                      ${
-                        activeSection === item.id
-                          ? "text-primary"
-                          : "text-secondary hover:text-primary"
-                      }
-
-                      after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 
-                      after:w-0 hover:after:w-full after:transition-all after:duration-300
-                      ${
-                        activeSection === item.id
-                          ? "after:w-full after:bg-primary"
-                          : "after:bg-primary"
-                      }
-                    `}
+                    relative px-4 py-2 text-base font-semibold cursor-pointer transition-colors duration-300
+                    ${
+                      activeSection === item.id
+                        ? "text-primary"
+                        : "text-secondary hover:text-primary"
+                    }
+                    after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5
+                    after:w-0 hover:after:w-full after:transition-all after:duration-300
+                    ${
+                      activeSection === item.id
+                        ? "after:w-full after:bg-primary"
+                        : "after:bg-primary"
+                    }
+                  `}
                 >
                   {item.name}
                 </button>
@@ -134,11 +193,11 @@ export default function Header() {
           <div className="flex lg:hidden">
             <button
               type="button"
-              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-              onClick={() => setMobileMenuOpen(true)}
+              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 cursor-pointer"
+              onClick={() => setMobileMenuOpen((prev) => !prev)}
+              aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
             >
-              <span className="sr-only">Open main menu</span>
-              <Menu className="h-6 w-6" aria-hidden="true" />
+              <MenuIcon isOpen={mobileMenuOpen} />
             </button>
           </div>
 
@@ -152,100 +211,77 @@ export default function Header() {
         </div>
       </nav>
 
-      <div
-        className={`lg:hidden fixed inset-0 z-50 transition-opacity duration-300 ease-in-out ${
-          mobileMenuOpen
-            ? "opacity-100 pointer-events-auto"
-            : "opacity-0 pointer-events-none"
-        }`}
-      >
-        <div
-          className={`fixed inset-0 bg-black/20 backdrop-blur-sm transition-opacity duration-300 ease-in-out ${
-            mobileMenuOpen ? "opacity-100" : "opacity-0"
-          }`}
-          onClick={() => setMobileMenuOpen(false)}
-        />
-
-        <div
-          className={`fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 transform transition-transform duration-300 ease-in-out ${
-            mobileMenuOpen ? "translate-x-0" : "translate-x-full"
-          }`}
-        >
-          <div className="flex items-center justify-between">
-            <button
-              onClick={() => scrollToSection("home")}
-              className="-m-1.5 p-1.5 flex items-center space-x-2"
-            >
-              <Image
-                src={LogoLight}
-                alt="Swift Board Logo"
-                width={40}
-                height={40}
-                className="w-10 h-10"
-              />
-              <span className="text-2xl font-bold text-secondary hidden sm:inline">
-                Swift Board
-              </span>
-            </button>
-            <button
-              type="button"
-              className="-m-2.5 rounded-md p-2.5 text-gray-secondary cursor-pointer"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              <X className="h-6 w-6" aria-hidden="true" />
-            </button>
-          </div>
-
-          <div className="mt-6 flow-root">
-            <div className=" flex flex-col min-h-[calc(100vh-120px)]">
-              <div className="space-y-2 py-6 flex flex-col">
-                {navItems.map((item) => (
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            key="mobile-menu"
+            variants={containerVariants}
+            initial="closed"
+            animate="open"
+            exit="closed"
+            className="lg:hidden bg-white border-b border-gray-100 shadow-xl overflow-hidden"
+          >
+            <div className="px-6 pt-4 pb-8 flex flex-col gap-1">
+              {navItems.map((item) => (
+                <motion.div key={item.id} variants={itemVariants}>
                   <button
-                    key={item.id}
                     onClick={() => scrollToSection(item.id)}
-                    className={`w-full relative rounded-lg text-left cursor-pointer px-3 py-3 text-lg font-semibold leading-7 transition-all duration-200 ${
-                      activeSection === item.id
-                        ? "text-primary"
-                        : "text-secondary hover:text-primary"
-                    }
-                        
-                    
-                      after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 
-                      after:w-0 hover:after:w-full after:transition-all after:duration-300
+                    className={`
+                      w-full text-left px-3 py-4 rounded-xl text-lg font-semibold
+                      transition-colors duration-300 relative cursor-pointer
                       ${
                         activeSection === item.id
-                          ? "after:w-full after:bg-primary"
-                          : "after:bg-primary"
-                      }`}
+                          ? "text-primary"
+                          : "text-secondary hover:text-primary"
+                      }
+                      after:content-[''] after:absolute after:bottom-0 after:left-3 after:h-0.5
+                      after:transition-all after:duration-300
+                      ${
+                        activeSection === item.id
+                          ? "after:w-[calc(100%-24px)] after:bg-primary"
+                          : "after:w-0 hover:after:w-[calc(100%-24px)] after:bg-primary"
+                      }
+                    `}
                   >
                     {item.name}
                   </button>
-                ))}
-              </div>
+                </motion.div>
+              ))}
 
-              <div className="mt-auto">
-                <div className="w-full h-px bg-gray-200 my-2"></div>
+              <motion.div
+                variants={itemVariants}
+                className="w-full h-px bg-gray-100 my-3"
+              />
 
-                <div className="py-6 space-y-3">
-                  <ThemeButton
-                    text="Download App"
-                    variant="shimmer"
-                    onClick={() => scrollToSection("download")}
-                    className="w-full"
-                  />
-                  <ThemeButton
-                    text="Get Started"
-                    onClick={() => scrollToSection("deal")}
-                    icon={<Sparkles className="w-5 h-5" />}
-                    variant="primary"
-                    className="w-full rounded-full"
-                  />
-                </div>
-              </div>
+              <motion.div
+                variants={footerVariants}
+                className="flex flex-col gap-3"
+              >
+                <ThemeButton
+                  text="Download App"
+                  variant="shimmer"
+                  onClick={() => scrollToSection("download")}
+                  className="w-full"
+                />
+              </motion.div>
             </div>
-          </div>
-        </div>
-      </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            key="backdrop"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="lg:hidden fixed inset-0 z-[-1] bg-black/20 backdrop-blur-sm"
+            onClick={() => setMobileMenuOpen(false)}
+          />
+        )}
+      </AnimatePresence>
     </header>
   );
 }

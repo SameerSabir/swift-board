@@ -130,8 +130,8 @@ export default function Solutions() {
 
   return (
     <section className="bg-white " id="solution">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
-        <div className="flex flex-col lg:flex-row gap-10 lg:gap-16">
+      <div className="mx-auto max-w-7xl px-4 sm:px-0 py-10 sm:py-14">
+        <div className="flex flex-col lg:flex-row gap-10 lg:gap-14">
           <div className="lg:w-2/5 w-full">
             <div className="lg:sticky lg:top-40">
               <motion.div
@@ -152,11 +152,11 @@ export default function Solutions() {
                 transition={{ duration: 0.55, delay: 0.08 }}
                 className="mb-4"
               >
-                <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+                <h2 className="text-center sm:text-left text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
                   The Features{" "}
                   <span className="block mt-1">
                     Collaboration —{" "}
-                    <span className="text-purple-600">Without The Chaos.</span>
+                    <span className="text-primary">Without The Chaos.</span>
                   </span>
                 </h2>
               </motion.div>
@@ -165,7 +165,7 @@ export default function Solutions() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.16 }}
-                className="text-neutral-500 text-sm md:text-base mb-8 max-w-md"
+                className="text-neutral-500 text-sm md:text-base  max-w-md text-center sm:text-left"
               >
                 Most tools scatter your team across chats, files, and apps.
                 SwiftBoard brings everything into structured boards with clear
