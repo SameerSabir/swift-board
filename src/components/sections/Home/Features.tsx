@@ -1,12 +1,13 @@
 "use client";
 
-import Stars from "@/components/ui/Stars";
+
 import ThemeButton from "@/components/ui/ThemeButton";
 import { TESTIMONIALS } from "@/constants/feature.constant";
 import { CheckCircle } from "lucide-react";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import FeatureBanner from "@/assets/feature-mockup.webp";
+import { Stars } from "@/components/ui/dynamicstars";
 
 export default function Features() {
   const [visible, setVisible] = useState(false);
@@ -45,7 +46,7 @@ export default function Features() {
                 ${i !== 0 ? "hidden sm:flex" : ""}
               `}
             >
-              <Stars />
+              <Stars count={5} />
               <p className="text-xs sm:text-sm leading-relaxed text-white/80 italic">
                 &ldquo;{t.quote}&rdquo;
               </p>
@@ -57,7 +58,7 @@ export default function Features() {
               key={`mob-${i}`}
               className="flex flex-col items-center text-center px-3 sm:hidden"
             >
-              <Stars />
+             <Stars count={5} />
               <p className="text-xs leading-relaxed text-white/70 italic">
                 &ldquo;{t.quote}&rdquo;
               </p>
