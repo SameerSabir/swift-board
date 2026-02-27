@@ -7,7 +7,7 @@ import Image from "next/image";
 export default function Footer() {
   return (
     <footer className="bg-[#101828]  overflow-hidden">
-      <div className="px-10 py-12 pb-10 grid grid-cols-1 md:grid-cols-5 gap-10">
+      <div className="max-w-7xl mx-auto px-10 py-12 pb-10 grid grid-cols-1 md:grid-cols-5 gap-10">
         <div className="max-w-xs">
           <div className="flex items-center gap-2 mb-4">
             <span className="text-white font-bold text-lg md:text-xl">
@@ -163,8 +163,8 @@ export default function Footer() {
                 className="inline-flex items-center gap-3 px-8 py-2 bg-black text-white rounded-xl  transition duration-300"
               >
                 <svg
-                  width="24"
-                  height="24"
+                  width="20"
+                  height="20"
                   viewBox="0 0 512 512"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -195,11 +195,11 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* <div className="relative w-full h-64 flex items-center justify-center">
+      <div className="relative w-full h-64 flex items-center justify-center">
         <p className="absolute text-[clamp(80px,8vw,300px)] text-center font-black text-gray-200/20 select-none leading-none pointer-events-none">
           Swift Board
         </p>
-      </div> */}
+      </div>
     </footer>
   );
 }

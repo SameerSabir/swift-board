@@ -3,6 +3,7 @@
 import { ChevronRight } from "lucide-react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 interface FAQItem {
   question: string;
@@ -27,27 +28,33 @@ const FAQs = ({
   };
 
   return (
-    <div className="py-10 relative">
-      <div className="mx-auto max-w-7xl px-6">
+    <div className="py-10 relative mb-10 ">
+      <div className="mx-auto  max-w-7xl bg-gray-50 px-10 py-10 lg:py-30 rounded-3xl  overflow-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           <div className="max-w-lg h-fit">
-            <p className="font-extrabold text-secondary leading-tight mb-4 text-4xl lg:text-5xl">{title}</p>
+             <Image src="/arrow-down.svg" alt="arrow down" width={200} height={200} className=" absolute top-0 left-1/2 -translate-x-1/2 hidden lg:block" />
+             <Image src="/arrow-downb.svg" alt="arrow down" width={200} height={200} className=" absolute bottom-1  left-1/2  -translate-x-1/2 hidden lg:block" />
+   
+            <p className="font-extrabold text-secondary leading-tight mb-4 text-4xl text-center lg:text-left lg:text-5xl">{title}</p>
 
             {description && (
               <p className="mt-5 font-medium text-xl text-secondary max-w-sm">
                 {description}
               </p>
             )}
+            
+            <Image src="/backgrounddaqs.svg" alt="FAQ Illustration" width={300} height={300} className=" relative top-75 ml-20 hidden lg:block" />
+   
           </div>
 
-          <div>
+          <div className=" lg:min-h-225">
             {data.map((item, index) => {
               const isOpen = index === activeIndex;
 
               return (
                 <div
                   key={index}
-                  className={`mb-4 rounded-2xl bg-gray-100 border transition ${isOpen
+                  className={`mb-4 rounded-2xl bg-white shadow-sm border transition ${isOpen
                     ? "border-gray-300"
                     : "border-transparent "
                     }`}
