@@ -1,39 +1,49 @@
 "use client";
 
 import { ChevronRight } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { faqData } from "@/constants/faq.constant";
 import Image from "next/image";
 
 const FAQs = ({}) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const titleRef = useRef<HTMLParagraphElement>(null);
+  const faqListRef = useRef<HTMLDivElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
 
   const togglePanel = (index: number) => {
     setActiveIndex((prev) => (prev === index ? null : index));
   };
 
   return (
-    <div className="py-10 sm:py-14 relative">
-      <div className="mx-auto  max-w-7xl bg-gray-50 px-10 py-10 sm:py-14 rounded-3xl  overflow-hidden">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-14">
-          <div className="max-w-lg h-fit">
-            <Image
-              src="/arrow-down.svg"
-              alt="arrow down"
-              width={200}
-              height={200}
-              className=" absolute top-0 left-1/2 -translate-x-1/2 hidden lg:block"
-            />
-            <Image
-              src="/arrow-downb.svg"
-              alt="arrow down"
-              width={200}
-              height={200}
-              className=" absolute bottom-1  left-1/2  -translate-x-1/2 hidden lg:block"
-            />
+    <div className="py-10 sm:py-14 lg:mb-18">
+      <div className="mx-auto max-w-7xl bg-gray-50 px-10 pt-10 pb-10 lg:pt-30 lg:pb-14 rounded-3xl  relative">
+        <Image
+          src="/arrow-down.svg"
+          alt="arrow down"
+          width={180}
+          height={180}
+          className="absolute top-0 left-1/2 -translate-x-1/2 hidden lg:block z-10 pointer-events-none"
+        />
 
-            <p className="font-extrabold text-secondary leading-tight mb-4 text-4xl text-center lg:text-left lg:text-5xl">
+        <Image
+          src="/arrow-downb.svg"
+          alt="arrow down"
+          width={180}
+          height={180}
+          className="absolute -bottom-17 left-1/2 -translate-x-1/2 hidden lg:block z-10 pointer-events-none"
+        />
+
+        <div
+          ref={gridRef}
+          className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-14 relative"
+        >
+          <div className="max-w-lg h-fit">
+            <p
+              ref={titleRef}
+              className="font-extrabold text-secondary leading-tight mb-4 text-4xl text-center lg:text-left lg:text-5xl"
+            >
               {faqData.title}
             </p>
 
@@ -48,11 +58,11 @@ const FAQs = ({}) => {
               alt="FAQ Illustration"
               width={300}
               height={300}
-              className=" relative top-75 ml-20 hidden lg:block"
+              className="relative top-65 ml-20 hidden lg:block"
             />
           </div>
 
-          <div className=" lg:min-h-225">
+          <div ref={faqListRef} className="lg:min-h-225">
             {faqData.data.map((item, index) => {
               const isOpen = index === activeIndex;
 
@@ -60,7 +70,7 @@ const FAQs = ({}) => {
                 <div
                   key={index}
                   className={`mb-4 rounded-2xl bg-white shadow-sm border transition ${
-                    isOpen ? "border-gray-300" : "border-transparent "
+                    isOpen ? "border-gray-300" : "border-transparent"
                   }`}
                 >
                   <button
