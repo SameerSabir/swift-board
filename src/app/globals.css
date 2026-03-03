@@ -14,13 +14,14 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --font-plus-jakarta-sans: var(--font-plus-jakarta-sans);
+  --font-plus-jakarta: var(--font-plus-jakarta);
+  --font-shantell-sans: var(--font-shantell-sans);
 }
 
 body {
   background: var(--background);
   color: var(--color-primary);
-  font-family: var(--font-plus-jakarta-sans);
+  font-family: var(--font-plus-jakarta);
 }
 
 @keyframes fadeUp {
@@ -28,77 +29,96 @@ body {
     opacity: 0;
     transform: translateY(28px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
+
 @keyframes fadeInL {
   from {
     opacity: 0;
     transform: translateX(-32px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
   }
 }
+
 @keyframes fadeInR {
   from {
     opacity: 0;
     transform: translateX(32px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
   }
 }
+
 @keyframes floatA {
+
   0%,
   100% {
     transform: translateY(0) rotate(0deg);
   }
+
   50% {
     transform: translateY(-16px) rotate(2deg);
   }
 }
+
 @keyframes floatB {
+
   0%,
   100% {
     transform: translateY(0) rotate(0deg);
   }
+
   50% {
     transform: translateY(14px) rotate(-2deg);
   }
 }
+
 @keyframes floatC {
+
   0%,
   100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-10px);
   }
 }
+
 @keyframes pulseRing {
   0% {
     transform: scale(0.95);
     opacity: 0.6;
   }
+
   70% {
     transform: scale(1.18);
     opacity: 0;
   }
+
   100% {
     transform: scale(0.95);
     opacity: 0;
   }
 }
+
 @keyframes lineGrow {
   from {
     transform: scaleY(0);
     opacity: 0;
   }
+
   to {
     transform: scaleY(1);
     opacity: 1;
@@ -108,22 +128,22 @@ body {
 .anim-center {
   animation: fadeUp 0.8s ease both;
 }
+
 .anim-left {
   animation: fadeInL 0.9s ease both;
 }
+
 .anim-right {
   animation: fadeInR 0.9s ease both;
 }
 
 .shimmer-btn {
-  background: linear-gradient(
-    90deg,
-    var(--color-secondary) 0%,
-    var(--color-secondary) 30%,
-    var(--color-primary) 50%,
-    var(--color-secondary) 70%,
-    var(--color-secondary) 100%
-  );
+  background: linear-gradient(90deg,
+      var(--color-secondary) 0%,
+      var(--color-secondary) 30%,
+      var(--color-primary) 50%,
+      var(--color-secondary) 70%,
+      var(--color-secondary) 100%);
   background-size: 300% auto;
   background-position: 100% center;
   transition: background-position 0.8s ease;
@@ -153,6 +173,7 @@ body {
   from {
     transform: scaleY(0);
   }
+
   to {
     transform: scaleY(1);
   }
