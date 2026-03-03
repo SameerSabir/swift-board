@@ -86,6 +86,89 @@ function MenuIcon({ isOpen }: { isOpen: boolean }) {
   );
 }
 
+function NavButton({
+  item,
+  activeSection,
+  onScroll,
+}: {
+  item: (typeof navItems)[0];
+  activeSection: string;
+  onScroll: (id: string) => void;
+}) {
+  const [hovered, setHovered] = useState(false);
+  const isActive = activeSection === item.id;
+  const drawn = isActive || hovered;
+
+  return (
+    <button
+      onClick={() => onScroll(item.id)}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      className={`relative px-4 py-2 text-base font-semibold cursor-pointer transition-colors duration-300 ${
+        isActive ? "text-primary" : "text-secondary hover:text-primary"
+      }`}
+    >
+      {item.name}
+      <svg
+        viewBox="0 0 80 10"
+        className="absolute bottom-0 left-4 right-4 overflow-visible"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+      >
+        <path
+          d="M2,6 Q40,-3 78,6"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="4"
+          strokeLinecap="round"
+          style={{
+            strokeDasharray: 100,
+            strokeDashoffset: drawn ? 0 : 100,
+            transition: drawn
+              ? "stroke-dashoffset 0.5s ease-out"
+              : "stroke-dashoffset 0.3s ease-in",
+          }}
+        />
+      </svg>
+    </button>
+  );
+}
+
+function MobileNavButton({
+  item,
+  activeSection,
+  onScroll,
+}: {
+  item: (typeof navItems)[0];
+  activeSection: string;
+  onScroll: (id: string) => void;
+}) {
+  return (
+    <button
+      onClick={() => onScroll(item.id)}
+      className={`
+                      w-full text-left px-3 py-4 rounded-xl text-lg font-semibold
+                      transition-colors duration-300 relative cursor-pointer
+                      ${
+                        activeSection === item.id
+                          ? "text-primary"
+                          : "text-secondary hover:text-primary"
+                      }
+                      after:content-[''] after:absolute after:bottom-0 after:left-3 after:h-0.5
+                      after:transition-all after:duration-300
+                      ${
+                        activeSection === item.id
+                          ? "after:w-[calc(100%-24px)] after:bg-primary"
+                          : "after:w-0 hover:after:w-[calc(100%-24px)] after:bg-primary"
+                      }
+                    `}
+    >
+      {item.name}
+    </button>
+  );
+}
+
+// ─── Main Header ──────────────────────────────────────────────────────────────
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
@@ -165,27 +248,12 @@ export default function Header() {
           <div className="hidden lg:flex flex-1 justify-center">
             <div className="flex gap-x-8">
               {navItems.map((item) => (
-                <button
+                <NavButton
                   key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className={`
-                    relative px-4 py-2 text-base font-semibold cursor-pointer transition-colors duration-300
-                    ${
-                      activeSection === item.id
-                        ? "text-primary"
-                        : "text-secondary hover:text-primary"
-                    }
-                    after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5
-                    after:w-0 hover:after:w-full after:transition-all after:duration-300
-                    ${
-                      activeSection === item.id
-                        ? "after:w-full after:bg-primary"
-                        : "after:bg-primary"
-                    }
-                  `}
-                >
-                  {item.name}
-                </button>
+                  item={item}
+                  activeSection={activeSection}
+                  onScroll={scrollToSection}
+                />
               ))}
             </div>
           </div>
@@ -224,27 +292,11 @@ export default function Header() {
             <div className="px-6 pt-4 pb-8 flex flex-col gap-1">
               {navItems.map((item) => (
                 <motion.div key={item.id} variants={itemVariants}>
-                  <button
-                    onClick={() => scrollToSection(item.id)}
-                    className={`
-                      w-full text-left px-3 py-4 rounded-xl text-lg font-semibold
-                      transition-colors duration-300 relative cursor-pointer
-                      ${
-                        activeSection === item.id
-                          ? "text-primary"
-                          : "text-secondary hover:text-primary"
-                      }
-                      after:content-[''] after:absolute after:bottom-0 after:left-3 after:h-0.5
-                      after:transition-all after:duration-300
-                      ${
-                        activeSection === item.id
-                          ? "after:w-[calc(100%-24px)] after:bg-primary"
-                          : "after:w-0 hover:after:w-[calc(100%-24px)] after:bg-primary"
-                      }
-                    `}
-                  >
-                    {item.name}
-                  </button>
+                  <MobileNavButton
+                    item={item}
+                    activeSection={activeSection}
+                    onScroll={scrollToSection}
+                  />
                 </motion.div>
               ))}
 

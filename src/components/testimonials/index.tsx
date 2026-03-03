@@ -115,6 +115,7 @@ export default function Testimonials() {
       slidesToScroll: 1,
       skipSnaps: false,
       dragThreshold: 1,
+      containScroll: false,
     },
     [WheelGesturesPlugin({ forceWheelAxis: "x" })]
   );
@@ -138,6 +139,9 @@ export default function Testimonials() {
   useEffect(() => {
     if (!emblaApi) return;
 
+    // Scroll to center slide on mount
+    emblaApi.scrollTo(Math.floor(testimonials.length / 2), true); // true = jump (no animation)
+
     onSelect(emblaApi);
     emblaApi.on("select", onSelect);
     emblaApi.on("reInit", onSelect);
@@ -155,6 +159,35 @@ export default function Testimonials() {
           Don&apos;t take our <br />
           <span className="relative inline-block">
             <span className="">word</span>
+            <svg
+              className="absolute left-0 -bottom-2 w-full"
+              height="14"
+              viewBox="0 0 120 14"
+              preserveAspectRatio="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill="none"
+                stroke="#171717"
+                strokeWidth="5.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <animate
+                  attributeName="d"
+                  dur="2s"
+                  repeatCount="indefinite"
+                  calcMode="spline"
+                  keyTimes="0; 0.5; 1"
+                  keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"
+                  values="
+                    M0,7 C8,2 16,12 24,7 C32,2 40,12 48,7 C56,2 64,12 72,7 C80,2 88,12 96,7 C104,2 112,12 120,7;
+                    M0,7 C8,12 16,2 24,7 C32,12 40,2 48,7 C56,12 64,2 72,7 C80,12 88,2 96,7 C104,12 112,2 120,7;
+                    M0,7 C8,2 16,12 24,7 C32,2 40,12 48,7 C56,2 64,12 72,7 C80,2 88,12 96,7 C104,2 112,12 120,7
+                  "
+                />
+              </path>
+            </svg>
           </span>{" "}
           for it.
         </h2>
@@ -181,7 +214,10 @@ export default function Testimonials() {
         <div className="overflow-hidden" ref={emblaRef}>
           <div className="flex gap-6 sm:gap-10 my-2">
             {testimonials.map((t, i) => (
-              <div key={i} className="flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_20%] min-w-0">
+              <div
+                key={i}
+                className="flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_20%] min-w-0"
+              >
                 <div
                   className={`${t.bg} rounded-2xl p-6 sm:p-12 flex flex-col justify-between`}
                 >
