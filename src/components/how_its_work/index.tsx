@@ -25,20 +25,20 @@ export default function HowItWorks() {
   const inView2 = useInView(ref2, { amount: 0.4 });
   const inView3 = useInView(ref3, { amount: 0.4 });
 
-  if (inView2) activeStep !==2 && setActiveStep(2);
+  if (inView3) activeStep !== 3 && setActiveStep(3);
+  else if (inView2) activeStep !== 2 && setActiveStep(2);
   else if (inView1) activeStep !== 1 && setActiveStep(1);
   else if (inView0) activeStep !== 0 && setActiveStep(0);
-  
 
   return (
-    <section >
+    <section>
       <motion.div
         className="mx-auto max-w-7xl  px-6 py-24 rounded-3xl"
         animate={{ backgroundColor: stepBgs[activeStep] }}
         transition={{ duration: 0.7, ease: "easeInOut" }}
       >
         <div className="relative mb-20 text-center">
-          <p className="text-3xl md:text-5xl font-bold max-w-lg text-neutral-900 inline-block relative">
+          <p className="text-3xl md:text-5xl  font-bold max-w-lg text-neutral-900 inline-block relative">
             The Problem with Current Productivity Apps
           </p>
         </div>
@@ -62,11 +62,16 @@ export default function HowItWorks() {
                 </p>
               </div>
             </div>
-            <div className="relative hidden lg:block   justify-center">
-              <div className="absolute h-95 w-95 rounded-full blur-3xl" />
+            <div className="relative flex justify-center items-center">
+              <div
+                className="absolute inset-0 m-auto right-20 
+                  bg-[url('/how_it_work/chart.svg')] 
+                  bg-cover bg-center bg-no-repeat "
+              />
+
               <Image
                 src="/how_it_work/step1.svg"
-                alt=""
+                alt="Step 1 illustration"
                 width={640}
                 height={420}
                 className="relative z-10 rounded-2xl"
@@ -74,7 +79,12 @@ export default function HowItWorks() {
             </div>
           </div>
 
-          <div ref={ref1} className="grid items-center gap-20 lg:grid-cols-2">
+          <div ref={ref1} className="relative grid items-center gap-20 lg:grid-cols-2">
+             <div
+                className="absolute inset-0 right-25
+                  bg-[url('/how_it_work/chart.svg')] 
+                  bg-contain bg-center bg-no-repeat "
+              />
             <div className="flex justify-center items-center ">
               <div className="max-w-md">
                 <div className="mb-4 flex items-start gap-4">
@@ -92,8 +102,7 @@ export default function HowItWorks() {
                 </p>
               </div>
             </div>
-            <div className="relative hidden lg:block justify-center">
-              <div className="absolute h-95 w-95 rounded-full   " />
+            <div className="relative  justify-center">
               <Image
                 src={step2}
                 alt="step2"
@@ -105,6 +114,11 @@ export default function HowItWorks() {
           </div>
 
           <div ref={ref2} className="relative grid gap-20 lg:grid-cols-2">
+             <div
+                className="absolute  inset-0 lg:h-175 lg:w-200 m-auto
+                  bg-[url('/how_it_work/background-step3.svg')] 
+                  bg-cover bg-center bg-no-repeat "
+              />
             <div className="flex justify-center">
               <div className="sticky top-32 h-fit max-w-md">
                 <div className="mb-4 flex items-start gap-4">
@@ -122,30 +136,22 @@ export default function HowItWorks() {
                 </p>
               </div>
             </div>
-            <div className="relative hidden lg:block   justify-center">
-              <div className="absolute h-95 w-95 rounded-full  " />
-              <Image
-                src={step3a}
-                alt="step3a"
-                width={420}
-                height={420}
-                className="relative z-10 rounded-2xl"
-              />
+            <div className="relative    justify-center">
+              <div className="space-y-24">
+                {[step3a, step3b, step3c, step3d, step3f].map((img, i) => (
+                  <div key={i} className="relative flex justify-center">
+                    <div className="absolute h-90 w-90 rounded-full " />
+                    <Image
+                      src={img}
+                      alt=""
+                      width={420}
+                      height={420}
+                      className="relative z-10 rounded-2xl"
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
-            {/* <div className="space-y-24">
-              {[step3a, step3b, step3c, step3d, step3f].map((img, i) => (
-                <div key={i} className="relative flex justify-center">
-                  <div className="absolute h-90 w-90 rounded-full " />
-                  <Image
-                    src={img}
-                    alt=""
-                    width={420}
-                    height={420}
-                    className="relative z-10 rounded-2xl"
-                  />
-                </div>
-              ))}
-            </div> */}
           </div>
 
           {/* <div ref={ref3} className="grid items-center gap-20 lg:grid-cols-2">

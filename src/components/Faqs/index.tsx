@@ -60,9 +60,7 @@ const FAQs = ({}) => {
               return (
                 <div
                   key={index}
-                  className={`mb-4 rounded-2xl bg-white shadow-sm border transition ${
-                    isOpen ? "border-gray-300" : "border-transparent"
-                  }`}
+                  className={`mb-4 rounded-2xl bg-white shadow-sm  transition `}
                 >
                   <button
                     onClick={() => togglePanel(index)}
