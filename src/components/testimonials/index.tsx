@@ -3,7 +3,7 @@
 import useEmblaCarousel from "embla-carousel-react";
 import { WheelGesturesPlugin } from "embla-carousel-wheel-gestures";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { useEffect } from "react";
+import { useEffect, useState, useCallback } from "react";
 
 const testimonials = [
   {
@@ -14,15 +14,6 @@ const testimonials = [
     date: "Jan 12, 2026",
     bg: "bg-purple-100",
     avatar: "bg-yellow-400",
-  },
-  {
-    quote:
-      "As a startup founder, I need control without slowing my team down. The role system in SwiftBoard is perfect — I can assign editors and viewers easily, and nothing gets accidentally changed.",
-    name: "Meera",
-    role: "Startup Founder",
-    date: "Dec 28, 2025",
-    bg: "bg-yellow-100",
-    avatar: "bg-orange-400",
   },
   {
     quote:
@@ -80,6 +71,15 @@ const testimonials = [
   },
   {
     quote:
+      "As a startup founder, I need control without slowing my team down. The role system in SwiftBoard is perfect — I can assign editors and viewers easily, and nothing gets accidentally changed.",
+    name: "Meera",
+    role: "Startup Founder",
+    date: "Dec 28, 2025",
+    bg: "bg-yellow-100",
+    avatar: "bg-orange-400",
+  },
+  {
+    quote:
       "The activity section is incredibly useful. I can filter updates by board or date and instantly see what's happening. It saves me hours every week.",
     name: "Priya",
     role: "Operations Head",
@@ -112,31 +112,41 @@ export default function Testimonials() {
     {
       align: "center",
       loop: false,
-      containScroll: "keepSnaps",
+      slidesToScroll: 1,
+      skipSnaps: false,
       dragThreshold: 1,
     },
     [WheelGesturesPlugin({ forceWheelAxis: "x" })]
   );
 
-  useEffect(() => {
-    if (!emblaApi) return;
-    // Scroll to the middle card instantly (index 5 of 11)
-    emblaApi.scrollTo(Math.floor(testimonials.length / 2), true);
+  const [canScrollPrev, setCanScrollPrev] = useState(false);
+  const [canScrollNext, setCanScrollNext] = useState(false);
+
+  const onSelect = useCallback((api: any) => {
+    setCanScrollPrev(api.canScrollPrev());
+    setCanScrollNext(api.canScrollNext());
+  }, []);
+
+  const scrollPrev = useCallback(() => {
+    emblaApi?.scrollPrev();
+  }, [emblaApi]);
+
+  const scrollNext = useCallback(() => {
+    emblaApi?.scrollNext();
   }, [emblaApi]);
 
   useEffect(() => {
     if (!emblaApi) return;
-    let hasScrolledAway = false;
-    emblaApi.on("settle", () => {
-      if (!emblaApi.canScrollNext() && !hasScrolledAway) {
-        hasScrolledAway = true;
-        window.scrollBy({ top: window.innerHeight, behavior: "smooth" });
-      }
-    });
-    emblaApi.on("scroll", () => {
-      if (emblaApi.canScrollNext()) hasScrolledAway = false;
-    });
-  }, [emblaApi]);
+
+    onSelect(emblaApi);
+    emblaApi.on("select", onSelect);
+    emblaApi.on("reInit", onSelect);
+
+    return () => {
+      emblaApi.off("select", onSelect);
+      emblaApi.off("reInit", onSelect);
+    };
+  }, [emblaApi, onSelect]);
 
   return (
     <section className="bg-white py-10 sm:py-14">
@@ -151,29 +161,31 @@ export default function Testimonials() {
 
         <div className="flex justify-center gap-3 mt-8">
           <button
-            onClick={() => emblaApi?.scrollPrev()}
-            className="flex items-center justify-center w-10 h-10 cursor-pointer rounded-full bg-secondary hover:bg-neutral-700 transition-colors"
+            onClick={scrollPrev}
+            disabled={!canScrollPrev}
+            className="flex items-center justify-center w-10 h-10 cursor-pointer rounded-full bg-secondary hover:bg-neutral-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <ArrowLeft size={18} className="text-white" strokeWidth={2.5} />
           </button>
           <button
-            onClick={() => emblaApi?.scrollNext()}
-            className="flex items-center justify-center w-10 h-10 cursor-pointer rounded-full bg-secondary hover:bg-neutral-700 transition-colors"
+            onClick={scrollNext}
+            disabled={!canScrollNext}
+            className="flex items-center justify-center w-10 h-10 cursor-pointer rounded-full bg-secondary hover:bg-neutral-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <ArrowRight size={18} className="text-white" strokeWidth={2.5} />
           </button>
         </div>
       </div>
 
-      <div className="px-4 sm:px-6 mt-4">
+      <div className="mt-4">
         <div className="overflow-hidden" ref={emblaRef}>
-          <div className="flex items-start gap-6 sm:gap-10 my-2">
+          <div className="flex gap-6 sm:gap-10 my-2">
             {testimonials.map((t, i) => (
-              <div key={i} className="flex-none w-64 sm:w-72  ">
+              <div key={i} className="flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_20%] min-w-0">
                 <div
                   className={`${t.bg} rounded-2xl p-6 sm:p-12 flex flex-col justify-between`}
                 >
-                  <p className="text-neutral-800 text-lg lg:text-xl leading-7.5 mb-8 ">
+                  <p className="text-neutral-800 text-lg lg:text-xl leading-7.5 mb-8">
                     {t.quote}
                   </p>
                   <div className="flex items-center gap-3 mt-auto">
