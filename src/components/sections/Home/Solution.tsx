@@ -172,7 +172,7 @@ export default function Solutions() {
           </div>
 
           <div className="lg:w-3/5 w-full">
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-14">
               {FEATURES.map((feature, i) => (
                 <div key={i} ref={(el) => setItemRef(el, i)}>
                   <FeatureCard

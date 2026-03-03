@@ -119,9 +119,8 @@ export default function HowItWorks() {
                 className="relative flex h-4 w-4 items-center justify-center"
               >
                 <div
-                  className={`absolute h-3.5 w-3.5 rounded-full transition-colors duration-300 ${
-                    isActive ? "bg-transparent" : "bg-gray-300"
-                  }`}
+                  className={`absolute h-3.5 w-3.5 rounded-full transition-colors duration-300 ${isActive ? "bg-transparent" : "bg-gray-300"
+                    }`}
                 />
                 <motion.div
                   className="absolute h-3.5 w-3.5 rounded-full"
@@ -169,7 +168,7 @@ export default function HowItWorks() {
               )}
               <div className="flex justify-center items-start">
                 <div
-                  className={`max-w-md ${i === 2 ? "sticky top-32 h-fit" : ""}`}
+                  className={`max-w-md ${i === 2 ? "sticky top-1/2 -translate-y-1/2 h-fit" : ""}`}
                 >
                   <div className="mb-4 flex items-start gap-4">
                     <span className="flex h-8 w-8 md:h-10 md:w-10 shrink-0 items-center justify-center rounded-full bg-neutral-800 text-white">

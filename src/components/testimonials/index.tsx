@@ -111,11 +111,6 @@ export default function Testimonials() {
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
       align: "center",
-      loop: false,
-      slidesToScroll: 1,
-      skipSnaps: false,
-      dragThreshold: 1,
-      containScroll: false,
     },
     [WheelGesturesPlugin({ forceWheelAxis: "x" })]
   );
@@ -138,9 +133,6 @@ export default function Testimonials() {
 
   useEffect(() => {
     if (!emblaApi) return;
-
-    // Scroll to center slide on mount
-    emblaApi.scrollTo(Math.floor(testimonials.length / 2), true); // true = jump (no animation)
 
     onSelect(emblaApi);
     emblaApi.on("select", onSelect);
