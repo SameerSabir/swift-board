@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
 import Image from "next/image";
 import LogoLight from "@/assets/logo-light.png";
@@ -64,20 +64,23 @@ function MenuIcon({ isOpen }: { isOpen: boolean }) {
   return (
     <div className="w-6 h-6 flex flex-col justify-center items-center gap-1.25">
       <span
-        className={`block h-0.5 transition-all duration-300 ease-in-out origin-center ${isOpen
-          ? "w-6 translate-y-1.75 rotate-45 bg-primary"
-          : "w-6 bg-gray-700"
-          }`}
+        className={`block h-0.5 transition-all duration-300 ease-in-out origin-center ${
+          isOpen
+            ? "w-6 translate-y-1.75 rotate-45 bg-primary"
+            : "w-6 bg-gray-700"
+        }`}
       />
       <span
-        className={`block h-0.5 transition-all duration-200 ease-in-out ${isOpen ? "w-0 opacity-0 bg-primary" : "w-6 opacity-100 bg-gray-700"
-          }`}
+        className={`block h-0.5 transition-all duration-200 ease-in-out ${
+          isOpen ? "w-0 opacity-0 bg-primary" : "w-6 opacity-100 bg-gray-700"
+        }`}
       />
       <span
-        className={`block h-0.5 transition-all duration-300 ease-in-out origin-center ${isOpen
-          ? "w-6 -translate-y-1.75 -rotate-45 bg-primary"
-          : "w-6 bg-gray-700"
-          }`}
+        className={`block h-0.5 transition-all duration-300 ease-in-out origin-center ${
+          isOpen
+            ? "w-6 -translate-y-1.75 -rotate-45 bg-primary"
+            : "w-6 bg-gray-700"
+        }`}
       />
     </div>
   );
@@ -98,8 +101,9 @@ function NavButton({
   return (
     <button
       onClick={() => onScroll(item.id)}
-      className={`relative px-4 py-2 text-base font-semibold cursor-pointer transition-colors duration-300 ${isActive ? "text-primary" : "text-secondary"
-        }`}
+      className={`relative px-4 py-2 text-base font-semibold cursor-pointer transition-colors duration-300 ${
+        isActive ? "text-primary" : "text-secondary"
+      }`}
     >
       {item.name}
       <svg
@@ -142,16 +146,18 @@ function MobileNavButton({
       className={`
                       w-full text-left px-3 py-4 rounded-xl text-lg font-semibold
                       transition-colors duration-300 relative cursor-pointer
-                      ${activeSection === item.id
-          ? "text-primary"
-          : "text-secondary hover:text-primary"
-        }
+                      ${
+                        activeSection === item.id
+                          ? "text-primary"
+                          : "text-secondary hover:text-primary"
+                      }
                       after:content-[''] after:absolute after:bottom-0 after:left-3 after:h-0.5
                       after:transition-all after:duration-300
-                      ${activeSection === item.id
-          ? "after:w-[calc(100%-24px)] after:bg-primary"
-          : "after:w-0 hover:after:w-[calc(100%-24px)] after:bg-primary"
-        }
+                      ${
+                        activeSection === item.id
+                          ? "after:w-[calc(100%-24px)] after:bg-primary"
+                          : "after:w-0 hover:after:w-[calc(100%-24px)] after:bg-primary"
+                      }
                     `}
     >
       {item.name}
@@ -163,9 +169,13 @@ function MobileNavButton({
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+  const isNavigating = useRef(false);
 
   const scrollToSection = (id: string) => {
     setMobileMenuOpen(false);
+    setActiveSection(id);
+    isNavigating.current = true;
+
     setTimeout(() => {
       const element = document.getElementById(id);
       if (element) {
@@ -182,6 +192,8 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
+      if (isNavigating.current) return;
+
       let currentSection = "";
       for (const item of navItems) {
         const el = document.getElementById(item.id);
@@ -196,9 +208,17 @@ export default function Header() {
       if (currentSection !== activeSection) setActiveSection(currentSection);
     };
 
+    const handleScrollEnd = () => {
+      isNavigating.current = false; // Unlock exactly when scroll finishes
+    };
+
     window.addEventListener("scroll", handleScroll);
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("scrollend", handleScrollEnd);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scrollend", handleScrollEnd);
+    };
   }, [activeSection]);
 
   return (
