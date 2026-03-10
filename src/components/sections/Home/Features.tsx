@@ -7,6 +7,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import FeatureBanner from "@/assets/feature-mockup.webp";
 import { Stars } from "@/components/ui/dynamicstars";
+import frame from "@/assets/frame.png"
 
 export default function Features() {
   const [visible, setVisible] = useState(false);
@@ -145,14 +146,13 @@ export default function Features() {
           className={`
             w-full
             transition-all duration-1000 delay-300
-            ${
-              visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }
           `}
         >
           <div className="relative w-full max-w-5xl mx-auto rounded-xl sm:rounded-2xl overflow-hidden ring-1 ring-white/10 shadow-[0_32px_80px_rgba(0,0,0,0.5)]">
             <Image
-              src={FeatureBanner}
+              src={frame}
               alt="SwiftBoard app — boards, roles, real-time activity"
               width={1200}
               height={680}
