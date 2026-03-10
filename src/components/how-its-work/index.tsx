@@ -14,49 +14,56 @@ import step3f from "@/assets/h1-app-screen-6.webp";
 const stepsData = [
   {
     number: "01",
-    title: "Create Your Board",
+    title2: "Create",
+    title: "Your Board",
     description:
       "Start by creating a dedicated board for your project, client, or idea. Give it a name, add an emoji, and instantly set up a focused workspace. Every project begins with clarity.",
     image: step1,
   },
   {
     number: "02",
-    title: "Add All Your Content",
+     title2: "Add All",
+    title: " Your Content",
     description:
       "Bring everything into one structured space. Upload images, write text notes, attach videos, add audio recordings, share documents, or paste important links — all organized inside your board. No switching apps. No scattered files.",
     image: step2,
   },
   {
     number: "03",
-    title: "Invite Your Team",
+      title2: "Invite",
+    title: "Your Team",
     description:
       "Collaboration is just one click away. Add members to your board and assign roles — Admin, Editor, or Viewer — so everyone has the right level of access. Full control. Zero confusion.",
     image: [step3a, step3b, step3c, step3d, step3f],
   },
   {
     number: "04",
-    title: "Chat Inside The Board",
+    title2:"Chat Inside",
+    title: "The Board",
     description:
       "Discuss where the work happens. Every board includes built-in messaging, so all members can communicate in context — share updates, clarify tasks, and reference content without leaving the workspace. Conversations stay connected to the project.",
     image: step2,
   },
   {
     number: "05",
-    title: "Duplicate When Needed",
+    title2: "Duplicate",
+    title: "When Needed",
     description:
       "Need to reuse a structure? Duplicate boards instantly to replicate workflows, templates, or recurring projects — saving time and keeping consistency across teams. Work smarter, not harder.",
     image: step1,
   },
   {
     number: "06",
-    title: "Keep Things Clean",
+    title2: "Keep",
+    title: "Things Clean",
     description:
       "When a project is complete, move the board to trash. Restore it anytime or permanently delete it when it’s no longer needed. Stay organized without losing control.",
     image: step2,
   },
   {
     number: "07",
-    title: "Access Anywhere (Even From Extension)",
+    title2: "Access Anywhere",
+    title: "(Even From Extension)",
     description:
       "Your boards don’t stay locked inside one tab. Access and create boards directly from the SwiftBoard browser extension — so you can capture ideas and organize work instantly, from anywhere on the web.",
     image: step1,
@@ -74,13 +81,13 @@ const stepBgs = [
 ];
 
 const stepDots = [
-  "#86EFAC",
-  "#60A5FA",
-  "#FDBA74",
-  "#C4B5FD",
-  "#67E8F9",
-  "#FACC15",
-  "#F87171",
+ "text-green-500",
+  "text-blue-400",
+  "text-orange-500",
+  "text-purple-500",
+  "text-cyan-500",
+  "text-yellow-500",
+  "text-red-500",
 ];
 
 export default function HowItWorks() {
@@ -107,8 +114,8 @@ export default function HowItWorks() {
   }, []);
 
   return (
-    <section className="relative">
-      <div className="hidden lg:flex absolute py-40 top-20 left-20 h-full flex-col gap-4">
+    <section className="relative mt-20">
+      {/* <div className="hidden lg:flex absolute py-40 top-20 left-20 h-full flex-col gap-4">
         <div className="sticky top-1/2 -translate-y-1/2 flex flex-col gap-2">
           {stepsData.map((_, index) => {
             const isActive = activeStep === index;
@@ -135,7 +142,7 @@ export default function HowItWorks() {
             );
           })}
         </div>
-      </div>
+      </div> */}
 
       <motion.div
         className="mx-auto max-w-7xl px-6 py-24 lg:rounded-3xl"
@@ -143,13 +150,31 @@ export default function HowItWorks() {
         transition={{ duration: 0.7, ease: "easeInOut" }}
       >
         <div className="relative mb-20 text-center">
-          <p className="text-3xl md:text-5xl font-bold max-w-lg text-neutral-900 inline-block relative">
-            How It Works
+          <p className="text-3xl md:text-6xl font-bold max-w-lg text-neutral-900 inline-block relative">
+            <span className="relative inline-block">
+              How
+              <svg
+                viewBox="0 0 80 10"
+                className="absolute left-0 right-0  overflow-visible"
+                style={{ bottom: "-16px", width: "100%", height: "10px" }}
+                preserveAspectRatio="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M2,6 Q40,-15 78,6"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="6"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </span>{" "}
+            It Works
           </p>
-          <p className="text-lg text-neutral-600 mt-8 max-w-4xl mx-auto">
+          {/* <p className="text-lg text-neutral-600 mt-8 max-w-4xl mx-auto">
             SwiftBoard keeps collaboration simple. Create a board, add content,
             invite your team, and everything stays structured in one place.
-          </p>
+          </p> */}
         </div>
 
         <div ref={containerRef} className="space-y-20 md:space-y-40">
@@ -167,18 +192,24 @@ export default function HowItWorks() {
               )}
               <div className="flex justify-center items-start">
                 <div
-                  className={`max-w-md ${i === 2 ? "sticky top-1/2 -translate-y-1/2 h-fit" : ""
-                    }`}
+                  className={`max-w-md ${
+                    i === 2 ? "sticky top-1/2 -translate-y-1/2 h-fit" : ""
+                  }`}
                 >
                   <div className="mb-4 flex items-start gap-4">
                     <span className="flex h-8 w-8 md:h-10 md:w-10 shrink-0 items-center justify-center rounded-full bg-neutral-800 text-white">
                       {step.number}
                     </span>
                     <p className="text-xl md:text-3xl font-bold leading-snug text-neutral-800">
+                      <span
+                        className={`font-shantell-sans ${stepDots[i]}`}
+                      >
+                        {step.title2}
+                      </span>{" "}
                       {step.title}
                     </p>
                   </div>
-                  <p className="ml-14 text-base md:text-lg text-neutral-600">
+                  <p className="ml-14 text-base md:text-lg font text-neutral-900">
                     {step.description}
                   </p>
                 </div>
@@ -199,7 +230,7 @@ export default function HowItWorks() {
                             className="relative z-10 rounded-2xl"
                           />
                         </div>
-                      )
+                      ),
                     )}
                   </div>
                 ) : (

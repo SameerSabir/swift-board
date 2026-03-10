@@ -1,7 +1,7 @@
 export const problems = [
   {
     number: "01",
-    title: "They Scattered Your Team Across Tools…",
+    title: "Your Work Is Scattered Across Too Many Tools",
     description:
       "Most teams use one app for files, another for chat, another for notes, and another for sharing links.Ideas get lost. Files get buried. Communication breaks. Productivity drops.",
   },

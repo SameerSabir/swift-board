@@ -34,12 +34,12 @@ const FAQs = ({}) => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-14 relative">
           <div className="max-w-lg h-fit">
-            <p className="font-extrabold text-secondary leading-tight mb-4 text-4xl text-center lg:text-left lg:text-5xl">
+            <p className="font-extrabold text-secondary leading-tight mb-4 text-4xl text-center lg:text-left lg:text-6xl">
               {faqData.title}
             </p>
 
             {faqData.description && (
-              <p className="mt-4 text-neutral-500 text-sm md:text-base max-w-sm">
+              <p className="mt-4 text-neutral-900 text-sm md:text-base max-w-sm">
                 {faqData.description}
               </p>
             )}
@@ -68,7 +68,7 @@ const FAQs = ({}) => {
                     aria-expanded={isOpen}
                   >
                     <span>
-                      {index + 1}. {item.question}
+                      {item.question}
                     </span>
 
                     <span

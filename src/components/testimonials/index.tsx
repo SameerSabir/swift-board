@@ -8,8 +8,8 @@ import { useEffect, useState, useCallback } from "react";
 const testimonials = [
   {
     quote:
-      "I used to manage projects across chat apps, docs, and random tools. Things would get lost all the time. With SwiftBoard, everything lives inside one board. It's simple, structured, and my team finally knows where to look.",
-    name: "Arjun",
+      "SwiftBoard has completely simplified how our team organizes information. Instead of jumping between chat apps, documents, and links, everything now lives inside one board. It has made collaboration smoother and our projects much easier to manage.",
+    name: "Daniel Carter",
     role: "Product Manager",
     date: "Jan 12, 2026",
     bg: "bg-purple-100",
@@ -17,8 +17,8 @@ const testimonials = [
   },
   {
     quote:
-      "What I love most is the real-time activity tracking. I can see updates instantly without asking for status reports. It saves so much back-and-forth.",
-    name: "Daniel",
+      "Before SwiftBoard, our resources were scattered across multiple tools. Now we keep documents, images, links, and notes all inside one board, which saves our team a huge amount of time and keeps everyone aligned.",
+    name: "Amanda Lewis",
     role: "Marketing Lead",
     date: "Jan 5, 2026",
     bg: "bg-green-100",
@@ -26,8 +26,8 @@ const testimonials = [
   },
   {
     quote:
-      "We replaced three tools with SwiftBoard. Boards, content, messaging, and permissions — everything works together. It just feels organized.",
-    name: "Sophia",
+     "SwiftBoard makes collaboration feel structured and effortless. Being able to control who can edit or view boards gives our team the clarity we were missing with other tools.",
+    name: "Michael Grant",
     role: "Operations Manager",
     date: "Jan 18, 2026",
     bg: "bg-blue-100",
@@ -35,8 +35,8 @@ const testimonials = [
   },
   {
     quote:
-      "SwiftBoard has completely changed how our remote team communicates. No more endless threads — everything is tied to a board and visible at a glance.",
-    name: "Lena",
+      "I love how easy it is to share content with my team. Whether it's a document, video, or quick note, everything is organized inside the board and accessible whenever we need it.",
+    name: "Rachel Simmons",
     role: "Engineering Lead",
     date: "Feb 2, 2026",
     bg: "bg-pink-100",
@@ -44,8 +44,8 @@ const testimonials = [
   },
   {
     quote:
-      "Before SwiftBoard, we constantly asked, 'Where is that file?' or 'Who updated this?' Now everything is inside one board, clearly organized. It has reduced confusion across our entire team.",
-    name: "Rohan",
+      "SwiftBoard has become our central workspace. Instead of searching through multiple apps, we know exactly where to go for project updates, files, and team discussions.",
+    name: "Kevin Alvarez",
     role: "Project Coordinator",
     date: "Feb 2, 2026",
     bg: "bg-orange-100",
@@ -53,8 +53,8 @@ const testimonials = [
   },
   {
     quote:
-      "I love how simple the permissions are. As an admin, I can control who edits and who just views. It gives me peace of mind without micromanaging.",
-    name: "Ananya",
+      "The board messaging feature is incredibly useful. Our conversations stay connected to the content we're discussing, which keeps communication focused and productive.",
+    name: "Sophia Bennett",
     role: "Team Lead",
     date: "Jan 30, 2026",
     bg: "bg-teal-100",
@@ -62,8 +62,8 @@ const testimonials = [
   },
   {
     quote:
-      "The built-in board messaging changed everything for us. We no longer switch between chat apps and project tools. Conversations stay connected to the work.",
-    name: "Marcus",
+      "What impressed me most about SwiftBoard is how simple it is to invite new members and assign roles. Our team can collaborate without worrying about accidental edits or confusion.",
+    name: "Chris Donovan",
     role: "Creative Director",
     date: "Feb 10, 2026",
     bg: "bg-indigo-100",
@@ -71,8 +71,8 @@ const testimonials = [
   },
   {
     quote:
-      "As a startup founder, I need control without slowing my team down. The role system in SwiftBoard is perfect — I can assign editors and viewers easily, and nothing gets accidentally changed.",
-    name: "Meera",
+     "SwiftBoard has helped our team stay organized and work more efficiently. Everything from project resources to discussions is available in one place.",
+    name: "Olivia Harper",
     role: "Startup Founder",
     date: "Dec 28, 2025",
     bg: "bg-yellow-100",
@@ -80,31 +80,14 @@ const testimonials = [
   },
   {
     quote:
-      "The activity section is incredibly useful. I can filter updates by board or date and instantly see what's happening. It saves me hours every week.",
-    name: "Priya",
+      "We replaced several tools with SwiftBoard and the difference is huge. Boards, content sharing, and real-time activity tracking make it easy to stay on top of everything.",
+    name: "Nathan Cole",
     role: "Operations Head",
     date: "Feb 6, 2026",
     bg: "bg-rose-100",
     avatar: "bg-rose-500",
   },
-  {
-    quote:
-      "Inviting new members is seamless. If they're already on SwiftBoard, they join instantly. If not, they're automatically added once they sign up. It's smooth and professional.",
-    name: "Ethan",
-    role: "Startup Co-Founder",
-    date: "Jan 25, 2026",
-    bg: "bg-amber-100",
-    avatar: "bg-amber-500",
-  },
-  {
-    quote:
-      "We used to rely on three different platforms for collaboration. Now everything — content, roles, discussions — lives in one structured space. SwiftBoard just makes sense.",
-    name: "Isabella",
-    role: "Product Designer",
-    date: "Feb 14, 2026",
-    bg: "bg-cyan-100",
-    avatar: "bg-cyan-500",
-  },
+  
 ];
 
 export default function Testimonials() {

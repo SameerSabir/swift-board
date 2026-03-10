@@ -11,7 +11,7 @@ export default function Home() {
     <>
       <Hero />
       <Features />
-      <Carousel />
+      {/* <Carousel /> */}
       <HowItWorks />
       <Problem />
       <Solution />

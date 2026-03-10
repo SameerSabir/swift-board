@@ -151,7 +151,7 @@ export default function Footer() {
         </div>
 
         {/* Desktop layout — unchanged from original */}
-        <div className="hidden md:grid md:grid-cols-5 gap-10">
+        <div className="hidden md:grid md:grid-cols-4 gap-10 ">
           <div className="max-w-xs">
             <div className="flex items-center gap-2 mb-4">
               <span className="text-white font-bold text-lg md:text-xl">
@@ -186,7 +186,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div>
+          {/* <div>
             <p className="text-white font-bold text-base md:text-lg mb-4">
               Company
             </p>
@@ -208,7 +208,7 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </div> */}
 
           <div>
             <p className="text-white font-bold text-base md:text-lg mb-4">

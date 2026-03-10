@@ -35,7 +35,7 @@ export default function Carousel() {
   );
 
   return (
-    <section className="px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+    <section className="px-4 sm:px-6 lg:px-8 py-10 sm:py-14 ">
       <p className="text-center text-3xl text-neutral-900 font-bold mb-8">
         Syncs with calender, tasks apps, and your health data
       </p>

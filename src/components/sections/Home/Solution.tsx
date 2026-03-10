@@ -56,14 +56,16 @@ function FeatureCard({
         <p className="text-sm leading-relaxed text-neutral-500 mb-5">
           {feature.description}
         </p>
+        <ul>
 
         <ul className="flex flex-col gap-2.5">
+          <p className="text-sm  text-neutral-600 ">{feature.bulletsheading}</p>
           {feature.bullets.map((b, j) => (
             <motion.li
               key={j}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.3, delay: j * 0.06 }}
-              className="flex items-start gap-2.5 text-sm"
+              className="flex items-start gap-2.5 text-sm ml-2"
             >
               <span
                 className="mt-0.5 shrink-0 flex items-center justify-center rounded-full w-4.5 h-4.5"
@@ -79,7 +81,7 @@ function FeatureCard({
             </motion.li>
           ))}
         </ul>
-
+</ul>
         <AnimatePresence mode="wait">
           <motion.div
             initial={{ opacity: 0, y: 8 }}
