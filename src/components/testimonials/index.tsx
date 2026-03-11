@@ -15,16 +15,7 @@ const testimonials = [
     bg: "bg-purple-100",
     avatar: "bg-yellow-400",
   },
-  {
-    quote:
-      "Before SwiftBoard, our resources were scattered across multiple tools. Now we keep documents, images, links, and notes all inside one board, which saves our team a huge amount of time and keeps everyone aligned.",
-    name: "Amanda Lewis",
-    role: "Marketing Lead",
-    date: "Jan 5, 2026",
-    bg: "bg-green-100",
-    avatar: "bg-green-500",
-  },
-  {
+   {
     quote:
      "SwiftBoard makes collaboration feel structured and effortless. Being able to control who can edit or view boards gives our team the clarity we were missing with other tools.",
     name: "Michael Grant",
@@ -35,12 +26,31 @@ const testimonials = [
   },
   {
     quote:
+      "Before SwiftBoard, our resources were scattered across multiple tools. Now we keep documents, images, links, and notes all inside one board, which saves our team a huge amount of time and keeps everyone aligned.",
+    name: "Amanda Lewis",
+    role: "Marketing Lead",
+    date: "Jan 5, 2026",
+    bg: "bg-green-100",
+    avatar: "bg-green-500",
+  },
+ 
+  {
+    quote:
       "I love how easy it is to share content with my team. Whether it's a document, video, or quick note, everything is organized inside the board and accessible whenever we need it.",
     name: "Rachel Simmons",
     role: "Engineering Lead",
     date: "Feb 2, 2026",
     bg: "bg-pink-100",
     avatar: "bg-pink-500",
+  },
+   {
+    quote:
+      "The board messaging feature is incredibly useful. Our conversations stay connected to the content we're discussing, which keeps communication focused and productive.",
+    name: "Sophia Bennett",
+    role: "Team Lead",
+    date: "Jan 30, 2026",
+    bg: "bg-teal-100",
+    avatar: "bg-teal-500",
   },
   {
     quote:
@@ -51,15 +61,7 @@ const testimonials = [
     bg: "bg-orange-100",
     avatar: "bg-red-400",
   },
-  {
-    quote:
-      "The board messaging feature is incredibly useful. Our conversations stay connected to the content we're discussing, which keeps communication focused and productive.",
-    name: "Sophia Bennett",
-    role: "Team Lead",
-    date: "Jan 30, 2026",
-    bg: "bg-teal-100",
-    avatar: "bg-teal-500",
-  },
+ 
   {
     quote:
       "What impressed me most about SwiftBoard is how simple it is to invite new members and assign roles. Our team can collaborate without worrying about accidental edits or confusion.",
