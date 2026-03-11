@@ -92,16 +92,22 @@ function NavButton({
   activeSection: string;
   onScroll: (id: string) => void;
 }) {
+  const [isHovered, setIsHovered] = useState(false);
+
   const isActive = activeSection === item.id;
-  const drawn = isActive;
+  const drawn = isActive || isHovered;
 
   return (
     <button
       onClick={() => onScroll(item.id)}
-      className={`relative px-4 py-2 text-base font-semibold cursor-pointer transition-colors duration-300 ${isActive ? "text-primary" : "text-secondary"
-        }`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className={`relative px-4 py-2 text-base font-semibold cursor-pointer transition-colors duration-300 ${
+        isActive ? "text-primary" : "text-secondary hover:text-primary"
+      }`}
     >
       {item.name}
+
       <svg
         viewBox="0 0 80 10"
         className="absolute bottom-0 left-4 right-4 overflow-visible"

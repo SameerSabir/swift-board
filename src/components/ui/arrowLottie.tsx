@@ -26,11 +26,11 @@ export default function ArrowLottie() {
         <svg
           key="arrow-lottie"
           xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 130 180"
+          viewBox="0 0 150 270"
           width="130"
           height="180"
           preserveAspectRatio="xMidYMid meet"
-          className="w-full h-full"
+          className="w-32.5 h-65"
         >
           <defs>
             <style>{`

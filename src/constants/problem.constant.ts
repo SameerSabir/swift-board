@@ -9,11 +9,11 @@ export const problems = [
     number: "02",
     title: "They Don't Control Who Does What…",
     description:
-      "Many board and content apps let everyone edit everything — or restrict too much.Without clear roles like Admin, Editor, and Viewer, collaboration turns into confusion.",
+      "Many board and content apps let everyone edit everything  or restrict too much.Without clear roles like Admin, Editor, and Viewer, collaboration turns into confusion.",
   },
   {
     number: "03",
-    title: "They Store Content — But Don't Structure It…",
+    title: "They Store Content  But Don't Structure It…",
     description:
       "Uploading files is easy. Organizing them properly isn't.Without structured boards, real-time updates, and clear activity tracking, teamwork becomes messy and reactive.",
   },

@@ -22,26 +22,26 @@ const stepsData = [
   },
   {
     number: "02",
-     title2: "Add All",
-    title: " Your Content",
+    title2: "Add All",
+    title: "Your Content",
     description:
-      "Bring everything into one structured space. Upload images, write text notes, attach videos, add audio recordings, share documents, or paste important links — all organized inside your board. No switching apps. No scattered files.",
+      "Bring everything into one organized space. Upload images, write text notes, attach videos, add audio recordings, share documents, or paste important links. Everything stays inside your board. No switching between apps and no scattered files.",
     image: step2,
   },
   {
     number: "03",
-      title2: "Invite",
+    title2: "Invite",
     title: "Your Team",
     description:
-      "Collaboration is just one click away. Add members to your board and assign roles — Admin, Editor, or Viewer — so everyone has the right level of access. Full control. Zero confusion.",
+      "Collaboration is just one click away. Add members to your board and assign roles such as Admin, Editor, or Viewer so everyone has the right level of access. Full control with clear responsibilities.",
     image: [step3a, step3b, step3c, step3d, step3f],
   },
   {
     number: "04",
-    title2:"Chat Inside",
+    title2: "Chat Inside",
     title: "The Board",
     description:
-      "Discuss where the work happens. Every board includes built-in messaging, so all members can communicate in context — share updates, clarify tasks, and reference content without leaving the workspace. Conversations stay connected to the project.",
+      "Discuss work where it happens. Every board includes built in messaging so members can communicate in context, share updates, clarify tasks, and reference content without leaving the workspace. Conversations stay connected to the project.",
     image: step2,
   },
   {
@@ -49,7 +49,7 @@ const stepsData = [
     title2: "Duplicate",
     title: "When Needed",
     description:
-      "Need to reuse a structure? Duplicate boards instantly to replicate workflows, templates, or recurring projects — saving time and keeping consistency across teams. Work smarter, not harder.",
+      "Need to reuse a structure. Duplicate boards instantly to repeat workflows, templates, or recurring projects. This saves time and keeps consistency across teams.",
     image: step1,
   },
   {
@@ -57,15 +57,15 @@ const stepsData = [
     title2: "Keep",
     title: "Things Clean",
     description:
-      "When a project is complete, move the board to trash. Restore it anytime or permanently delete it when it’s no longer needed. Stay organized without losing control.",
+      "When a project is complete, move the board to the trash. You can restore it anytime or permanently delete it when it is no longer needed. Stay organized while keeping full control.",
     image: step2,
   },
   {
     number: "07",
-    title2: "Access Anywhere",
-    title: "(Even From Extension)",
+    title2: "Access Your Boards",
+    title: "From the Keyboard",
     description:
-      "Your boards don’t stay locked inside one tab. Access and create boards directly from the SwiftBoard browser extension — so you can capture ideas and organize work instantly, from anywhere on the web.",
+      "Your boards are available wherever you type. With the SwiftBoard keyboard extension on iOS and Android, you can access all your boards directly from the keyboard. Simply switch to the SwiftBoard keyboard and browse your boards without leaving the app you are using. Select a board, choose the content you need, and share it instantly such as text, images, videos, links, documents, or recordings. Your boards and your content are always ready to share.",
     image: step1,
   },
 ];
@@ -88,6 +88,16 @@ const stepDots = [
   "text-cyan-500",
   "text-yellow-500",
   "text-red-500",
+];
+
+const steppoints = [
+ "#22c55e", 
+"#60a5fa",
+"#f97316",
+"#a855f7",
+"#06b6d4",
+"#eab308",
+"#ef4444"
 ];
 
 export default function HowItWorks() {
@@ -115,7 +125,7 @@ export default function HowItWorks() {
 
   return (
     <section className="relative my-20">
-      {/* <div className="hidden lg:flex absolute py-40 top-20 left-20 h-full flex-col gap-4">
+      <div className="hidden lg:flex absolute py-40 top-20 left-20 h-full flex-col gap-4">
         <div className="sticky top-1/2 -translate-y-1/2 flex flex-col gap-2">
           {stepsData.map((_, index) => {
             const isActive = activeStep === index;
@@ -130,7 +140,7 @@ export default function HowItWorks() {
                 />
                 <motion.div
                   className="absolute h-3.5 w-3.5 rounded-full"
-                  style={{ backgroundColor: stepDots[activeStep] }}
+                  style={{ backgroundColor: steppoints[activeStep] }}
                   initial={false}
                   animate={{
                     scale: isActive ? 1 : 0,
@@ -142,7 +152,7 @@ export default function HowItWorks() {
             );
           })}
         </div>
-      </div> */}
+      </div>
 
       <motion.div
         className="mx-auto max-w-7xl px-6 py-24 lg:rounded-3xl"
@@ -150,7 +160,7 @@ export default function HowItWorks() {
         transition={{ duration: 0.7, ease: "easeInOut" }}
       >
         <div className="relative mb-20 text-center">
-          <p className="text-3xl md:text-7xl font-bold max-w-lg text-neutral-900 inline-block relative">
+          <p className="text-3xl md:text-7xl font-extrabold max-w-lg text-neutral-900 inline-block relative">
             <span className="relative inline-block">
               How
               <svg
@@ -169,7 +179,7 @@ export default function HowItWorks() {
                 />
               </svg>
             </span>{" "}
-            It Works
+            it works
           </p>
           {/* <p className="text-lg text-neutral-600 mt-8 max-w-4xl mx-auto">
             SwiftBoard keeps collaboration simple. Create a board, add content,
@@ -192,9 +202,10 @@ export default function HowItWorks() {
               )}
               <div className="flex justify-center items-start">
                 <div
-                  className={`max-w-md ${
-                    i === 2 ? "sticky top-1/2 -translate-y-1/2 h-fit" : ""
-                  }`}
+                  className={`max-w-md 
+                   
+                  `
+                }
                 >
                   <div className="mb-4 flex items-start gap-4">
                     <span className="flex h-8 w-8 md:h-10 md:w-10 shrink-0 items-center justify-center rounded-full bg-neutral-800 text-white">
@@ -218,7 +229,7 @@ export default function HowItWorks() {
               <div className="relative flex justify-center items-center">
                 {i === 2 ? (
                   <div className="space-y-24 flex flex-col items-center">
-                    {[step3a, step3b, step3c, step3d, step3f].map(
+                    {[step3a].map(
                       (img, idx) => (
                         <div key={idx} className="relative flex justify-center">
                           <div className="absolute h-90 w-90 rounded-full" />

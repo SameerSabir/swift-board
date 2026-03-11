@@ -14,8 +14,8 @@ const FAQs = ({}) => {
   };
 
   return (
-    <div className="pt-10 sm:pt-14 lg:mb-18">
-      <div className="mx-auto max-w-7xl bg-gray-50 px-10 pt-10 pb-10 lg:pt-30 lg:pb-14 rounded-3xl  relative">
+    <div className="pt-10 sm:pt-14 lg:mb-2">
+      <div className="mx-auto bg-gray-100 px-10 pt-10 pb-10 lg:pt-30 lg:pb-14 rounded-3xl  relative">
         <Image
           src="/arrow-down.svg"
           alt="arrow down"
@@ -29,10 +29,10 @@ const FAQs = ({}) => {
           alt="arrow down"
           width={180}
           height={180}
-          className="absolute -bottom-17 left-1/2 -translate-x-1/2 hidden lg:block z-10 pointer-events-none"
+          className="absolute -bottom-17 left-1/2 z-40 -translate-x-1/2 hidden lg:block  pointer-events-none"
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-14 relative">
+        <div className="grid max-w-7xl mx-auto grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-14 relative">
           <div className="max-w-lg h-fit">
             <p className="font-extrabold text-secondary leading-tight mb-4 text-4xl text-center lg:text-left lg:text-6xl">
               {faqData.title}
@@ -64,7 +64,7 @@ const FAQs = ({}) => {
                 >
                   <button
                     onClick={() => togglePanel(index)}
-                    className="flex w-full items-center justify-between px-5 py-4 text-left text-slate-800 font-semibold text-lg"
+                    className="flex w-full items-center justify-between px-5 py-6 text-left text-slate-800 font-semibold text-lg"
                     aria-expanded={isOpen}
                   >
                     <span>

@@ -1,7 +1,7 @@
 export const faqData = {
   title: "Frequently Asked Questions",
   description:
-    "If you can’t find what you’re looking for, feel free to reach out to our team.",
+    "Can't find the answer you are looking for? Reach out to us here.",
   data: [
     {
       question: "Can I create multiple boards for different projects?",
