@@ -250,7 +250,7 @@ export default function HowItWorks() {
                   alt="arrow down"
                   width={180}
                   height={180}
-                  className="absolute -bottom-81 left-1/2 -translate-x-1/2 hidden  lg:block z-10 pointer-events-none"
+                  className="absolute -bottom-78 left-1/2 -translate-x-1/2 hidden  lg:block z-10 pointer-events-none"
                 />
         </div>
       </motion.div>
