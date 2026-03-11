@@ -47,19 +47,19 @@ function FeatureCard({
             <h3 className="font-bold text-gray-900 leading-snug mb-0.5 text-[clamp(15px,1.4vw,18px)]">
               {feature.title}
             </h3>
-            <p className="text-sm text-neutral-400 font-medium">
+            <p className="text-sm text-neutral-600 font-medium">
               {feature.subtitle}
             </p>
           </div>
         </div>
 
-        <p className="text-sm leading-relaxed text-neutral-500 mb-5">
+        <p className="text-sm leading-relaxed text-neutral-800 mb-5">
           {feature.description}
         </p>
         <ul>
 
         <ul className="flex flex-col gap-2.5">
-          <p className="text-sm  text-neutral-600 ">{feature.bulletsheading}</p>
+          <p className="text-sm  text-neutral-800 ">{feature.bulletsheading}</p>
           {feature.bullets.map((b, j) => (
             <motion.li
               key={j}
@@ -77,7 +77,7 @@ function FeatureCard({
                   style={{ color: iconColor }}
                 />
               </span>
-              <span className="text-neutral-600">{b}</span>
+              <span className="text-neutral-800">{b}</span>
             </motion.li>
           ))}
         </ul>
@@ -164,7 +164,7 @@ export default function Solutions() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.16 }}
-                className="text-neutral-500 text-sm md:text-base  max-w-md text-center sm:text-left"
+                className="text-neutral-800 text-sm md:text-base  max-w-md text-center sm:text-left"
               >
                 Most tools scatter your team across chats, files, and apps.
                 SwiftBoard brings everything into structured boards with clear

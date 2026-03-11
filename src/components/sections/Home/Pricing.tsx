@@ -39,10 +39,10 @@ export default function Pricing() {
             Limited Time Offer
           </span>
 
-          <h2 className="font-extrabold text-secondary leading-tight mb-4 text-3xl md:text-4xl lg:text-5xl mt-1 ">
+          <h2 className="font-extrabold text-secondary leading-tight mb-4 text-3xl md:text-4xl lg:text-6xl mt-1 ">
             Get SwiftBoard <span className="text-primary">Forever</span>
           </h2>
-          <p className="text-neutral-500 text-sm md:text-base max-w-md leading-relaxed">
+          <p className="text-neutral-800 text-sm md:text-base max-w-md leading-relaxed">
             One-time payment. No monthly fees. No subscriptions. Own it for
             life.
           </p>

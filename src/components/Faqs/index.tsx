@@ -14,7 +14,7 @@ const FAQs = ({}) => {
   };
 
   return (
-    <div className="py-10 sm:py-14 lg:mb-18">
+    <div className="pt-10 sm:pt-14 lg:mb-18">
       <div className="mx-auto max-w-7xl bg-gray-50 px-10 pt-10 pb-10 lg:pt-30 lg:pb-14 rounded-3xl  relative">
         <Image
           src="/arrow-down.svg"

@@ -3,7 +3,9 @@ import FAQs from "@/components/Faqs";
 import HowItWorks from "@/components/how-its-work";
 
 import { Hero, Problem, Solution, Pricing } from "@/components/sections/Home";
+import CTA from "@/components/sections/Home/Cta";
 import Features from "@/components/sections/Home/Features";
+import GetStarted from "@/components/sections/Home/GetStarted";
 import Testimonials from "@/components/testimonials";
 
 export default function Home() {
@@ -18,6 +20,8 @@ export default function Home() {
       <Testimonials />
       <Pricing />
       <FAQs />
+      <GetStarted/>
+      <CTA/>
     </>
   );
 }

@@ -15,9 +15,9 @@ const testimonials = [
     bg: "bg-purple-100",
     avatar: "bg-yellow-400",
   },
-   {
+  {
     quote:
-     "SwiftBoard makes collaboration feel structured and effortless. Being able to control who can edit or view boards gives our team the clarity we were missing with other tools.",
+      "SwiftBoard makes collaboration feel structured and effortless. Being able to control who can edit or view boards gives our team the clarity we were missing with other tools.",
     name: "Michael Grant",
     role: "Operations Manager",
     date: "Jan 18, 2026",
@@ -33,7 +33,7 @@ const testimonials = [
     bg: "bg-green-100",
     avatar: "bg-green-500",
   },
- 
+
   {
     quote:
       "I love how easy it is to share content with my team. Whether it's a document, video, or quick note, everything is organized inside the board and accessible whenever we need it.",
@@ -43,7 +43,7 @@ const testimonials = [
     bg: "bg-pink-100",
     avatar: "bg-pink-500",
   },
-   {
+  {
     quote:
       "The board messaging feature is incredibly useful. Our conversations stay connected to the content we're discussing, which keeps communication focused and productive.",
     name: "Sophia Bennett",
@@ -61,7 +61,7 @@ const testimonials = [
     bg: "bg-orange-100",
     avatar: "bg-red-400",
   },
- 
+
   {
     quote:
       "What impressed me most about SwiftBoard is how simple it is to invite new members and assign roles. Our team can collaborate without worrying about accidental edits or confusion.",
@@ -73,7 +73,7 @@ const testimonials = [
   },
   {
     quote:
-     "SwiftBoard has helped our team stay organized and work more efficiently. Everything from project resources to discussions is available in one place.",
+      "SwiftBoard has helped our team stay organized and work more efficiently. Everything from project resources to discussions is available in one place.",
     name: "Olivia Harper",
     role: "Startup Founder",
     date: "Dec 28, 2025",
@@ -89,7 +89,6 @@ const testimonials = [
     bg: "bg-rose-100",
     avatar: "bg-rose-500",
   },
-  
 ];
 
 export default function Testimonials() {
@@ -97,7 +96,7 @@ export default function Testimonials() {
     {
       align: "center",
     },
-    [WheelGesturesPlugin({ forceWheelAxis: "x" })]
+    [WheelGesturesPlugin({ forceWheelAxis: "x" })],
   );
 
   const [canScrollPrev, setCanScrollPrev] = useState(false);
@@ -132,44 +131,73 @@ export default function Testimonials() {
   return (
     <section className="bg-white py-10 sm:py-14">
       <div className="mx-auto max-w-7xl px-4 sm:px-0 pb-6 text-center relative">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-neutral-900 text-center">
-          Don&apos;t take our <br />
-          <span className="relative inline-block">
-            <span className="">word</span>
-            <svg
-              className="absolute left-0 -bottom-2 w-full"
-              height="14"
-              viewBox="0 0 120 14"
-              preserveAspectRatio="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
+    <h2 className="text-3xl md:text-5xl lg:text-7xl font-bold text-neutral-900 text-center">
+  Don&apos;t take our <br />
+  <span className="relative inline-block">
+    <span>word</span>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 170 40"
+      preserveAspectRatio="xMidYMid meet"
+      style={{
+        position: "absolute",
+        left: 0,
+        marginLeft: "5%",
+        bottom: "-38px",
+        width: "90%",
+        height: "auto",
+        display: "block",
+      }}
+    >
+      <defs>
+        <style>{`
+          @keyframes waveScroll {
+            from { transform: translateX(0px); }
+            to   { transform: translateX(-69.374px); }
+          }
+          .wave-group {
+            animation: waveScroll 1s linear infinite;
+          }
+        `}</style>
+        <clipPath id="lottie-clip">
+          <rect x="0" y="0" width="220" height="40" />
+        </clipPath>
+        <mask
+          id="wave-mask"
+          maskUnits="userSpaceOnUse"
+          x="0"
+          y="0"
+          width="400"
+          height="40"
+        >
+          <g className="wave-group" transform="translate(10.335,8.668)">
+            <g transform="translate(-52.654,0)">
               <path
-                fill="none"
-                stroke="#171717"
-                strokeWidth="5.5"
                 strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <animate
-                  attributeName="d"
-                  dur="2s"
-                  repeatCount="indefinite"
-                  calcMode="spline"
-                  keyTimes="0; 0.5; 1"
-                  keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"
-                  values="
-                    M0,7 C8,2 16,12 24,7 C32,2 40,12 48,7 C56,2 64,12 72,7 C80,2 88,12 96,7 C104,2 112,12 120,7;
-                    M0,7 C8,12 16,2 24,7 C32,12 40,2 48,7 C56,12 64,2 72,7 C80,12 88,2 96,7 C104,12 112,2 120,7;
-                    M0,7 C8,2 16,12 24,7 C32,2 40,12 48,7 C56,2 64,12 72,7 C80,2 88,12 96,7 C104,2 112,12 120,7
-                  "
-                />
-              </path>
-            </svg>
-          </span>{" "}
-          for it.
-        </h2>
+                strokeLinejoin="miter"
+                fillOpacity={0}
+                strokeMiterlimit={4}
+                stroke="white"
+                strokeOpacity={1}
+                strokeWidth={10}
+                fill="none"
+                d="M5.256,11.926 C14.43,2.752 29.304,2.752 38.478,11.926 C47.651,21.1 62.525,21.1 71.699,11.926 C80.873,2.752 95.747,2.752 104.921,11.926 C114.095,21.1 128.969,21.1 138.143,11.926 C147.316,2.752 162.19,2.752 171.364,11.926 C180.538,21.1 195.412,21.1 204.586,11.926 C213.76,2.752 228.634,2.752 237.808,11.926 C246.982,21.1 261.855,21.1 271.029,11.926 C280.203,2.752 295.077,2.752 304.251,11.926 C313.425,21.1 328.299,21.1 337.473,11.926 C346.647,2.752 361.52,2.752 370.694,11.926 C379.868,21.1 394.742,21.1 403.916,11.926 C413.09,2.752 427.964,2.752 437.138,11.926 C446.312,21.1 461.185,21.1 470.359,11.926 C479.533,2.752 494.407,2.752 503.581,11.926 C512.755,21.1 527.629,21.1 536.803,11.926 C545.977,2.752 560.85,2.752 570.024,11.926 C579.198,21.1 594.072,21.1 603.246,11.926"
+              />
+            </g>
+          </g>
+        </mask>
+      </defs>
+      <g clipPath="url(#lottie-clip)">
+        <g mask="url(#wave-mask)">
+          <rect x="0" y="0" width="400" height="40" fill="rgb(71,71,71)" />
+        </g>
+      </g>
+    </svg>
+  </span>{" "}
+  for it.
+</h2>
 
-        <div className="flex justify-center gap-3 mt-8">
+        <div className="flex justify-center gap-3 mt-10">
           <button
             onClick={scrollPrev}
             disabled={!canScrollPrev}

@@ -117,7 +117,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div>
+          {/* <div>
             <p className="text-white font-bold text-base mb-3">Company</p>
             <ul className="space-y-2">
               {["About", "Contact", "Help", "Privacy", "Terms"].map((item) => (
@@ -131,7 +131,7 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </div> */}
 
           <div>
             <p className="text-white font-bold text-base mb-3">Support</p>
@@ -151,7 +151,7 @@ export default function Footer() {
         </div>
 
         {/* Desktop layout — unchanged from original */}
-        <div className="hidden md:grid md:grid-cols-4 gap-10 ">
+        <div className="max-w-7xl mx-auto hidden md:grid md:grid-cols-4 gap-10 ">
           <div className="max-w-xs">
             <div className="flex items-center gap-2 mb-4">
               <span className="text-white font-bold text-lg md:text-xl">
@@ -300,7 +300,7 @@ export default function Footer() {
 
       {/* Bottom watermark */}
       <div className="relative w-full flex items-center justify-center py-12 sm:py-16 md:py-24">
-        <p className="absolute text-[clamp(60px,15vw,220px)] sm:text-[clamp(80px,12vw,260px)] md:text-[clamp(100px,10vw,300px)] text-center font-black text-gray-200/20 select-none leading-none pointer-events-none px-4">
+        <p className="absolute text-[clamp(50px,15vw,220px)] sm:text-[clamp(80px,12vw,260px)] md:text-[clamp(100px,10vw,300px)] text-center font-black text-gray-200/20 select-none leading-none pointer-events-none px-4">
           SwiftBoard
         </p>
       </div>

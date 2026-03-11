@@ -21,7 +21,7 @@ export default function Problem() {
           </p>
         </div>
 
-        <p className="text-center text-neutral-500 text-sm md:text-base mb-10 sm:mb-14">
+        <p className="text-center text-neutral-800 text-sm md:text-base mb-10 sm:mb-14">
           and Why They&apos;re Not Working For You
         </p>
 
@@ -43,7 +43,7 @@ export default function Problem() {
               <h3 className="text-black text-xl font-semibold leading-snug">
                 {p.title}
               </h3>
-              <p className="text-neutral-500 text-base leading-relaxed">
+              <p className="text-neutral-800 text-base leading-relaxed">
                 {p.description}
               </p>
             </div>

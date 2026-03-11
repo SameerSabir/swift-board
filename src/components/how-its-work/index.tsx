@@ -114,7 +114,7 @@ export default function HowItWorks() {
   }, []);
 
   return (
-    <section className="relative mt-20">
+    <section className="relative my-20">
       {/* <div className="hidden lg:flex absolute py-40 top-20 left-20 h-full flex-col gap-4">
         <div className="sticky top-1/2 -translate-y-1/2 flex flex-col gap-2">
           {stepsData.map((_, index) => {
@@ -150,7 +150,7 @@ export default function HowItWorks() {
         transition={{ duration: 0.7, ease: "easeInOut" }}
       >
         <div className="relative mb-20 text-center">
-          <p className="text-3xl md:text-6xl font-bold max-w-lg text-neutral-900 inline-block relative">
+          <p className="text-3xl md:text-7xl font-bold max-w-lg text-neutral-900 inline-block relative">
             <span className="relative inline-block">
               How
               <svg
@@ -177,7 +177,7 @@ export default function HowItWorks() {
           </p> */}
         </div>
 
-        <div ref={containerRef} className="space-y-20 md:space-y-40">
+        <div ref={containerRef} className="space-y-20 md:space-y-40 relative">
           {stepsData.map((step, i) => (
             <div
               key={i}
@@ -245,6 +245,13 @@ export default function HowItWorks() {
               </div>
             </div>
           ))}
+            <Image
+                  src="/arrow-downbhow.svg"
+                  alt="arrow down"
+                  width={180}
+                  height={180}
+                  className="absolute -bottom-81 left-1/2 -translate-x-1/2 hidden  lg:block z-10 pointer-events-none"
+                />
         </div>
       </motion.div>
     </section>
