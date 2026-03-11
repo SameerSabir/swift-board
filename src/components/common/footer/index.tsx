@@ -151,8 +151,8 @@ export default function Footer() {
         </div>
 
         {/* Desktop layout — unchanged from original */}
-        <div className="max-w-7xl mx-auto hidden md:grid md:grid-cols-4 gap-10 ">
-          <div className="max-w-xs">
+        <div className="max-w-7xl mx-auto hidden md:grid md:grid-cols-5 gap-10 ">
+          <div className="col-span-2 max-w-sm">
             <div className="flex items-center gap-2 mb-4">
               <span className="text-white font-bold text-lg md:text-xl">
                 SwiftBoard
