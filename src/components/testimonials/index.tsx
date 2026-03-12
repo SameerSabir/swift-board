@@ -6,6 +6,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState, useCallback } from "react";
 import avatar1 from "@/assets/iconauthorm.svg";
+import avatarW from "@/assets/icon-author-w-1.svg";
 
 const testimonials = [
   {
@@ -36,7 +37,7 @@ const testimonials = [
     date: "Jan 5, 2026",
     bg: "bg-green-100",
     avatar: "bg-green-500",
-      avatarImage:avatar1
+      avatarImage:avatarW
   },
 
   {
@@ -57,7 +58,7 @@ const testimonials = [
     date: "Jan 30, 2026",
     bg: "bg-teal-100",
     avatar: "bg-teal-500",
-      avatarImage:avatar1
+      avatarImage:avatarW
   },
   {
     quote:
@@ -88,7 +89,7 @@ const testimonials = [
     date: "Dec 28, 2025",
     bg: "bg-yellow-100",
     avatar: "bg-orange-400",
-      avatarImage:avatar1
+      avatarImage:avatarW
       
   },
   {
