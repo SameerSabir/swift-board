@@ -14,8 +14,8 @@ const FAQs = ({}) => {
   };
 
   return (
-    <div className="pt-10 sm:pt-14 lg:mb-2">
-      <div className="mx-auto bg-gray-100 px-10 pt-10 pb-10 lg:pt-30 lg:pb-14 rounded-3xl  relative">
+    <div className="pt-10 sm:pt-14 lg:mb-3">
+      <div className="mx-auto bg-gray-100 px-10 pt-10 pb-10 lg:pt-50 lg:pb-50 rounded-3xl  relative">
         <Image
           src="/arrow-down.svg"
           alt="arrow down"
@@ -29,7 +29,7 @@ const FAQs = ({}) => {
           alt="arrow down"
           width={180}
           height={180}
-          className="absolute -bottom-17 left-1/2 z-40 -translate-x-1/2 hidden lg:block  pointer-events-none"
+          className="absolute -bottom-16 left-1/2 z-40 -translate-x-1/2 hidden lg:block  pointer-events-none"
         />
 
         <div className="grid max-w-7xl mx-auto grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-14 relative">
@@ -47,9 +47,9 @@ const FAQs = ({}) => {
             <Image
               src="/backgrounddaqs.svg"
               alt="FAQ Illustration"
-              width={300}
-              height={300}
-              className="relative top-65 ml-20 hidden lg:block"
+              width={400}
+              height={400}
+              className="relative top-60 ml-20 hidden lg:block"
             />
           </div>
 

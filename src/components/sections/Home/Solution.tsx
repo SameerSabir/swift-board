@@ -47,9 +47,9 @@ function FeatureCard({
             <h3 className="font-bold text-gray-900 leading-snug mb-0.5 text-[clamp(15px,1.4vw,18px)]">
               {feature.title}
             </h3>
-            <p className="text-sm text-neutral-600 font-medium">
+            {/* <p className="text-sm text-neutral-600 font-medium">
               {feature.subtitle}
-            </p>
+            </p> */}
           </div>
         </div>
 
@@ -59,7 +59,7 @@ function FeatureCard({
         <ul>
 
         <ul className="flex flex-col gap-2.5">
-          <p className="text-sm  text-neutral-800 ">{feature.bulletsheading}</p>
+          {/* <p className="text-sm  text-neutral-800 ">{feature.bulletsheading}</p> */}
           {feature.bullets.map((b, j) => (
             <motion.li
               key={j}

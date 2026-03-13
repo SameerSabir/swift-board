@@ -159,8 +159,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-white text-sm md:text-base leading-relaxed">
-              Structured collaboration for modern teams. Organize boards,
-              control access, and manage content — all in one focused workspace.
+             Empowering teams to  <span className="font-shantell-sans ml-2 text-xl  text-amber-300 ">  organize, control, and collaborate </span> seamlessly.
             </p>
           </div>
 

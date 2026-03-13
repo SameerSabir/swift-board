@@ -65,7 +65,7 @@ const stepsData = [
     title2: "Access Your Boards",
     title: "From the Keyboard",
     description:
-      "Your boards are available wherever you type. With the SwiftBoard keyboard extension on iOS and Android, you can access all your boards directly from the keyboard. Simply switch to the SwiftBoard keyboard and browse your boards without leaving the app you are using. Select a board, choose the content you need, and share it instantly such as text, images, videos, links, documents, or recordings. Your boards and your content are always ready to share.",
+      "Select any board from the SwiftBoard keyboard on iOS or Android. Tap the content  including text, images, videos, links, documents, or recordings to share instantly without leaving your app.",
     image: step1,
   },
 ];
