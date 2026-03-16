@@ -61,7 +61,7 @@ export default function GetStarted() {
 
         <Link
           href="#"
-          className="group flex items-center gap-3 px-8 py-4 bg-neutral-900 text-white text-lg font-medium rounded-full hover:bg-neutral-800 transition-all"
+          className="group flex items-center gap-3 lg:px-8 px-6 py-3 lg:py-4 bg-neutral-900 text-white text-sm lg:text-lg font-medium rounded-full hover:bg-neutral-800 transition-all"
         >
           Get SwiftBoard Free
           <ArrowRight className="group-hover:translate-x-1 transition-transform duration-300" />
