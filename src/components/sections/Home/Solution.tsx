@@ -44,7 +44,7 @@ function FeatureCard({
             >
               {feature.number}
             </span>
-            <h3 className="font-bold text-gray-900 leading-snug mb-0.5 text-[clamp(15px,1.4vw,18px)]">
+            <h3 className="font-bold text-secondary leading-snug mb-0.5 text-xl">
               {feature.title}
             </h3>
             {/* <p className="text-sm text-neutral-600 font-medium">
@@ -53,35 +53,35 @@ function FeatureCard({
           </div>
         </div>
 
-        <p className="text-sm leading-relaxed text-neutral-800 mb-5">
+        <p className="text-lg leading-relaxed text-secondary mb-5">
           {feature.description}
         </p>
         <ul>
 
-        <ul className="flex flex-col gap-2.5">
-          {/* <p className="text-sm  text-neutral-800 ">{feature.bulletsheading}</p> */}
-          {feature.bullets.map((b, j) => (
-            <motion.li
-              key={j}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.3, delay: j * 0.06 }}
-              className="flex items-start gap-2.5 text-sm ml-2"
-            >
-              <span
-                className="mt-0.5 shrink-0 flex items-center justify-center rounded-full w-4.5 h-4.5"
-                style={{ background: `${iconColor}18` }}
+          <ul className="flex flex-col gap-2.5">
+            {/* <p className="text-sm  text-neutral-800 ">{feature.bulletsheading}</p> */}
+            {feature.bullets.map((b, j) => (
+              <motion.li
+                key={j}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.3, delay: j * 0.06 }}
+                className="flex items-start gap-2.5 text-lg ml-2"
               >
-                <Check
-                  size={10}
-                  strokeWidth={2.5}
-                  style={{ color: iconColor }}
-                />
-              </span>
-              <span className="text-neutral-800">{b}</span>
-            </motion.li>
-          ))}
+                <span
+                  className="mt-0.5 shrink-0 flex items-center justify-center rounded-full w-4.5 h-4.5"
+                  style={{ background: `${iconColor}18` }}
+                >
+                  <Check
+                    size={10}
+                    strokeWidth={2.5}
+                    style={{ color: iconColor }}
+                  />
+                </span>
+                <span className="text-neutral-800">{b}</span>
+              </motion.li>
+            ))}
+          </ul>
         </ul>
-</ul>
         <AnimatePresence mode="wait">
           <motion.div
             initial={{ opacity: 0, y: 8 }}
@@ -91,7 +91,7 @@ function FeatureCard({
             className="mt-5 pt-4 border-t border-black/20 flex items-start gap-2"
           >
             <p
-              className="text-sm italic font-medium leading-relaxed"
+              className="text-base italic font-medium leading-relaxed"
               style={{ color: iconColor }}
             >
               {feature.tagline}
@@ -128,23 +128,11 @@ export default function Solutions() {
   };
 
   return (
-    <section className="bg-white " id="solution">
-      <div className="mx-auto max-w-7xl px-4 sm:px-0 py-10 sm:py-14">
+    <section className="bg-gray-100 mt-10" id="solution">
+      <div className="mx-auto max-w-7xl px-4 sm:px-0 py-10 sm:py-20">
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-14">
           <div className="lg:w-2/5 w-full">
             <div className="lg:sticky lg:top-40">
-              <motion.div
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="flex items-center gap-3 mb-6"
-              >
-                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold tracking-widest uppercase bg-purple-50 text-purple-600 border border-purple-200/60">
-                  <span className="w-2 h-2 rounded-full relative pulse-ring shrink-0 bg-primary" />{" "}
-                  Solutions
-                </span>
-              </motion.div>
-
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -154,8 +142,8 @@ export default function Solutions() {
                 <h2 className="text-center sm:text-left text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
                   The Features{" "}
                   <span className="block mt-1">
-                    Collaboration —{" "}
-                    <span className="text-primary">Without The Chaos.</span>
+                    Collaboration {" "}
+                    <span className="text-primary">Without The Chaos</span>
                   </span>
                 </h2>
               </motion.div>
@@ -164,7 +152,7 @@ export default function Solutions() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.16 }}
-                className="text-neutral-800 text-sm md:text-base  max-w-md text-center sm:text-left"
+                className="text-secondary text-sm md:text-lg max-w-md text-center sm:text-left"
               >
                 Most tools scatter your team across chats, files, and apps.
                 SwiftBoard brings everything into structured boards with clear

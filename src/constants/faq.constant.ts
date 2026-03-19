@@ -9,14 +9,14 @@ export const faqData = {
         "Yes. You can create unlimited boards for projects, clients, teams, or ideas. Each board stays organized and independent, so work never overlaps or gets messy.",
     },
     {
-      question: "How does role-based access work?",
+      question: "How does role based access work?",
       answer:
         "SwiftBoard uses three roles: Admin, Editor, and Viewer. Admins manage boards and members, Editors add and update content, and Viewers can only view. Roles can be changed anytime.",
     },
     {
       question: "Can I add different types of content inside a board?",
       answer:
-        "Absolutely. You can add text, links, images, videos, documents, and recordings — all organized within a structured board.",
+        "Absolutely. You can add text, links, images, videos, documents, and recordings all organized within a structured board.",
     },
     {
       question: "Does SwiftBoard include messaging?",

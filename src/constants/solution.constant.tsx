@@ -42,7 +42,7 @@ export const FEATURES = [
   },
   {
     number: "03",
-    title: "Rich Content — All In One Place",
+    title: "Rich Content All In One Place",
     description: "Bring all your project materials together in one organized board, so nothing is ever lost.",
     // description:
     //   "From quick notes to important resources, SwiftBoard keeps all content connected so nothing gets lost.",
@@ -57,7 +57,7 @@ export const FEATURES = [
   },
   {
     number: "04",
-    title: "Built-In Messaging For Every Board",
+    title: "Built In Messaging For Every Board",
     description: "Discuss work exactly where it happens, keeping communication tied to projects.",
     // description:
     //   "SwiftBoard includes board-based messaging so team members can collaborate, share updates, and reference content without leaving the workspace.",
@@ -72,7 +72,7 @@ export const FEATURES = [
   },
   {
     number: "05",
-    title: "Real-Time Activity & Complete Account Control",
+    title: "Real Time Activity & Complete Account Control",
     description: "Stay informed about every change across boards while managing your account and settings with ease.",
     // description:
     //   "SwiftBoard's Activity section tracks all board updates. Latest messages automatically rise to the top using real-time sockets.",
@@ -82,7 +82,7 @@ export const FEATURES = [
       "Filter activities by board, user, or type",
       "Update profile info, access help, or manage trash",
     ],
-    tagline: "Visibility, control, and transparency — all in one place.",
+    tagline: "Visibility, control, and transparency all in one place.",
     icon: <Zap size={22} strokeWidth={1.8} />,
   },
  

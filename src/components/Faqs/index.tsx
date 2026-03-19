@@ -15,7 +15,7 @@ const FAQs = ({}) => {
 
   return (
     <section aria-label="Frequently asked questions" className="pt-10 sm:pt-14 lg:mb-3">
-      <div className="mx-auto bg-gray-100 px-10 pt-10 pb-10 lg:pt-50 lg:pb-50 rounded-3xl  relative">
+      <div className="mx-auto bg-gray-100 px-10 pt-10 pb-10 lg:pt-50 lg:pb-50 relative">
         <Image
           src="/arrow-down.svg"
           alt="arrow down"
@@ -39,7 +39,7 @@ const FAQs = ({}) => {
             </h2>
 
             {faqData.description && (
-              <p className="mt-4 text-neutral-900 text-sm md:text-base max-w-sm">
+              <p className="mt-4 text-neutral-900 text-sm md:text-lg max-w-sm">
                 {faqData.description}
               </p>
             )}

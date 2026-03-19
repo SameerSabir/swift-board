@@ -22,13 +22,13 @@ export default function Hero() {
             </div>
 
             <h1 className="anim-center [animation-delay:0.25s] font-plus-jakarta font-extrabold tracking-tight mb-6 text-secondary leading-[1.08] text-5xl lg:text-7xl ">
-              Your Boards — Anywhere You Type
+              Your Boards <br /> Anywhere You Type
             </h1>
 
             <p
               className="anim-center [animation-delay:0.4s] mb-10 leading-relaxed
-             text-gray-900 font-medium
-             text-xl max-w-3xl mx-auto w-full
+             text-secondary font-medium
+             text-lg max-w-3xl mx-auto w-full
               "
             >
               Create, organize, and share content with your team and access everything instantly from your keyboard on iOS and Android.

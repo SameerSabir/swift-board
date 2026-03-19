@@ -125,7 +125,7 @@ export default function HowItWorks() {
 
   return (
     <section className="relative my-20" aria-label="How it works">
-      <div className="hidden lg:flex absolute py-40 top-20 left-20 h-full flex-col gap-4">
+      <div className="hidden xl:flex absolute py-40 top-20 left-20 h-full flex-col gap-4">
         <nav aria-label="Step navigation" className="sticky top-1/2 -translate-y-1/2 flex flex-col gap-2">
           {stepsData.map((_, index) => {
             const isActive = activeStep === index;

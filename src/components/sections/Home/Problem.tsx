@@ -9,7 +9,7 @@ export default function Problem() {
       id="problem"
       aria-label="Problem with current productivity apps"
     >
-      <div className="mx-auto max-w-7xl border border-gray-300 rounded-3xl px-10 py-16">
+      <div className="mx-auto max-w-7xl rounded-3xl px-10 py-16">
         <div className="text-center mb-4">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary ">
             The{" "}
@@ -22,7 +22,7 @@ export default function Problem() {
           </h2>
         </div>
 
-        <p className="text-center text-neutral-800 text-sm md:text-base mb-10 sm:mb-14">
+        <p className="text-center text-secondary text-sm md:text-lg mb-10 sm:mb-14">
           and Why They&apos;re Not Working For You
         </p>
 
@@ -41,10 +41,10 @@ export default function Problem() {
               <span className="text-black text-3xl md:text-5xl font-bold leading-none">
                 {p.number}
               </span>
-              <h3 className="text-black text-xl font-semibold leading-snug">
+              <h3 className="text-black text-xl font-bold leading-snug">
                 {p.title}
               </h3>
-              <p className="text-neutral-800 text-base leading-relaxed">
+              <p className="text-neutral-800 text-lg leading-relaxed">
                 {p.description}
               </p>
             </div>
