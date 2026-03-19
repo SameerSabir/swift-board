@@ -90,24 +90,17 @@ export default function Features() {
 
         <div
           className={`
-            flex flex-col items-center gap-3 mb-2
+            flex flex-col items-center gap-3 mb-8
             transition-all duration-700 delay-200
             ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}
           `}
         >
           <ThemeButton
-                text="Download App"
-                as="a"
-                variant="glow"
-                href="https://apps.apple.com/us/app/swiftboard-work-keyboard/id6757534203"
-              />
-          <div className="flex items-center mt-3 gap-1.5 text-sm sm:text-base text-white/80">
-            <CheckCircle
-              className="w-4 h-4 shrink-0 text-purple-600"
-              strokeWidth={1.8}
-            />
-            Includes a 60-day money-back guarantee
-          </div>
+            text="Download App"
+            as="a"
+            variant="glow"
+            href="https://apps.apple.com/us/app/swiftboard-work-keyboard/id6757534203"
+          />
         </div>
 
         <div
