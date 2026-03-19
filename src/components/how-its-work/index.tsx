@@ -3,13 +3,13 @@ import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 
-import step1 from "@/assets/create-board.png";
-import step2 from "@/assets/add-content.png";
-import step3a from "@/assets/h1-app-screen-6.webp";
-import step3b from "@/assets/h1-app-screen-6.webp";
-import step3c from "@/assets/h1-app-screen-6.webp";
-import step3d from "@/assets/h1-app-screen-6.webp";
-import step3f from "@/assets/h1-app-screen-6.webp";
+import step1 from "@/assets/how-its-work/create-board.webp";
+import step2 from "@/assets/how-its-work/add-content.webp";
+import step3 from "@/assets/how-its-work/chat.webp";
+import step4 from "@/assets/how-its-work/invite.webp";
+import step5 from "@/assets/how-its-work/duplicate.webp";
+import step6 from "@/assets/how-its-work/keep-clean.webp";
+import step7 from "@/assets/how-its-work/access-boards-keyboards.webp";
 
 const stepsData = [
   {
@@ -34,7 +34,7 @@ const stepsData = [
     title: "your team",
     description:
       "Collaboration is just one click away. Add members to your board and assign roles such as Admin, Editor, or Viewer so everyone has the right level of access. Full control with clear responsibilities.",
-    image: [step3a, step3b, step3c, step3d, step3f],
+    image: step3,
   },
   {
     number: "04",
@@ -42,7 +42,7 @@ const stepsData = [
     title: "the board",
     description:
       "Discuss work where it happens. Every board includes built in messaging so members can communicate in context, share updates, clarify tasks, and reference content without leaving the workspace. Conversations stay connected to the project.",
-    image: step2,
+    image: step4,
   },
   {
     number: "05",
@@ -50,7 +50,7 @@ const stepsData = [
     title: "when needed",
     description:
       "Need to reuse a structure. Duplicate boards instantly to repeat workflows, templates, or recurring projects. This saves time and keeps consistency across teams.",
-    image: step1,
+    image: step5,
   },
   {
     number: "06",
@@ -58,7 +58,7 @@ const stepsData = [
     title: "things clean",
     description:
       "When a project is complete, move the board to the trash. You can restore it anytime or permanently delete it when it is no longer needed. Stay organized while keeping full control.",
-    image: step2,
+    image: step6,
   },
   {
     number: "07",
@@ -66,7 +66,7 @@ const stepsData = [
     title: "from the keyboard",
     description:
       "Select any board from the SwiftBoard keyboard on iOS or Android. Tap the content  including text, images, videos, links, documents, or recordings to share instantly without leaving your app.",
-    image: step1,
+    image: step7,
   },
 ];
 
@@ -227,32 +227,13 @@ export default function HowItWorks() {
               </div>
 
               <div className="relative flex justify-center items-center">
-                {i === 2 ? (
-                  <div className="space-y-24 flex flex-col items-center">
-                    {[step3a].map(
-                      (img, idx) => (
-                        <div key={idx} className="relative flex justify-center">
-                          <div className="absolute h-90 w-90 rounded-full" />
-                          <Image
-                            src={img}
-                            alt={`Step 3 image ${idx + 1}`}
-                            width={420}
-                            height={420}
-                            className="relative z-10 rounded-2xl"
-                          />
-                        </div>
-                      ),
-                    )}
-                  </div>
-                ) : (
-                  <Image
+                <Image
                     src={step.image as any}
                     alt={`Step ${step.number} illustration`}
                     width={420}
                     height={420}
                     className="relative z-10 shadow-[0_10px_20px_rgba(0,0,0,0.05)] rounded-2xl"
                   />
-                )}
               </div>
             </div>
           ))}
