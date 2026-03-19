@@ -15,7 +15,7 @@ const stepsData = [
   {
     number: "01",
     title2: "Create",
-    title: "Your Board",
+    title: "your board",
     description:
       "Start by creating a dedicated board for your project, client, or idea. Give it a name, add an emoji, and instantly set up a focused workspace. Every project begins with clarity.",
     image: step1,
@@ -23,7 +23,7 @@ const stepsData = [
   {
     number: "02",
     title2: "Add All",
-    title: "Your Content",
+    title: "your content",
     description:
       "Bring everything into one organized space. Upload images, write text notes, attach videos, add audio recordings, share documents, or paste important links. Everything stays inside your board. No switching between apps and no scattered files.",
     image: step2,
@@ -31,7 +31,7 @@ const stepsData = [
   {
     number: "03",
     title2: "Invite",
-    title: "Your Team",
+    title: "your team",
     description:
       "Collaboration is just one click away. Add members to your board and assign roles such as Admin, Editor, or Viewer so everyone has the right level of access. Full control with clear responsibilities.",
     image: [step3a, step3b, step3c, step3d, step3f],
@@ -39,7 +39,7 @@ const stepsData = [
   {
     number: "04",
     title2: "Chat Inside",
-    title: "The Board",
+    title: "the board",
     description:
       "Discuss work where it happens. Every board includes built in messaging so members can communicate in context, share updates, clarify tasks, and reference content without leaving the workspace. Conversations stay connected to the project.",
     image: step2,
@@ -47,7 +47,7 @@ const stepsData = [
   {
     number: "05",
     title2: "Duplicate",
-    title: "When Needed",
+    title: "when needed",
     description:
       "Need to reuse a structure. Duplicate boards instantly to repeat workflows, templates, or recurring projects. This saves time and keeps consistency across teams.",
     image: step1,
@@ -55,7 +55,7 @@ const stepsData = [
   {
     number: "06",
     title2: "Keep",
-    title: "Things Clean",
+    title: "things clean",
     description:
       "When a project is complete, move the board to the trash. You can restore it anytime or permanently delete it when it is no longer needed. Stay organized while keeping full control.",
     image: step2,
@@ -63,7 +63,7 @@ const stepsData = [
   {
     number: "07",
     title2: "Access Your Boards",
-    title: "From the Keyboard",
+    title: "from the keyboard",
     description:
       "Select any board from the SwiftBoard keyboard on iOS or Android. Tap the content  including text, images, videos, links, documents, or recordings to share instantly without leaving your app.",
     image: step1,
@@ -160,7 +160,7 @@ export default function HowItWorks() {
         transition={{ duration: 0.7, ease: "easeInOut" }}
       >
         <div className="relative mb-20 text-center">
-          <p className="text-3xl md:text-7xl font-extrabold max-w-lg text-neutral-900 inline-block relative">
+          <p className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary inline-block relative">
             <span className="relative inline-block">
               How
               <svg
@@ -211,9 +211,9 @@ export default function HowItWorks() {
                     <span className="flex h-8 w-8 md:h-10 md:w-10 shrink-0 items-center justify-center rounded-full bg-neutral-800 text-white">
                       {step.number}
                     </span>
-                    <p className="text-xl md:text-3xl font-bold leading-snug text-neutral-800">
+                    <p className="text-xl md:text-4xl font-plus-jakarta font-bold leading-snug text-neutral-800">
                       <span
-                        className={`font-shantell-sans ${stepDots[i]}`}
+                        className={`font-shantell-sans! font-bold ${stepDots[i]}`}
                       >
                         {step.title2}
                       </span>{" "}

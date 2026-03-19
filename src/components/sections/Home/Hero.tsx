@@ -17,12 +17,12 @@ export default function Hero() {
             <div className="anim-center [animation-delay:0.1s] mb-7">
               <span className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold bg-secondary text-white tracking-[0.01em]">
                 <span className="w-2 h-2 rounded-full relative pulse-ring shrink-0 bg-primary" />
-                Trending apps on play store
+                Keyboard-Powered Collaboration
               </span>
             </div>
 
-            <h1 className="anim-center [animation-delay:0.25s] font-extrabold tracking-tight mb-6 text-secondary leading-[1.08] text-5xl lg:text-7xl ">
-              Unlock Growth Potential Customer Experience
+            <h1 className="anim-center [animation-delay:0.25s] font-plus-jakarta font-extrabold tracking-tight mb-6 text-secondary leading-[1.08] text-5xl lg:text-7xl ">
+              Your Boards — Anywhere You Type
             </h1>
 
             <p
@@ -31,18 +31,15 @@ export default function Hero() {
              text-xl max-w-3xl mx-auto w-full
               "
             >
-              The autonomous customer service platform designed for commerce.
-              Combine the best of human empathy and AI to transform your
-              customer experience.
+              Create, organize, and share content with your team and access everything instantly from your keyboard on iOS and Android.
             </p>
 
             <div className="anim-center [animation-delay:0.55s]">
               <ThemeButton
                 text="Download App"
+                as="a"
                 variant="shimmer"
-                onClick={() => {
-                  console.log("Download clicked");
-                }}
+                href="https://apps.apple.com/us/app/swiftboard-work-keyboard/id6757534203"
               />
             </div>
           </div>

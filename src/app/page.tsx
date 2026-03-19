@@ -1,9 +1,6 @@
-import Carousel from "@/components/carousel";
 import FAQs from "@/components/Faqs";
 import HowItWorks from "@/components/how-its-work";
-
-import { Hero, Problem, Solution, Pricing } from "@/components/sections/Home";
-import CTA from "@/components/sections/Home/Cta";
+import { Hero, Problem, Solution } from "@/components/sections/Home";
 import Features from "@/components/sections/Home/Features";
 import GetStarted from "@/components/sections/Home/GetStarted";
 import Testimonials from "@/components/testimonials";
@@ -18,7 +15,6 @@ export default function Home() {
       <Problem />
       <Solution />
       <Testimonials />
-      <Pricing />
       <FAQs />
       <GetStarted/>
       {/* <CTA/> */}

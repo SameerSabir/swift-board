@@ -34,7 +34,7 @@ const FAQs = ({}) => {
 
         <div className="grid max-w-7xl mx-auto grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-14 relative">
           <div className="max-w-lg h-fit">
-            <p className="font-extrabold text-secondary leading-tight mb-4 text-4xl text-center lg:text-left lg:text-6xl">
+            <p className="font-bold text-secondary leading-tight mb-4 text-3xl md:text-4xl text-center lg:text-left lg:text-5xl">
               {faqData.title}
             </p>
 

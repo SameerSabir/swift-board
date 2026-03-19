@@ -19,7 +19,7 @@ const shantellSans = Shantell_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Swift Board",
+  title: "SwiftBoard",
   description:
     "The autonomous customer service platform designed for commerce. Combine the best of human empathy and AI to transform your customer experience.",
   icons: {

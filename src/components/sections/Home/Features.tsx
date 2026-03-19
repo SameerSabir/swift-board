@@ -5,9 +5,10 @@ import { TESTIMONIALS } from "@/constants/feature.constant";
 import { CheckCircle } from "lucide-react";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import FeatureBanner from "@/assets/feature-mockup.webp";
 import { Stars } from "@/components/ui/dynamicstars";
 import frame from "@/assets/frame.png"
+import Lottie from 'lottie-react'
+import animationData from "@/assets/arrow-up.json"
 
 export default function Features() {
   const [visible, setVisible] = useState(false);
@@ -94,8 +95,13 @@ export default function Features() {
             ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}
           `}
         >
-          <ThemeButton text="Download App" variant="glow" />
-          <div className="flex items-center gap-1.5 text-sm sm:text-base text-white/80">
+          <ThemeButton
+                text="Download App"
+                as="a"
+                variant="glow"
+                href="https://apps.apple.com/us/app/swiftboard-work-keyboard/id6757534203"
+              />
+          <div className="flex items-center mt-3 gap-1.5 text-sm sm:text-base text-white/80">
             <CheckCircle
               className="w-4 h-4 shrink-0 text-purple-600"
               strokeWidth={1.8}
@@ -111,34 +117,12 @@ export default function Features() {
           ${visible ? "opacity-100" : "opacity-0"}
           `}
         >
-          <div className="relative flex flex-col items-start">
-            <svg
-              width="100"
-              height="60"
-              viewBox="0 0 100 60"
-              fill="none"
-              className="ml-12"
-            >
-              <path
-                d="M80 50 C 60 50, 10 45, 15 15"
-                stroke="#9b32ff"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                className="opacity-60"
-              />
-              <path
-                d="M8 22 L15 15 L22 22"
-                stroke="#9b32ff"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="opacity-60"
-              />
-            </svg>
+          <div className="relative flex flex-col items-center gap-y-1 justify-center">
+            <Lottie animationData={animationData} className={'w-20'} loop={true} autoplay={true} />
 
-            <span className="text-sm text-white/80 text-center font-medium tracking-tight leading-none translate-x-32.5 -translate-y-5">
+            <p className="text-sm text-white/80 text-center font-medium">
               everything in <br /> one place
-            </span>
+            </p>
           </div>
         </div>
 

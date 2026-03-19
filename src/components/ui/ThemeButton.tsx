@@ -6,6 +6,8 @@ interface ThemeButtonProps {
   icon?: ReactNode;
   className?: string;
   variant?: "shimmer" | "primary" | "glow";
+  as?: "a" | "button";
+  href?: string; // Only needed if as="a"
 }
 
 const ThemeButton: React.FC<ThemeButtonProps> = ({
@@ -14,6 +16,8 @@ const ThemeButton: React.FC<ThemeButtonProps> = ({
   icon,
   className = "",
   variant = "primary",
+  as= "button" ,
+  href,
 }) => {
   const baseClasses =
     "flex items-center justify-center transition-all duration-300 gap-2 cursor-pointer";
@@ -29,6 +33,19 @@ const ThemeButton: React.FC<ThemeButtonProps> = ({
   let variantClasses = primaryClasses;
   if (variant === "shimmer") variantClasses = shimmerClasses;
   if (variant === "glow") variantClasses = glowClasses;
+
+  if(as === "a") {
+    return (
+      <a
+        href={href}
+        target="_blank"
+        className={`${baseClasses} ${variantClasses} ${className}`}
+      >
+        {icon && <span>{icon}</span>}
+        {text}
+      </a>
+    );
+  }
 
   return (
     <button

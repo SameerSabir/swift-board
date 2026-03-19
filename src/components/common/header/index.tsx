@@ -227,11 +227,11 @@ export default function Header() {
       <div className="bg-secondary">
         <div className="flex items-center justify-center py-2.5 px-4">
           <a
-            href="#"
+            href="https://apps.apple.com/us/app/swiftboard-work-keyboard/id6757534203"
+            target="_blank"
             className="text-sm font-semibold text-violet-400 hover:text-violet-300 transition-colors duration-200 text-center"
           >
             ✦ Swift Board v2.0 is here — faster, smarter, beautiful.{" "}
-            <span className="underline underline-offset-2">Read more →</span>
           </a>
         </div>
       </div>
@@ -283,10 +283,11 @@ export default function Header() {
 
           <div className="hidden lg:flex items-center gap-x-4">
             <ThemeButton
-              text="Download App"
-              variant="shimmer"
-              onClick={() => scrollToSection("download")}
-            />
+                text="Download App"
+                as="a"
+                variant="shimmer"
+                href="https://apps.apple.com/us/app/swiftboard-work-keyboard/id6757534203"
+              />
           </div>
         </div>
       </nav>
@@ -321,12 +322,12 @@ export default function Header() {
                 variants={footerVariants}
                 className="flex flex-col gap-3"
               >
-                <ThemeButton
-                  text="Download App"
-                  variant="shimmer"
-                  onClick={() => scrollToSection("download")}
-                  className="w-full"
-                />
+               <ThemeButton
+                text="Download App"
+                as="a"
+                variant="shimmer"
+                href="https://apps.apple.com/us/app/swiftboard-work-keyboard/id6757534203"
+              />
               </motion.div>
             </div>
           </motion.div>

@@ -101,7 +101,6 @@ export default function Footer() {
             <p className="text-white font-bold text-base mb-3">Product</p>
             <ul className="space-y-2">
               {[
-                { label: "Pricing", id: "pricing" },
                 { label: "Solution", id: "solution" },
                 { label: "Problems", id: "problem" },
               ].map((item) => (
@@ -159,7 +158,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-white text-sm md:text-base leading-relaxed">
-             Empowering teams to  <span className="font-shantell-sans ml-2 text-xl  text-amber-300 ">  organize, control, and collaborate </span> seamlessly.
+             Empowering teams to <span className="font-shantell-sans ml-px text-xl text-amber-300 ">organize, control, and collaborate </span> seamlessly.
             </p>
           </div>
 
@@ -169,7 +168,6 @@ export default function Footer() {
             </p>
             <ul className="space-y-2">
               {[
-                { label: "Pricing", id: "pricing" },
                 { label: "Solution", id: "solution" },
                 { label: "Problems", id: "problem" },
               ].map((item) => (
@@ -214,7 +212,7 @@ export default function Footer() {
               Support
             </p>
             <ul className="space-y-2">
-              {["Terms Of Service", "Privacy"].map((item) => (
+              {["Terms of service", "Privacy"].map((item) => (
                 <li key={item}>
                   <Link
                     href="#"
@@ -229,12 +227,13 @@ export default function Footer() {
 
           <div>
             <p className="text-white font-bold text-base md:text-lg mb-4">
-              Download The App
+              Download the app
             </p>
             <ul className="space-y-2">
               <li>
-                <Link
-                  href="#"
+                <a
+                  href="https://apps.apple.com/us/app/swiftboard-work-keyboard/id6757534203"
+                  target="_blank"
                   className="inline-flex items-center gap-3 px-8 py-2 bg-black text-white rounded-xl transition duration-300"
                 >
                   <span className="w-7 h-7 flex items-center justify-center shrink-0">
@@ -254,43 +253,7 @@ export default function Footer() {
                     <span className="text-[10px]">Download on the</span>
                     <span className="font-semibold text-sm">App Store</span>
                   </div>
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#"
-                  className="inline-flex items-center gap-3 px-8 py-2 bg-black text-white rounded-xl transition duration-300"
-                >
-                  <span className="w-7 h-7 flex items-center justify-center shrink-0">
-                    <svg
-                      width="20"
-                      height="20"
-                      viewBox="0 0 512 512"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fill="#00A0FF"
-                        d="M61.1 1.7c-3.6 3.9-5.9 10-5.9 18.3v472c0 8.3 2.3 14.4 5.9 18.3l.9.9L310.5 256 62 .8z"
-                      />
-                      <path
-                        fill="#00E676"
-                        d="M372.1 318.5L310.5 256 62 511.2c5.7 6.1 15.2 7.6 26.1 1.5l284-164.2z"
-                      />
-                      <path
-                        fill="#FFEA00"
-                        d="M372.1 193.5L88.1 29.3c-10.9-6.1-20.4-4.6-26.1 1.5L310.5 256l61.6-62.5z"
-                      />
-                      <path
-                        fill="#FF3D00"
-                        d="M451.9 233.9l-79.8-40.4L310.5 256l61.6 62.5 79.8-40.4c21.4-10.8 21.4-33.4 0-44.2z"
-                      />
-                    </svg>
-                  </span>
-                  <div className="flex flex-col leading-tight">
-                    <span className="text-[10px]">Get it on</span>
-                    <span className="font-semibold text-sm">Google Play</span>
-                  </div>
-                </Link>
+                </a>
               </li>
             </ul>
           </div>

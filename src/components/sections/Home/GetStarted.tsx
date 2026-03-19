@@ -1,8 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
 import left from "@/assets/left-start.webp";
 import right from "@/assets/start-right.webp";
-import { ArrowRight } from "lucide-react";
 import ArrowLottie from "@/components/ui/arrowLottie";
 
 export default function GetStarted() {
@@ -22,6 +20,8 @@ export default function GetStarted() {
         <Image
           src={left}
           alt="left image"
+          width={168}
+          height={168}
           className="w-full h-auto object-contain"
         />
       </div>
@@ -31,6 +31,8 @@ export default function GetStarted() {
         <Image
           src={right}
           alt="right image"
+          width={208}
+          height={208}
           className="w-full h-auto object-contain"
         />
       </div>
@@ -44,13 +46,13 @@ export default function GetStarted() {
         </div>
 
 
-        <h2 className="text-4xl md:text-6xl font-bold text-neutral-900 leading-tight">
+        <h2 className="text-4xl md:text-4xl lg:text-5xl font-bold text-neutral-900 leading-tight">
           Try{" "}
           <span className="font-shantell-sans text-primary">SwiftBoard</span>
         </h2>
 
 
-        <p className="text-lg md:text-xl text-neutral-600">
+        <p className="text-lg md:text-xl text-neutral-800">
           Get started{" "}
           <span className="italic font-shantell-sans text-neutral-900">
             today
@@ -59,17 +61,18 @@ export default function GetStarted() {
         </p>
 
 
-        <Link
+        {/* <Link
           href="#"
           className="group flex items-center gap-3 lg:px-8 px-6 py-3 lg:py-4 bg-neutral-900 text-white text-sm lg:text-lg font-medium rounded-full hover:bg-neutral-800 transition-all"
         >
           Get SwiftBoard Free
           <ArrowRight className="group-hover:translate-x-1 transition-transform duration-300" />
-        </Link>
+        </Link> */}
 
         <div className="flex items-center gap-6 pt-4">
-          <Link
-            href="#"
+          <a
+            href="https://apps.apple.com/us/app/swiftboard-work-keyboard/id6757534203"
+            target="_blank"
             aria-label="Download on App Store"
             className="hover:scale-105 transition-transform duration-100"
           >
@@ -85,30 +88,7 @@ export default function GetStarted() {
                 fill="black"
               />
             </svg>
-          </Link>
-
-          <Link
-            href="#"
-            aria-label="Get it on Google Play"
-            className="hover:scale-105 transition-transform duration-100"
-          >
-            {" "}
-            <svg
-              width="56"
-              height="56"
-              viewBox="0 0 42 30"
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-9 h-9 md:w-13 md:h-13"
-            >
-              <path d="M1.5 0.8L16.2 15.5L1.5 30.2Z" fill="#4285F4" />
-              <path d="M21.5 10.5L4.5 0.3L17.5 13.3Z" fill="#EA4335" />
-              <path
-                d="M26.3 13.5C27.2 14 27.7 14.7 27.7 15.5C27.7 16.3 27.2 17 26.3 17.5L22.5 19.7L18.8 16L22.5 12.3Z"
-                fill="#FBBC05"
-              />
-              <path d="M4.5 30.7L17.5 17.7L21.5 20.5Z" fill="#34A853" />
-            </svg>{" "}
-          </Link>
+          </a>
         </div>
       </div>
     </section>

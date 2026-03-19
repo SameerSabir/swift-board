@@ -144,7 +144,7 @@ export default function Testimonials() {
   return (
     <section className="bg-white py-10 sm:py-14">
       <div className="mx-auto max-w-7xl px-4 sm:px-0 pb-6 text-center relative">
-        <h2 className="text-3xl md:text-5xl lg:text-7xl font-bold text-neutral-900 text-center">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary text-center">
           Don&apos;t take our <br />
           <span className="relative inline-block">
             <span>word</span>
@@ -152,7 +152,7 @@ export default function Testimonials() {
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 170 40"
               preserveAspectRatio="xMidYMid meet"
-              className="absolute left-[5%] w-[90%] -bottom-4 lg:-bottom-9.5 h-auto block"
+              className="absolute left-[5%] w-[90%] -bottom-4 lg:-bottom-7 h-auto block"
             >
               <defs>
                 <style>{`
