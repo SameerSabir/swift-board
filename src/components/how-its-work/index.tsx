@@ -124,9 +124,9 @@ export default function HowItWorks() {
   }, []);
 
   return (
-    <section className="relative my-20">
+    <section className="relative my-20" aria-label="How it works">
       <div className="hidden lg:flex absolute py-40 top-20 left-20 h-full flex-col gap-4">
-        <div className="sticky top-1/2 -translate-y-1/2 flex flex-col gap-2">
+        <nav aria-label="Step navigation" className="sticky top-1/2 -translate-y-1/2 flex flex-col gap-2">
           {stepsData.map((_, index) => {
             const isActive = activeStep === index;
             return (
@@ -151,7 +151,7 @@ export default function HowItWorks() {
               </div>
             );
           })}
-        </div>
+        </nav>
       </div>
 
       <motion.div
@@ -160,7 +160,7 @@ export default function HowItWorks() {
         transition={{ duration: 0.7, ease: "easeInOut" }}
       >
         <div className="relative mb-20 text-center">
-          <p className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary inline-block relative">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary inline-block relative">
             <span className="relative inline-block">
               How
               <svg
@@ -180,7 +180,7 @@ export default function HowItWorks() {
               </svg>
             </span>{" "}
             it works
-          </p>
+          </h2>
           {/* <p className="text-lg text-neutral-600 mt-8 max-w-4xl mx-auto">
             SwiftBoard keeps collaboration simple. Create a board, add content,
             invite your team, and everything stays structured in one place.
@@ -211,14 +211,14 @@ export default function HowItWorks() {
                     <span className="flex h-8 w-8 md:h-10 md:w-10 shrink-0 items-center justify-center rounded-full bg-neutral-800 text-white">
                       {step.number}
                     </span>
-                    <p className="text-xl md:text-4xl font-plus-jakarta font-bold leading-snug text-neutral-800">
+                    <h3 className="text-xl md:text-4xl font-plus-jakarta font-bold leading-snug text-neutral-800">
                       <span
                         className={`font-shantell-sans! font-bold ${stepDots[i]}`}
                       >
                         {step.title2}
                       </span>{" "}
                       {step.title}
-                    </p>
+                    </h3>
                   </div>
                   <p className="ml-14 text-base md:text-lg font text-neutral-900">
                     {step.description}
@@ -229,7 +229,7 @@ export default function HowItWorks() {
               <div className="relative flex justify-center items-center">
                 <Image
                     src={step.image as any}
-                    alt={`Step ${step.number} illustration`}
+                    alt={`Step ${step.number}: ${step.title2} ${step.title}`}
                     width={420}
                     height={420}
                     className="relative z-10 shadow-[0_10px_20px_rgba(0,0,0,0.05)] rounded-2xl"

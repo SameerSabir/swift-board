@@ -8,6 +8,7 @@ interface ThemeButtonProps {
   variant?: "shimmer" | "primary" | "glow";
   as?: "a" | "button";
   href?: string; // Only needed if as="a"
+  ariaLabel?: string;
 }
 
 const ThemeButton: React.FC<ThemeButtonProps> = ({
@@ -18,6 +19,7 @@ const ThemeButton: React.FC<ThemeButtonProps> = ({
   variant = "primary",
   as= "button" ,
   href,
+  ariaLabel,
 }) => {
   const baseClasses =
     "flex items-center justify-center transition-all duration-300 gap-2 cursor-pointer";
@@ -39,6 +41,8 @@ const ThemeButton: React.FC<ThemeButtonProps> = ({
       <a
         href={href}
         target="_blank"
+        rel="noopener noreferrer"
+        aria-label={ariaLabel || text}
         className={`${baseClasses} ${variantClasses} ${className}`}
       >
         {icon && <span>{icon}</span>}
@@ -50,6 +54,7 @@ const ThemeButton: React.FC<ThemeButtonProps> = ({
   return (
     <button
       onClick={onClick}
+      aria-label={ariaLabel || text}
       className={`${baseClasses} ${variantClasses} ${className}`}
     >
       {icon && <span>{icon}</span>}

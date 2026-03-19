@@ -19,7 +19,7 @@ export default function Features() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-secondary flex flex-col items-center pb-12 sm:pb-16 lg:pb-20 ">
+    <section className="relative overflow-hidden bg-secondary flex flex-col items-center pb-12 sm:pb-16 lg:pb-20 " aria-label="Features">
       <div className="absolute top-0 left-1/2 -translate-x-1/2  bg-[radial-gradient(ellipse,rgba(155,50,255,0.18)_0%,transparent_70%)] pointer-events-none" />
 
       <div
@@ -74,14 +74,14 @@ export default function Features() {
             ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-7"}
           `}
         >
-          <h1 className="font-extrabold text-white leading-tight mb-4 text-3xl md:text-4xl lg:text-5xl">
+          <h2 className="font-extrabold text-white leading-tight mb-4 text-3xl md:text-4xl lg:text-5xl">
             Collaboration{" "}
             <span className="whitespace-nowrap">
               — <span className="text-primary">Made Swift.</span>
             </span>
             <br className="hidden sm:block" />
             <span className="block sm:inline"> Organize. Share. Execute.</span>
-          </h1>
+          </h2>
           <p className="text-sm sm:text-base md:text-xl max-w-3xl text-white/80  mx-auto leading-relaxed px-2">
             Create boards, add content, assign roles, and collaborate instantly
             with real-time activity and smart notifications.

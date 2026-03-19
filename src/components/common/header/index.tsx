@@ -102,6 +102,7 @@ function NavButton({
       onClick={() => onScroll(item.id)}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      aria-label={`Navigate to ${item.name} section`}
       className={`relative px-4 py-2 text-base font-semibold cursor-pointer transition-colors duration-300 ${
         isActive ? "text-primary" : "text-secondary hover:text-primary"
       }`}
@@ -243,6 +244,7 @@ export default function Header() {
         <div className="mx-auto max-w-7xl flex items-center justify-between">
           <button
             onClick={() => scrollToSection("home")}
+            aria-label="SwiftBoard home"
             className="-m-1.5 p-1.5 flex items-center space-x-2 cursor-pointer"
           >
             <Image

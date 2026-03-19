@@ -142,7 +142,7 @@ export default function Testimonials() {
   }, [emblaApi, onSelect]);
 
   return (
-    <section className="bg-white py-10 sm:py-14">
+    <section className="bg-white py-10 sm:py-14" aria-label="Testimonials">
       <div className="mx-auto max-w-7xl px-4 sm:px-0 pb-6 text-center relative">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary text-center">
           Don&apos;t take our <br />
@@ -215,6 +215,7 @@ export default function Testimonials() {
           <button
             onClick={scrollPrev}
             disabled={!canScrollPrev}
+            aria-label="Previous testimonial"
             className="flex items-center justify-center w-10 h-10 cursor-pointer rounded-full bg-secondary hover:bg-neutral-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <ArrowLeft size={18} className="text-white" strokeWidth={2.5} />
@@ -222,6 +223,7 @@ export default function Testimonials() {
           <button
             onClick={scrollNext}
             disabled={!canScrollNext}
+            aria-label="Next testimonial"
             className="flex items-center justify-center w-10 h-10 cursor-pointer rounded-full bg-secondary hover:bg-neutral-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <ArrowRight size={18} className="text-white" strokeWidth={2.5} />

@@ -7,10 +7,11 @@ export default function Problem() {
     <section
       className="bg-white px-4 sm:px-6 lg:px-8 py-10 sm:py-14"
       id="problem"
+      aria-label="Problem with current productivity apps"
     >
       <div className="mx-auto max-w-7xl border border-gray-300 rounded-3xl px-10 py-16">
         <div className="text-center mb-4">
-          <p className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary ">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary ">
             The{" "}
             <span className="inline-block bg-primary text-white px-2 py-1 rounded-lg">
               Problem
@@ -18,7 +19,7 @@ export default function Problem() {
             With Current
             <br />
             Productivity Apps
-          </p>
+          </h2>
         </div>
 
         <p className="text-center text-neutral-800 text-sm md:text-base mb-10 sm:mb-14">

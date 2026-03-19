@@ -14,7 +14,7 @@ const FAQs = ({}) => {
   };
 
   return (
-    <div className="pt-10 sm:pt-14 lg:mb-3">
+    <section aria-label="Frequently asked questions" className="pt-10 sm:pt-14 lg:mb-3">
       <div className="mx-auto bg-gray-100 px-10 pt-10 pb-10 lg:pt-50 lg:pb-50 rounded-3xl  relative">
         <Image
           src="/arrow-down.svg"
@@ -34,9 +34,9 @@ const FAQs = ({}) => {
 
         <div className="grid max-w-7xl mx-auto grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-14 relative">
           <div className="max-w-lg h-fit">
-            <p className="font-bold text-secondary leading-tight mb-4 text-3xl md:text-4xl text-center lg:text-left lg:text-5xl">
+            <h2 className="font-bold text-secondary leading-tight mb-4 text-3xl md:text-4xl text-center lg:text-left lg:text-5xl">
               {faqData.title}
-            </p>
+            </h2>
 
             {faqData.description && (
               <p className="mt-4 text-neutral-900 text-sm md:text-base max-w-sm">
@@ -66,6 +66,7 @@ const FAQs = ({}) => {
                     onClick={() => togglePanel(index)}
                     className="flex w-full items-center justify-between px-5 py-6 text-left text-slate-800 font-semibold text-lg"
                     aria-expanded={isOpen}
+                    aria-controls={`faq-answer-${index}`}
                   >
                     <span>
                       {item.question}
@@ -83,6 +84,9 @@ const FAQs = ({}) => {
                   <AnimatePresence initial={false}>
                     {isOpen && (
                       <motion.div
+                        id={`faq-answer-${index}`}
+                        role="region"
+                        aria-labelledby={`faq-question-${index}`}
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
@@ -102,7 +106,7 @@ const FAQs = ({}) => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
