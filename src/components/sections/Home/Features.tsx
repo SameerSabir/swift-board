@@ -19,7 +19,7 @@ export default function Features() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-secondary flex flex-col items-center pb-12 sm:pb-16 lg:pb-20 " aria-label="Features">
+    <section className="relative overflow-hidden bg-secondary flex flex-col items-center lg:py-20 py-10" aria-label="Features">
       <div className="absolute top-0 left-1/2 -translate-x-1/2  bg-[radial-gradient(ellipse,rgba(155,50,255,0.18)_0%,transparent_70%)] pointer-events-none" />
 
       <div
@@ -31,42 +31,7 @@ export default function Features() {
         }}
       />
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-0 py-10 sm:py-14">
-        <div
-          className={`
-            flex justify-between sm:flex-row flex-col  gap-4 mb-10 sm:mb-14
-            transition-all duration-700
-            ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}
-          `}
-        >
-          {TESTIMONIALS.map((t, i) => (
-            <div
-              key={i}
-              className={`
-                flex flex-col items-center text-center
-                ${i !== 0 ? "hidden sm:flex" : ""}
-              `}
-            >
-              <Stars count={5} />
-              <p className="text-xs sm:text-sm leading-relaxed text-white/80 italic">
-                &ldquo;{t.quote}&rdquo;
-              </p>
-            </div>
-          ))}
-
-          {TESTIMONIALS.slice(1).map((t, i) => (
-            <div
-              key={`mob-${i}`}
-              className="flex flex-col items-center text-center px-3 sm:hidden"
-            >
-              <Stars count={5} />
-              <p className="text-xs leading-relaxed text-white/70 italic">
-                &ldquo;{t.quote}&rdquo;
-              </p>
-            </div>
-          ))}
-        </div>
-
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-0">
         <div
           className={`
             text-center mb-6 sm:mb-8
