@@ -13,9 +13,7 @@ const impactTexts = [
   <>
     Stop Switching Tools. <br /> Start Working In One Place.
   </>,
-  <>
-    Your Content. Your Boards. Anywhere You Type.
-  </>
+  <>Your Content. Your Boards. Anywhere You Type.</>,
 ];
 
 export default function Hero() {
@@ -43,9 +41,11 @@ export default function Hero() {
     }),
   };
 
-
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-[linear-gradient(160deg,#faf5ff_0%,#ffffff_45%,#fdf8ff_100%)] pt-37">
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center overflow-hidden bg-[linear-gradient(160deg,#faf5ff_0%,#ffffff_45%,#fdf8ff_100%)] pt-37"
+    >
       <HeroBackground canvasRef={canvasRef} />
 
       <div className="relative z-10 w-full mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-5 sm:py-0">
@@ -75,7 +75,8 @@ export default function Hero() {
              text-lg max-w-3xl mx-auto w-full
               "
             >
-              Create, organize, and share content with your team and access everything instantly from your keyboard on iOS and Android.
+              Create, organize, and share content with your team and access
+              everything instantly from your keyboard on iOS and Android.
             </p>
 
             <div className="anim-center [animation-delay:0.55s]">

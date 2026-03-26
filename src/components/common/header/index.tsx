@@ -5,10 +5,13 @@ import { motion, AnimatePresence, type Variants } from "framer-motion";
 import Image from "next/image";
 import LogoLight from "@/assets/logo-light.png";
 import ThemeButton from "@/components/ui/ThemeButton";
+import { useRouter, usePathname } from "next/navigation";
 
 const navItems = [
-  { name: "Problem", id: "problem" },
-  { name: "Solution", id: "solution" },
+  { name: "Home", id: "home", type: "scroll" },
+  { name: "Problem", id: "problem", type: "scroll" },
+  { name: "Solution", id: "solution", type: "scroll" },
+  { name: "Blog", id: "blog", type: "route", href: "/blog" },
 ];
 
 const containerVariants: Variants = {
@@ -64,20 +67,23 @@ function MenuIcon({ isOpen }: { isOpen: boolean }) {
   return (
     <div className="w-6 h-6 flex flex-col justify-center items-center gap-1.25">
       <span
-        className={`block h-0.5 transition-all duration-300 ease-in-out origin-center ${isOpen
-          ? "w-6 translate-y-1.75 rotate-45 bg-primary"
-          : "w-6 bg-gray-700"
-          }`}
+        className={`block h-0.5 transition-all duration-300 ease-in-out origin-center ${
+          isOpen
+            ? "w-6 translate-y-1.75 rotate-45 bg-primary"
+            : "w-6 bg-gray-700"
+        }`}
       />
       <span
-        className={`block h-0.5 transition-all duration-200 ease-in-out ${isOpen ? "w-0 opacity-0 bg-primary" : "w-6 opacity-100 bg-gray-700"
-          }`}
+        className={`block h-0.5 transition-all duration-200 ease-in-out ${
+          isOpen ? "w-0 opacity-0 bg-primary" : "w-6 opacity-100 bg-gray-700"
+        }`}
       />
       <span
-        className={`block h-0.5 transition-all duration-300 ease-in-out origin-center ${isOpen
-          ? "w-6 -translate-y-1.75 -rotate-45 bg-primary"
-          : "w-6 bg-gray-700"
-          }`}
+        className={`block h-0.5 transition-all duration-300 ease-in-out origin-center ${
+          isOpen
+            ? "w-6 -translate-y-1.75 -rotate-45 bg-primary"
+            : "w-6 bg-gray-700"
+        }`}
       />
     </div>
   );
@@ -85,21 +91,20 @@ function MenuIcon({ isOpen }: { isOpen: boolean }) {
 
 function NavButton({
   item,
-  activeSection,
   onScroll,
+  isActive,
 }: {
   item: (typeof navItems)[0];
-  activeSection: string;
-  onScroll: (id: string) => void;
+  onScroll: (id: string, type: string, href?: string) => void;
+  isActive: boolean;
 }) {
   const [isHovered, setIsHovered] = useState(false);
 
-  const isActive = activeSection === item.id;
   const drawn = isActive || isHovered;
 
   return (
     <button
-      onClick={() => onScroll(item.id)}
+      onClick={() => onScroll(item.id, item.type, item.href)}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       aria-label={`Navigate to ${item.name} section`}
@@ -107,58 +112,64 @@ function NavButton({
         isActive ? "text-primary" : "text-secondary hover:text-primary"
       }`}
     >
-      {item.name}
+      <span className="relative inline-block">
+        {item.name}
 
-      <svg
-        viewBox="0 0 80 10"
-        className="absolute bottom-0 left-4 right-4 overflow-visible"
-        preserveAspectRatio="none"
-        aria-hidden="true"
-      >
-        <path
-          d="M2,6 Q40,-3 78,6"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="4"
-          strokeLinecap="round"
-          style={{
-            strokeDasharray: 100,
-            strokeDashoffset: drawn ? 0 : 100,
-            transition: drawn
-              ? "stroke-dashoffset 0.5s ease-out"
-              : "stroke-dashoffset 0.3s ease-in",
-          }}
-        />
-      </svg>
+        <svg
+          viewBox="0 0 80 10"
+          width="100%"
+          height="10"
+          className="absolute left-0 -bottom-1"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          <path
+            d="M0,6 Q40,1 80,6"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            style={{
+              strokeDasharray: 100,
+              strokeDashoffset: drawn ? 0 : 100,
+              transition: drawn
+                ? "stroke-dashoffset 0.5s ease-out"
+                : "stroke-dashoffset 0.3s ease-in",
+            }}
+          />
+        </svg>
+      </span>
     </button>
   );
 }
 
 function MobileNavButton({
   item,
-  activeSection,
   onScroll,
+  isActive,
 }: {
   item: (typeof navItems)[0];
-  activeSection: string;
-  onScroll: (id: string) => void;
+  onScroll: (id: string, type: string, href?: string) => void;
+  isActive: boolean;
 }) {
   return (
     <button
-      onClick={() => onScroll(item.id)}
+      onClick={() => onScroll(item.id, item.type, item.href)}
       className={`
                       w-full text-left px-3 py-4 rounded-xl text-lg font-semibold
                       transition-colors duration-300 relative cursor-pointer
-                      ${activeSection === item.id
-          ? "text-primary"
-          : "text-secondary hover:text-primary"
-        }
+                      ${
+                        isActive
+                          ? "text-primary"
+                          : "text-secondary hover:text-primary"
+                      }
                       after:content-[''] after:absolute after:bottom-0 after:left-3 after:h-0.5
                       after:transition-all after:duration-300
-                      ${activeSection === item.id
-          ? "after:w-[calc(100%-24px)] after:bg-primary"
-          : "after:w-0 hover:after:w-[calc(100%-24px)] after:bg-primary"
-        }
+                      ${
+                        isActive
+                          ? "after:w-[calc(100%-24px)] after:bg-primary"
+                          : "after:w-0 hover:after:w-[calc(100%-24px)] after:bg-primary"
+                      }
                     `}
     >
       {item.name}
@@ -166,17 +177,43 @@ function MobileNavButton({
   );
 }
 
-// ─── Main Header ──────────────────────────────────────────────────────────────
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("");
+  const [scrollSection, setScrollSection] = useState("home");
   const isNavigating = useRef(false);
+  const router = useRouter();
+  const pathname = usePathname();
 
-  const scrollToSection = (id: string) => {
+  const scrollToSection = (id: string, type: string, href?: string) => {
     setMobileMenuOpen(false);
+
+    if (type === "route" && href) {
+      router.push(href);
+      return;
+    }
+
     isNavigating.current = true;
 
-    setTimeout(() => {
+    if (pathname !== "/") {
+      setScrollSection(id);
+      router.push("/");
+
+      setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) {
+          const headerOffset = 100;
+          const elementPosition =
+            element.getBoundingClientRect().top + window.scrollY;
+          window.scrollTo({
+            top: elementPosition - headerOffset,
+            behavior: "smooth",
+          });
+        } else {
+          isNavigating.current = false;
+        }
+      }, 600);
+    } else {
+      setScrollSection(id);
       const element = document.getElementById(id);
       if (element) {
         const headerOffset = 100;
@@ -186,32 +223,36 @@ export default function Header() {
           top: elementPosition - headerOffset,
           behavior: "smooth",
         });
-        setActiveSection(id);
-
+      } else {
+        isNavigating.current = false;
       }
-    }, 350);
+    }
   };
 
   useEffect(() => {
     const handleScroll = () => {
-      if (isNavigating.current) return;
+      if (isNavigating.current || pathname !== "/") return;
 
-      let currentSection = "";
+      let currentSection = "home";
       for (const item of navItems) {
-        const el = document.getElementById(item.id);
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          if (rect.top <= 150 && rect.bottom >= 150) {
-            currentSection = item.id;
-            break;
+        if (item.type === "scroll") {
+          const el = document.getElementById(item.id);
+          if (el) {
+            const rect = el.getBoundingClientRect();
+            if (rect.top <= 150 && rect.bottom >= 150) {
+              currentSection = item.id;
+              break;
+            }
           }
         }
       }
-      if (currentSection !== activeSection) setActiveSection(currentSection);
+      setScrollSection((prevSection) =>
+        currentSection !== prevSection ? currentSection : prevSection
+      );
     };
 
     const handleScrollEnd = () => {
-      isNavigating.current = false; // Unlock exactly when scroll finishes
+      isNavigating.current = false;
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -221,7 +262,17 @@ export default function Header() {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("scrollend", handleScrollEnd);
     };
-  }, [activeSection]);
+  }, [pathname]);
+
+  const isNavItemActive = (item: (typeof navItems)[0]): boolean => {
+    if (item.type === "route") {
+      return pathname === item.href;
+    }
+    if (pathname !== "/") {
+      return false;
+    }
+    return scrollSection === item.id;
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
@@ -243,7 +294,7 @@ export default function Header() {
       >
         <div className="mx-auto max-w-7xl flex items-center justify-between">
           <button
-            onClick={() => scrollToSection("home")}
+            onClick={() => scrollToSection("home", "scroll")}
             aria-label="SwiftBoard home"
             className="-m-1.5 p-1.5 flex items-center space-x-2 cursor-pointer"
           >
@@ -260,13 +311,13 @@ export default function Header() {
           </button>
 
           <div className="hidden lg:flex flex-1 justify-center">
-            <div className="flex gap-x-8">
+            <div className="flex gap-x-3">
               {navItems.map((item) => (
                 <NavButton
                   key={item.id}
                   item={item}
-                  activeSection={activeSection}
                   onScroll={scrollToSection}
+                  isActive={isNavItemActive(item)}
                 />
               ))}
             </div>
@@ -285,11 +336,11 @@ export default function Header() {
 
           <div className="hidden lg:flex items-center gap-x-4">
             <ThemeButton
-                text="Download App"
-                as="a"
-                variant="shimmer"
-                href="https://apps.apple.com/us/app/swiftboard-work-keyboard/id6757534203"
-              />
+              text="Download App"
+              as="a"
+              variant="shimmer"
+              href="https://apps.apple.com/us/app/swiftboard-work-keyboard/id6757534203"
+            />
           </div>
         </div>
       </nav>
@@ -309,8 +360,8 @@ export default function Header() {
                 <motion.div key={item.id} variants={itemVariants}>
                   <MobileNavButton
                     item={item}
-                    activeSection={activeSection}
                     onScroll={scrollToSection}
+                    isActive={isNavItemActive(item)}
                   />
                 </motion.div>
               ))}
@@ -324,12 +375,12 @@ export default function Header() {
                 variants={footerVariants}
                 className="flex flex-col gap-3"
               >
-               <ThemeButton
-                text="Download App"
-                as="a"
-                variant="shimmer"
-                href="https://apps.apple.com/us/app/swiftboard-work-keyboard/id6757534203"
-              />
+                <ThemeButton
+                  text="Download App"
+                  as="a"
+                  variant="shimmer"
+                  href="https://apps.apple.com/us/app/swiftboard-work-keyboard/id6757534203"
+                />
               </motion.div>
             </div>
           </motion.div>

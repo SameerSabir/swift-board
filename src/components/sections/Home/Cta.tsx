@@ -1,7 +1,7 @@
 "use client";
 
 import ArrowLottie from "@/components/ui/arrowLottie";
-import { ArrowBigRight, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 export default function CTA() {
