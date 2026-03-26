@@ -53,7 +53,7 @@ export default function Hero() {
           <div className="flex flex-col items-center text-center max-w-5xl mx-auto w-full">
             <div className="anim-center [animation-delay:0.1s] mb-7">
               <span className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold bg-secondary text-white tracking-[0.01em]">
-                Keyboard-Powered Collaboration
+                Keyboard Powered Collaboration
               </span>
             </div>
             <AnimatePresence mode="wait">
