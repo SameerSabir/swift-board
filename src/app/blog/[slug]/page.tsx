@@ -14,9 +14,7 @@ export async function generateMetadata({
   const blog = BLOG_DATA.find((b) => b.slug === slug);
 
   if (!blog) {
-    return {
-      title: "Blog Not Found | SwiftBoard",
-    };
+    notFound();
   }
 
   return {

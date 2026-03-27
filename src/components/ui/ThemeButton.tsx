@@ -1,4 +1,5 @@
 import React, { ReactNode } from "react";
+import Link from "next/link";
 
 interface ThemeButtonProps {
   text: string;
@@ -9,6 +10,7 @@ interface ThemeButtonProps {
   as?: "a" | "button";
   href?: string; // Only needed if as="a"
   ariaLabel?: string;
+  target?: string;
 }
 
 const ThemeButton: React.FC<ThemeButtonProps> = ({
@@ -17,9 +19,10 @@ const ThemeButton: React.FC<ThemeButtonProps> = ({
   icon,
   className = "",
   variant = "primary",
-  as= "button" ,
+  as = "button",
   href,
   ariaLabel,
+  target,
 }) => {
   const baseClasses =
     "flex items-center justify-center transition-all duration-300 gap-2 cursor-pointer";
@@ -36,11 +39,27 @@ const ThemeButton: React.FC<ThemeButtonProps> = ({
   if (variant === "shimmer") variantClasses = shimmerClasses;
   if (variant === "glow") variantClasses = glowClasses;
 
-  if(as === "a") {
+  if (as === "a") {
+    const isInternal = href?.startsWith("/") || href?.startsWith("#");
+
+    if (isInternal) {
+      return (
+        <Link
+          href={href as string}
+          aria-label={ariaLabel || text}
+          className={`${baseClasses} ${variantClasses} ${className}`}
+          target={target}
+        >
+          {icon && <span>{icon}</span>}
+          {text}
+        </Link>
+      );
+    }
+
     return (
       <a
         href={href}
-        target="_blank"
+        target={target || "_blank"}
         rel="noopener noreferrer"
         aria-label={ariaLabel || text}
         className={`${baseClasses} ${variantClasses} ${className}`}
