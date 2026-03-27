@@ -11,7 +11,7 @@ export default function GetStarted() {
         alt="arrow down"
         width={180}
         height={180}
-        className="absolute -top-px left-1/2 -translate-x-1/2 hidden lg:block z-10 pointer-events-none"
+        className="absolute -top-px left-1/2 -translate-x-1/2 z-10 pointer-events-none"
       />
 
       <div className="absolute left-10 w-24 sm:w-28 md:w-36 hidden lg:block">

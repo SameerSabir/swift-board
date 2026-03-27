@@ -57,7 +57,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
       <div className="relative min-h-screen mx-auto max-w-5xl px-4 md:px-10 flex py-40 md:py-44 flex-col justify-center overflow-hidden ">
         <div>
           <header className="mb-16">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary inline-block mb-8">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary inline-block mb-12">
               {blog.title}
             </h1>
             <div className="relative w-full aspect-21/9 rounded-2xl overflow-hidden shadow-sm ring-1 ring-black/5 mb-16">
