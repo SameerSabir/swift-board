@@ -43,10 +43,10 @@ const BlogCard: React.FC<BlogCardProps> = ({
           >
             {date}
           </p>
-          <h2 className="text-xl md:text-2xl leading-tight font-bold text-black/75 mb-3 md:mb-4">
+          <h2 className="text-xl md:text-2xl leading-tight font-bold text-black/75 mb-3 md:mb-4 line-clamp-2 min-h-14 md:min-h-16">
             {title}
           </h2>
-          <p className="text-secondary/80 text-base md:text-lg leading-relaxed mb-6 md:mb-8 line-clamp-3">
+          <p className="text-secondary/80 text-base md:text-lg leading-relaxed mb-6 md:mb-8 line-clamp-3 min-h-18 md:min-h-21">
             {description}
           </p>
           <div className="mt-auto">
