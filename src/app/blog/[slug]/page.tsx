@@ -1,3 +1,4 @@
+import GetStarted from "@/components/sections/Home/GetStarted";
 import OptimizedImage from "@/components/ui/OptimizedImage";
 import { BLOG_DATA } from "@/constants/blog.constant";
 import { Metadata } from "next";
@@ -52,25 +53,26 @@ export default async function BlogDetailPage({ params }: PageProps) {
   }
 
   return (
-    <div className="relative min-h-screen mx-auto max-w-5xl px-4 md:px-10 flex py-40 md:py-44 flex-col justify-center overflow-hidden ">
-      <div>
-        <header className="mb-16">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary inline-block mb-8">
-            {blog.title}
-          </h1>
-          <div className="relative w-full aspect-21/9 rounded-2xl overflow-hidden shadow-sm ring-1 ring-black/5 mb-16">
-            <OptimizedImage
-              src={blog.image}
-              alt={blog.title}
-              fill
-              priority
-              className="object-cover w-full h-full"
-            />
-          </div>
-        </header>
+    <>
+      <div className="relative min-h-screen mx-auto max-w-5xl px-4 md:px-10 flex py-40 md:py-44 flex-col justify-center overflow-hidden ">
+        <div>
+          <header className="mb-16">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary inline-block mb-8">
+              {blog.title}
+            </h1>
+            <div className="relative w-full aspect-21/9 rounded-2xl overflow-hidden shadow-sm ring-1 ring-black/5 mb-16">
+              <OptimizedImage
+                src={blog.image}
+                alt={blog.title}
+                fill
+                priority
+                className="object-cover w-full h-full"
+              />
+            </div>
+          </header>
 
-        <article
-          className="space-y-6 text-secondary text-lg md:text-xl leading-relaxed
+          <article
+            className="space-y-6 text-secondary text-lg md:text-xl leading-relaxed
           [&_h1]:text-3xl [&_h1]:md:text-4xl [&_h1]:lg:text-5xl [&_h1]:font-bold [&_h1]:my-8 [&_h1]:font-plus-jakarta [&_h1]:text-secondary
           [&_h2]:text-2xl [&_h2]:md:text-3xl [&_h2]:lg:text-4xl [&_h2]:font-bold [&_h2]:my-6 [&_h2]:font-plus-jakarta [&_h2]:text-secondary
           [&_h3]:text-xl [&_h3]:md:text-2xl [&_h3]:font-bold [&_h3]:my-5 [&_h3]:font-plus-jakarta [&_h3]:text-secondary
@@ -87,10 +89,12 @@ export default async function BlogDetailPage({ params }: PageProps) {
           [&_table]:w-full [&_table]:border-collapse [&_table]:my-8 [&_table]:text-base
           [&_th]:bg-gray-50 [&_th]:font-semibold [&_th]:text-left [&_th]:border [&_th]:border-gray-200 [&_th]:px-4 [&_th]:py-3
           [&_td]:border [&_td]:border-gray-200 [&_td]:px-4 [&_td]:py-3"
-          dangerouslySetInnerHTML={{ __html: blog.content }}
-        />
+            dangerouslySetInnerHTML={{ __html: blog.content }}
+          />
+        </div>
       </div>
-    </div>
+      <GetStarted />
+    </>
   );
 }
 
