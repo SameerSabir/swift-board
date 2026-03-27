@@ -119,7 +119,7 @@ function NavButton({
           viewBox="0 0 80 10"
           width="calc(100% + 10px)"
           height="10"
-          className="absolute left-1/2 -translate-x-1/2 -bottom-1"
+          className="absolute left-1/2 -translate-x-1/2 -bottom-0.75"
           preserveAspectRatio="none"
           aria-hidden="true"
         >
