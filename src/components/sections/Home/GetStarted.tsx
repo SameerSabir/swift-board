@@ -6,15 +6,13 @@ import ArrowLottie from "@/components/ui/arrowLottie";
 export default function GetStarted() {
   return (
     <section className="relative overflow-hidden py-20  px-6 flex items-center justify-center bg-linear-to-b from-gray-100 to-white">
-      
       <Image
         src="/arrow-down.svg"
         alt="arrow down"
         width={180}
         height={180}
-        className="absolute top-0 left-1/2 -translate-x-1/2 hidden lg:block z-10 pointer-events-none"
+        className="absolute -top-px left-1/2 -translate-x-1/2 hidden lg:block z-10 pointer-events-none"
       />
-
 
       <div className="absolute left-10 w-24 sm:w-28 md:w-36 hidden lg:block">
         <Image
@@ -26,7 +24,6 @@ export default function GetStarted() {
         />
       </div>
 
-
       <div className="absolute right-0 bottom-20 w-20 sm:w-28 md:w-36 xl:w-52 hidden lg:block">
         <Image
           src={right}
@@ -37,20 +34,16 @@ export default function GetStarted() {
         />
       </div>
 
-
       <div className="absolute w-150 h-150 bg-primary/20 blur-[160px] rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
       <div className="relative z-10 flex flex-col items-center text-center gap-6 max-w-2xl">
-     
         <div className="w-42 h-42">
           <ArrowLottie />
         </div>
-
 
         <h2 className="text-4xl md:text-4xl lg:text-5xl font-bold text-neutral-900 leading-tight">
           Try{" "}
           <span className="font-shantell-sans text-primary">SwiftBoard</span>
         </h2>
-
 
         <p className="text-lg md:text-xl text-neutral-800">
           Get started{" "}
@@ -59,7 +52,6 @@ export default function GetStarted() {
           </span>{" "}
           and streamline your workflow.
         </p>
-
 
         {/* <Link
           href="#"
