@@ -179,7 +179,7 @@ function MobileNavButton({
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [scrollSection, setScrollSection] = useState("home");
+  const [scrollSection, setScrollSection] = useState("");
   const isNavigating = useRef(false);
   const router = useRouter();
   const pathname = usePathname();
@@ -233,7 +233,7 @@ export default function Header() {
     const handleScroll = () => {
       if (isNavigating.current || pathname !== "/") return;
 
-      let currentSection = "home";
+      let currentSection = "";
       for (const item of navItems) {
         if (item.type === "scroll") {
           const el = document.getElementById(item.id);
@@ -254,6 +254,9 @@ export default function Header() {
     const handleScrollEnd = () => {
       isNavigating.current = false;
     };
+
+    // Check initial scroll position on mount
+    handleScroll();
 
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("scrollend", handleScrollEnd);
