@@ -4,7 +4,7 @@ import { BLOG_DATA, BLOG_THEMES } from "@/constants/blog.constant";
 
 const Blogs = () => {
   return (
-    <div className="relative min-h-screen mx-auto max-w-7xl px-4 md:px-10 flex py-20 md:py-44 flex-col justify-center overflow-hidden ">
+    <div className="relative min-h-screen mx-auto max-w-7xl px-4 md:px-10 flex py-40 md:py-44 flex-col justify-center overflow-hidden ">
       <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary text-center mb-12 lg:mb-18">
         Blog
       </h1>
