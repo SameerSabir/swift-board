@@ -117,18 +117,19 @@ function NavButton({
 
         <svg
           viewBox="0 0 80 10"
-          width="100%"
+          width="calc(100% + 10px)"
           height="10"
-          className="absolute left-0 -bottom-1"
+          className="absolute left-1/2 -translate-x-1/2 -bottom-1"
           preserveAspectRatio="none"
           aria-hidden="true"
         >
           <path
-            d="M0,6 Q40,1 80,6"
+            d="M0,6 Q40, 2 80,6"
             fill="none"
             stroke="currentColor"
             strokeWidth="2.5"
             strokeLinecap="round"
+            strokeLinejoin="round"
             style={{
               strokeDasharray: 100,
               strokeDashoffset: drawn ? 0 : 100,
