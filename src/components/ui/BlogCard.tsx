@@ -3,9 +3,10 @@ import OptimizedImage from "./OptimizedImage";
 import { StaticImageData } from "next/image";
 import Image from "next/image";
 import Link from "next/link";
+import { getMediaUrl } from "@/lib/helper";
 
 interface BlogCardProps {
-  image: string | StaticImageData;
+  image?: string | StaticImageData | null; // made optional
   date: string;
   title: string;
   description: string;
@@ -23,20 +24,62 @@ const BlogCard: React.FC<BlogCardProps> = ({
   dateColor = "text-gray-500",
   slug,
 }) => {
+  const hasValidImage = () => {
+    if (!image) return false;
+    if (typeof image === "string") return image.trim() !== "";
+    return true;
+  };
+
+  const isValid = hasValidImage();
+
+  const processedImage =
+    isValid && typeof image === "string" ? getMediaUrl(image) : image;
+
   return (
     <Link href={`/blog/${slug}`} className="block h-full group">
       <div
         className={`${bgColor} rounded-2xl flex flex-col h-full transition-all duration-300 hover:scale-[1.02] shadow-sm overflow-hidden`}
       >
-        <div className="relative w-full h-48 md:h-64 overflow-hidden">
-          <OptimizedImage
-            src={image}
-            alt={title}
-            fill
-            className="w-full h-full"
-            imageclassName="object-cover"
-          />
+        <div className="relative w-full h-48 md:h-64 overflow-hidden bg-gray-200">
+          {isValid ? (
+            typeof processedImage === "string" ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={processedImage}
+                alt={title}
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+            ) : (
+              <OptimizedImage
+                src={processedImage || ""}
+                alt={title}
+                fill
+                className="w-full h-full"
+                imageclassName="object-cover"
+              />
+            )
+          ) : (
+            // --- Placeholder (theme‑friendly) ---
+            <div className="w-full h-full bg-linear-to-br from-gray-100 to-gray-200 flex items-center justify-center">
+              <svg
+                className="w-12 h-12 md:w-16 md:h-16 text-gray-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1.5}
+                  d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                />
+              </svg>
+            </div>
+          )}
         </div>
+
         <div className="flex flex-col grow p-6 md:p-8">
           <p
             className={`text-sm md:text-base font-bold mb-3 md:mb-4 ${dateColor}`}

@@ -3,18 +3,50 @@
 import { ChevronRight } from "lucide-react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { faqData } from "@/constants/faq.constant";
+import { faqData as defaultFaqData } from "@/constants/faq.constant";
 import Image from "next/image";
 
-const FAQs = ({}) => {
+interface FAQItemFromConstant {
+  question: string;
+  answer: string;
+}
+
+interface FAQItemFromAPI {
+  title: string;
+  answer: string;
+}
+
+type FAQItemInput = FAQItemFromConstant | FAQItemFromAPI;
+
+interface FAQsProps {
+  title?: string;
+  description?: string;
+  faqs?: FAQItemInput[];
+}
+
+const FAQs = ({ title, description, faqs }: FAQsProps) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const togglePanel = (index: number) => {
     setActiveIndex((prev) => (prev === index ? null : index));
   };
 
+  // Determine which data to use
+  const finalTitle = title ?? defaultFaqData.title;
+  const finalDescription = description ?? defaultFaqData.description;
+  const rawFaqs = faqs ?? defaultFaqData.data;
+
+  // Normalize FAQ items: convert { title, answer } to { question, answer }
+  const normalizedFaqs = rawFaqs.map((item) => ({
+    question: "question" in item ? item.question : item.title,
+    answer: item.answer,
+  }));
+
   return (
-    <section aria-label="Frequently asked questions" className="pt-10 sm:pt-14 lg:mb-3">
+    <section
+      aria-label="Frequently asked questions"
+      className="pt-10 sm:pt-14 lg:mb-3"
+    >
       <div className="mx-auto bg-gray-100 px-10 pt-10 pb-10 lg:pt-50 lg:pb-50 relative">
         <Image
           src="/arrow-down.svg"
@@ -29,38 +61,40 @@ const FAQs = ({}) => {
           alt="arrow down"
           width={180}
           height={180}
-          className="absolute -bottom-16 left-1/2 z-40 -translate-x-1/2 hidden lg:block  pointer-events-none"
+          className="absolute -bottom-16 left-1/2 z-40 -translate-x-1/2 hidden lg:block pointer-events-none"
         />
 
         <div className="grid max-w-7xl mx-auto grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-14 relative">
           <div className="max-w-lg h-fit">
             <h2 className="font-bold text-secondary leading-tight mb-4 text-3xl md:text-4xl text-center lg:text-left lg:text-5xl">
-              {faqData.title}
+              {finalTitle}
             </h2>
 
-            {faqData.description && (
+            {finalDescription && (
               <p className="mt-4 text-neutral-900 text-sm md:text-lg max-w-sm">
-                {faqData.description}
+                {finalDescription}
               </p>
             )}
 
-            <Image
-              src="/backgrounddaqs.svg"
-              alt="FAQ Illustration"
-              width={400}
-              height={400}
-              className="relative top-60 ml-20 hidden lg:block"
-            />
+            {normalizedFaqs.length > 9 && (
+              <Image
+                src="/backgrounddaqs.svg"
+                alt="FAQ Illustration"
+                width={400}
+                height={400}
+                className="relative top-60 ml-20 hidden lg:block"
+              />
+            )}
           </div>
 
-          <div className="lg:min-h-225">
-            {faqData.data.map((item, index) => {
+          <div className="lg:min-h-fit">
+            {normalizedFaqs.map((item, index) => {
               const isOpen = index === activeIndex;
 
               return (
                 <div
                   key={index}
-                  className={`mb-4 rounded-2xl bg-white shadow-sm  transition `}
+                  className={`mb-4 rounded-2xl bg-white shadow-sm transition`}
                 >
                   <button
                     onClick={() => togglePanel(index)}
@@ -68,9 +102,7 @@ const FAQs = ({}) => {
                     aria-expanded={isOpen}
                     aria-controls={`faq-answer-${index}`}
                   >
-                    <span>
-                      {item.question}
-                    </span>
+                    <span>{item.question}</span>
 
                     <span
                       className={`ml-3 flex size-7 items-center justify-center rounded-full bg-gray-100 transition-transform duration-300 ${
