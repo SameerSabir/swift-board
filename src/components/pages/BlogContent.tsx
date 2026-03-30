@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import OptimizedImage from "@/components/ui/OptimizedImage";
-import { getMediaUrl, parseFaqs } from "@/lib/helper";
+import { getMediaUrl, parseFaqs } from "@/utils/helper";
 import { Blog } from "@/types/blog";
 import FAQs from "@/components/Faqs";
 import { getBlog } from "@/lib/getBlog";

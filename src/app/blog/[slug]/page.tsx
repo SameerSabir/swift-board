@@ -1,11 +1,11 @@
 import { Suspense } from "react";
 import { Metadata } from "next";
 import GetStarted from "@/components/sections/Home/GetStarted";
-import { getMediaUrl } from "@/lib/helper";
 import { generateFAQSchema } from "@/schema/faq-schema";
 import BlogSkeleton from "@/components/ui/BlogSkeleton";
 import BlogContent from "@/components/pages/BlogContent";
 import { getBlog } from "@/lib/getBlog";
+import { getMediaUrl, parseKeywords } from "@/utils/helper";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -23,14 +23,20 @@ export async function generateMetadata({
     const blogUrl = `${baseUrl}/blog/${slug}`;
     const ogImage = blog.imagePath ? getMediaUrl(blog.imagePath) : "";
 
+    // Parse keywords from blogKeyword field
+    const keywords = blog.blogKeyword ? parseKeywords(blog.blogKeyword) : [];
+
     return {
       title: `${blog.metaTitle || blog.title} | SwiftBoard Blog`,
       description: blog.metaDescription,
+      authors: blog.author ? [{ name: blog.author }] : undefined,
+      keywords,
       openGraph: {
         title: blog.metaTitle || blog.title,
         description: blog.metaDescription,
         type: "article",
         url: blogUrl,
+        siteName: "SwiftBoard", // Added site name
         images: ogImage
           ? [
               {
@@ -47,7 +53,14 @@ export async function generateMetadata({
         card: "summary_large_image",
         title: blog.metaTitle || blog.title,
         description: blog.metaDescription,
-        images: ogImage ? [ogImage] : [],
+        images: ogImage
+          ? [
+              {
+                url: ogImage,
+                alt: blog.imageAlt || blog.title,
+              },
+            ]
+          : [],
       },
       alternates: {
         canonical: blogUrl,

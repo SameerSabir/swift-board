@@ -1,4 +1,4 @@
-import { parseFaqs } from "@/lib/helper";
+import { parseFaqs } from "@/utils/helper";
 
 export function generateFAQSchema(
   faqs: string | { question: string; answer: string }[] | undefined

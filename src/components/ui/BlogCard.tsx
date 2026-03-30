@@ -3,7 +3,7 @@ import OptimizedImage from "./OptimizedImage";
 import { StaticImageData } from "next/image";
 import Image from "next/image";
 import Link from "next/link";
-import { getMediaUrl } from "@/lib/helper";
+import { getMediaUrl } from "@/utils/helper";
 
 interface BlogCardProps {
   image?: string | StaticImageData | null; // made optional
