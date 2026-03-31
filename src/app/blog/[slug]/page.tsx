@@ -36,7 +36,7 @@ export async function generateMetadata({
         description: blog.metaDescription,
         type: "article",
         url: blogUrl,
-        siteName: "SwiftBoard", // Added site name
+        siteName: "SwiftBoard",
         images: ogImage
           ? [
               {
