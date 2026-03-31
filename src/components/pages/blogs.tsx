@@ -7,6 +7,7 @@ import { Blog } from "@/types/blog";
 import Api from "@/lib/api";
 import { BLOG_THEMES } from "@/constants/blog.constant";
 import BlogCardSkeleton from "../ui/BlogCardSkeleton";
+import { ErrorAlert } from "../ui/ErrorAlert";
 
 const ITEMS_PER_PAGE = 9;
 const BLOG_TYPE = "2";
@@ -155,16 +156,14 @@ const Blogs = () => {
       {/* Error State */}
       <AnimatePresence>
         {error && (
-          <motion.div
-            variants={fadeInUp}
-            initial="hidden"
-            animate="visible"
-            exit="hidden"
-            className="mb-8 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700"
-          >
-            <p className="font-medium">Error loading blogs</p>
-            <p className="text-sm">{error}</p>
-          </motion.div>
+          <ErrorAlert
+            error={error}
+            onRetry={() => {
+              setError(null);
+              setPage(1);
+              fetchBlogs(1, true);
+            }}
+          />
         )}
       </AnimatePresence>
 
