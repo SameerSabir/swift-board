@@ -98,7 +98,7 @@ const FAQs = ({ title, description, faqs }: FAQsProps) => {
                 >
                   <button
                     onClick={() => togglePanel(index)}
-                    className="flex w-full items-center justify-between px-5 py-6 text-left text-slate-800 font-semibold text-lg"
+                    className="flex w-full items-center justify-between px-5 py-6 text-left text-slate-800 font-semibold text-lg cursor-pointer"
                     aria-expanded={isOpen}
                     aria-controls={`faq-answer-${index}`}
                   >
