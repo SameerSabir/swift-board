@@ -1,11 +1,8 @@
 "use client";
 
 import ThemeButton from "@/components/ui/ThemeButton";
-import { TESTIMONIALS } from "@/constants/feature.constant";
-import { CheckCircle } from "lucide-react";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { Stars } from "@/components/ui/dynamicstars";
 import frame from "@/assets/frame.png"
 import Lottie from 'lottie-react'
 import animationData from "@/assets/arrow-up.json"

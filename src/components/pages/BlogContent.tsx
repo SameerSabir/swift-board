@@ -1,7 +1,5 @@
-import { notFound } from "next/navigation";
 import OptimizedImage from "@/components/ui/OptimizedImage";
 import { getMediaUrl, parseFaqs } from "@/utils/helper";
-import { Blog } from "@/types/blog";
 import FAQs from "@/components/Faqs";
 import { getBlog } from "@/lib/getBlog";
 
@@ -10,12 +8,7 @@ interface BlogContentProps {
 }
 
 export default async function BlogContent({ slug }: BlogContentProps) {
-  let blog: Blog;
-  try {
-    blog = await getBlog(slug);
-  } catch {
-    notFound();
-  }
+  const blog = await getBlog(slug);
 
   const imageUrl = blog.imagePath ? getMediaUrl(blog.imagePath) : "";
   const faqs = parseFaqs(blog.faQs);

@@ -81,7 +81,7 @@ const stepBgs = [
 ];
 
 const stepDots = [
- "text-green-500",
+  "text-green-500",
   "text-blue-400",
   "text-orange-500",
   "text-purple-500",
@@ -91,13 +91,13 @@ const stepDots = [
 ];
 
 const steppoints = [
- "#22c55e", 
-"#60a5fa",
-"#f97316",
-"#a855f7",
-"#06b6d4",
-"#eab308",
-"#ef4444"
+  "#22c55e",
+  "#60a5fa",
+  "#f97316",
+  "#a855f7",
+  "#06b6d4",
+  "#eab308",
+  "#ef4444",
 ];
 
 export default function HowItWorks() {
@@ -126,7 +126,10 @@ export default function HowItWorks() {
   return (
     <section className="relative my-20" aria-label="How it works">
       <div className="hidden xl:flex absolute py-40 top-20 left-20 h-full flex-col gap-4">
-        <nav aria-label="Step navigation" className="sticky top-1/2 -translate-y-1/2 flex flex-col gap-2">
+        <nav
+          aria-label="Step navigation"
+          className="sticky top-1/2 -translate-y-1/2 flex flex-col gap-2"
+        >
           {stepsData.map((_, index) => {
             const isActive = activeStep === index;
             return (
@@ -135,8 +138,9 @@ export default function HowItWorks() {
                 className="relative flex h-4 w-4 items-center justify-center"
               >
                 <div
-                  className={`absolute h-3.5 w-3.5 rounded-full transition-colors duration-300 ${isActive ? "bg-transparent" : "bg-gray-300"
-                    }`}
+                  className={`absolute h-3.5 w-3.5 rounded-full transition-colors duration-300 ${
+                    isActive ? "bg-transparent" : "bg-gray-300"
+                  }`}
                 />
                 <motion.div
                   className="absolute h-3.5 w-3.5 rounded-full"
@@ -204,8 +208,7 @@ export default function HowItWorks() {
                 <div
                   className={`max-w-md 
                    
-                  `
-                }
+                  `}
                 >
                   <div className="mb-4 flex items-start gap-4">
                     <span className="flex h-8 w-8 md:h-10 md:w-10 shrink-0 items-center justify-center rounded-full bg-neutral-800 text-white">
@@ -228,22 +231,22 @@ export default function HowItWorks() {
 
               <div className="relative flex justify-center items-center">
                 <Image
-                    src={step.image as any}
-                    alt={`Step ${step.number}: ${step.title2} ${step.title}`}
-                    width={420}
-                    height={420}
-                    className="relative z-10 shadow-[0_10px_20px_rgba(0,0,0,0.05)] rounded-2xl"
-                  />
+                  src={step.image}
+                  alt={`Step ${step.number}: ${step.title2} ${step.title}`}
+                  width={420}
+                  height={420}
+                  className="relative z-10 shadow-[0_10px_20px_rgba(0,0,0,0.05)] rounded-2xl"
+                />
               </div>
             </div>
           ))}
-            <Image
-                  src="/arrow-downbhow.svg"
-                  alt="arrow down"
-                  width={180}
-                  height={180}
-                  className="absolute -bottom-78 left-1/2 -translate-x-1/2 hidden  lg:block z-10 pointer-events-none"
-                />
+          <Image
+            src="/arrow-downbhow.svg"
+            alt="arrow down"
+            width={180}
+            height={180}
+            className="absolute -bottom-78 left-1/2 -translate-x-1/2 hidden  lg:block z-10 pointer-events-none"
+          />
         </div>
       </motion.div>
     </section>

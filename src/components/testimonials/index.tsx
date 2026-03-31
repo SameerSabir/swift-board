@@ -17,7 +17,7 @@ const testimonials = [
     date: "Jan 12, 2026",
     bg: "bg-purple-100",
     avatar: "bg-yellow-400",
-    avatarImage:avatar1
+    avatarImage: avatar1,
   },
   {
     quote:
@@ -27,7 +27,7 @@ const testimonials = [
     date: "Jan 18, 2026",
     bg: "bg-blue-100",
     avatar: "bg-blue-500",
-      avatarImage:avatar1
+    avatarImage: avatar1,
   },
   {
     quote:
@@ -37,7 +37,7 @@ const testimonials = [
     date: "Jan 5, 2026",
     bg: "bg-green-100",
     avatar: "bg-green-500",
-      avatarImage:avatarW
+    avatarImage: avatarW,
   },
 
   {
@@ -48,7 +48,7 @@ const testimonials = [
     date: "Feb 2, 2026",
     bg: "bg-pink-100",
     avatar: "bg-pink-500",
-      avatarImage:avatar1
+    avatarImage: avatar1,
   },
   {
     quote:
@@ -58,7 +58,7 @@ const testimonials = [
     date: "Jan 30, 2026",
     bg: "bg-teal-100",
     avatar: "bg-teal-500",
-      avatarImage:avatarW
+    avatarImage: avatarW,
   },
   {
     quote:
@@ -68,7 +68,7 @@ const testimonials = [
     date: "Feb 2, 2026",
     bg: "bg-orange-100",
     avatar: "bg-red-400",
-    avatarImage:avatar1
+    avatarImage: avatar1,
   },
 
   {
@@ -79,7 +79,7 @@ const testimonials = [
     date: "Feb 10, 2026",
     bg: "bg-indigo-100",
     avatar: "bg-indigo-500",
-      avatarImage:avatar1
+    avatarImage: avatar1,
   },
   {
     quote:
@@ -89,8 +89,7 @@ const testimonials = [
     date: "Dec 28, 2025",
     bg: "bg-yellow-100",
     avatar: "bg-orange-400",
-      avatarImage:avatarW
-      
+    avatarImage: avatarW,
   },
   {
     quote:
@@ -100,7 +99,7 @@ const testimonials = [
     date: "Feb 6, 2026",
     bg: "bg-rose-100",
     avatar: "bg-rose-500",
-      avatarImage:avatar1
+    avatarImage: avatar1,
   },
 ];
 
@@ -109,15 +108,15 @@ export default function Testimonials() {
     {
       align: "center",
     },
-    [WheelGesturesPlugin({ forceWheelAxis: "x" })],
+    [WheelGesturesPlugin({ forceWheelAxis: "x" })]
   );
 
   const [canScrollPrev, setCanScrollPrev] = useState(false);
   const [canScrollNext, setCanScrollNext] = useState(false);
 
-  const onSelect = useCallback((api: any) => {
-    setCanScrollPrev(api.canScrollPrev());
-    setCanScrollNext(api.canScrollNext());
+  const onSelect = useCallback((api: typeof emblaApi) => {
+    setCanScrollPrev(api?.canScrollPrev() ?? false);
+    setCanScrollNext(api?.canScrollNext() ?? false);
   }, []);
 
   const scrollPrev = useCallback(() => {

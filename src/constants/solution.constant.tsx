@@ -4,10 +4,7 @@ import {
   Layers,
   MessageSquare,
   Zap,
-  UserPlus,
-  UserCog,
 } from "lucide-react";
-import { b } from "motion/react-client";
 
 export const FEATURES = [
   {

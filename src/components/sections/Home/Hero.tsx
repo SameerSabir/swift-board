@@ -2,7 +2,7 @@
 import { useParticleCanvas } from "@/components/hooks/useParticleCanvas";
 import { HeroBackground } from "@/components/ui/HeroBackground";
 import ThemeButton from "@/components/ui/ThemeButton";
-import { easeIn, easeOut } from "motion";
+import { easeOut } from "motion";
 import { AnimatePresence, motion } from "motion/react";
 import React, { useState } from "react";
 
