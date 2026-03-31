@@ -44,26 +44,14 @@ const Blogs = () => {
   const [blogs, setBlogs] = useState<Blog[]>([]);
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
-  const [isLoadingMore, setIsLoadingMore] = useState(false);
   const [hasMoreData, setHasMoreData] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [hasInitialized, setHasInitialized] = useState(false);
   const observerTarget = useRef<HTMLDivElement>(null);
-  const isLoadingRef = useRef(false);
 
   const fetchBlogs = useCallback(
     async (pageNumber: number, isInitial: boolean = false) => {
-      // Prevent duplicate requests
-      if (isLoadingRef.current) return;
-
       try {
-        isLoadingRef.current = true;
-
-        if (isInitial) {
-          setIsLoading(true);
-        } else {
-          setIsLoadingMore(true);
-        }
+        setIsLoading(true);
         setError(null);
 
         const response = await Api.getAllBlogs(
@@ -85,21 +73,13 @@ const Blogs = () => {
             return [...prevBlogs, ...newBlogs];
           });
 
-          // Check if we've reached the end - if returned items are less than requested OR we're at or past total pages
-          if (response.data.length < ITEMS_PER_PAGE) {
-            setHasMoreData(false);
-          } else {
-            setHasMoreData(true);
-          }
+          // Check if we've reached the end
+          setHasMoreData(response.data.length === ITEMS_PER_PAGE);
         } else {
           if (isInitial) {
             setBlogs([]);
           }
           setHasMoreData(false);
-        }
-
-        if (isInitial) {
-          setHasInitialized(true);
         }
       } catch (err) {
         const errorMessage =
@@ -108,15 +88,9 @@ const Blogs = () => {
         console.error("Error fetching blogs:", err);
         if (isInitial) {
           setBlogs([]);
-          setHasInitialized(true);
         }
       } finally {
-        isLoadingRef.current = false;
-        if (isInitial) {
-          setIsLoading(false);
-        } else {
-          setIsLoadingMore(false);
-        }
+        setIsLoading(false);
       }
     },
     []
@@ -135,9 +109,8 @@ const Blogs = () => {
 
         if (
           entry.isIntersecting &&
-          !isLoadingRef.current &&
+          !isLoading &&
           hasMoreData &&
-          hasInitialized &&
           blogs.length > 0
         ) {
           setPage((prevPage) => prevPage + 1);
@@ -159,14 +132,14 @@ const Blogs = () => {
         observer.unobserve(currentTarget);
       }
     };
-  }, [hasMoreData, hasInitialized, blogs.length]);
+  }, [hasMoreData, isLoading, blogs.length]);
 
   // Fetch more blogs when page changes
   useEffect(() => {
-    if (page > 1 && hasInitialized) {
+    if (page > 1 && blogs.length > 0) {
       fetchBlogs(page, false);
     }
-  }, [page, fetchBlogs, hasInitialized]);
+  }, [page, fetchBlogs, blogs.length]);
 
   return (
     <div className="relative min-h-screen mx-auto max-w-7xl px-4 md:px-10 flex pt-40 md:pt-44 pb-20 flex-col justify-center overflow-hidden">
@@ -179,6 +152,7 @@ const Blogs = () => {
         Blog
       </motion.h1>
 
+      {/* Error State */}
       <AnimatePresence>
         {error && (
           <motion.div
@@ -194,100 +168,26 @@ const Blogs = () => {
         )}
       </AnimatePresence>
 
-      {/* Initial Loading Skeletons */}
-      <AnimatePresence>
-        {isLoading && !hasInitialized && (
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
-            initial="hidden"
-            animate="visible"
-            exit="hidden"
-            variants={containerVariants}
-          >
-            {Array.from({ length: ITEMS_PER_PAGE }).map((_, i) => (
-              <motion.div key={`skeleton-${i}`} variants={cardVariants}>
-                <BlogCardSkeleton />
-              </motion.div>
-            ))}
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Blogs Grid */}
-      {hasInitialized && (
+      {/* Loading & Blogs Grid */}
+      {isLoading && blogs.length === 0 ? (
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
-          variants={containerVariants}
           initial="hidden"
           animate="visible"
+          variants={containerVariants}
         >
-          {blogs.map((blog, index) => {
-            const theme = BLOG_THEMES[index % BLOG_THEMES.length];
-            return (
-              <motion.div
-                key={blog.id}
-                variants={cardVariants}
-                layout
-                transition={{ layout: { duration: 0.3 } }}
-              >
-                <BlogCard
-                  image={blog.imagePath || ""}
-                  date={
-                    blog.publishedAt
-                      ? new Date(blog.publishedAt).toLocaleDateString("en-US", {
-                          year: "numeric",
-                          month: "long",
-                          day: "numeric",
-                        })
-                      : new Date(blog.createdAt || "").toLocaleDateString(
-                          "en-US",
-                          {
-                            year: "numeric",
-                            month: "long",
-                            day: "numeric",
-                          }
-                        )
-                  }
-                  title={blog.title}
-                  description={
-                    blog.metaDescription || blog.content.substring(0, 120)
-                  }
-                  bgColor={theme.bgColor}
-                  dateColor={theme.dateColor}
-                  slug={blog.slug}
-                />
-              </motion.div>
-            );
-          })}
+          {Array.from({ length: ITEMS_PER_PAGE }).map((_, i) => (
+            <motion.div key={`skeleton-${i}`} variants={cardVariants}>
+              <BlogCardSkeleton />
+            </motion.div>
+          ))}
         </motion.div>
-      )}
-
-      {/* Loading More Skeletons */}
-      <AnimatePresence>
-        {isLoadingMore && hasInitialized && (
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mt-6"
-            initial="hidden"
-            animate="visible"
-            exit="hidden"
-            variants={containerVariants}
-          >
-            {Array.from({ length: ITEMS_PER_PAGE }).map((_, i) => (
-              <motion.div key={`more-skeleton-${i}`} variants={cardVariants}>
-                <BlogCardSkeleton />
-              </motion.div>
-            ))}
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* No Blogs Found */}
-      {hasInitialized && blogs.length === 0 && !error && (
+      ) : blogs.length === 0 && !error ? (
         <motion.div
           variants={fadeInUp}
           initial="hidden"
           animate="visible"
-          className="anim-center [animation-delay:0.55s] flex justify-center"
+          className="flex justify-center"
         >
           <div className="flex flex-col items-center text-center max-w-2xl">
             <div className="text-6xl md:text-8xl mb-6 opacity-20">📝</div>
@@ -299,31 +199,95 @@ const Blogs = () => {
             </p>
           </div>
         </motion.div>
-      )}
-
-      {/* End of Blogs Message */}
-      {hasInitialized &&
-        !hasMoreData &&
-        blogs.length > 0 &&
-        !isLoadingMore &&
-        page > 1 && (
+      ) : (
+        <>
+          {/* Blogs Grid */}
           <motion.div
-            variants={fadeInUp}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
+            variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="anim-center [animation-delay:0.55s] flex justify-center mt-12"
           >
-            <div className="flex flex-col items-center text-center max-w-2xl">
-              <div className="text-5xl md:text-6xl mb-4">🎉</div>
-              <p className="text-secondary/70 text-xl font-semibold mb-2">
-                You&apos;ve reached the end!
-              </p>
-              <p className="text-secondary/60 font-medium">
-                You&apos;ve seen all our amazing stories. Thanks for reading!
-              </p>
-            </div>
+            {blogs.map((blog, index) => {
+              const theme = BLOG_THEMES[index % BLOG_THEMES.length];
+              return (
+                <motion.div
+                  key={blog.id}
+                  variants={cardVariants}
+                  layout
+                  transition={{ layout: { duration: 0.3 } }}
+                >
+                  <BlogCard
+                    image={blog.imagePath || ""}
+                    date={
+                      blog.publishedAt
+                        ? new Date(blog.publishedAt).toLocaleDateString(
+                            "en-US",
+                            {
+                              year: "numeric",
+                              month: "long",
+                              day: "numeric",
+                            }
+                          )
+                        : new Date(blog.createdAt || "").toLocaleDateString(
+                            "en-US",
+                            {
+                              year: "numeric",
+                              month: "long",
+                              day: "numeric",
+                            }
+                          )
+                    }
+                    title={blog.title}
+                    description={
+                      blog.metaDescription || blog.content.substring(0, 120)
+                    }
+                    bgColor={theme.bgColor}
+                    dateColor={theme.dateColor}
+                    slug={blog.slug}
+                  />
+                </motion.div>
+              );
+            })}
           </motion.div>
-        )}
+
+          {/* Loading More Skeletons */}
+          {isLoading && blogs.length > 0 && (
+            <motion.div
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mt-6"
+              initial="hidden"
+              animate="visible"
+              variants={containerVariants}
+            >
+              {Array.from({ length: ITEMS_PER_PAGE }).map((_, i) => (
+                <motion.div key={`more-skeleton-${i}`} variants={cardVariants}>
+                  <BlogCardSkeleton />
+                </motion.div>
+              ))}
+            </motion.div>
+          )}
+
+          {/* End of Blogs Message */}
+          {!hasMoreData && blogs.length > 0 && !isLoading && page > 1 && (
+            <motion.div
+              variants={fadeInUp}
+              initial="hidden"
+              animate="visible"
+              className="flex justify-center mt-12"
+            >
+              <div className="flex flex-col items-center text-center max-w-2xl">
+                <div className="text-5xl md:text-6xl mb-4">🎉</div>
+                <p className="text-secondary/70 text-xl font-semibold mb-2">
+                  You&apos;ve reached the end!
+                </p>
+                <p className="text-secondary/60 font-medium">
+                  You&apos;ve seen all our amazing stories. Thanks for reading!
+                </p>
+              </div>
+            </motion.div>
+          )}
+        </>
+      )}
 
       {/* Intersection Observer Target */}
       <div
