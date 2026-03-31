@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Shantell_Sans } from "next/font/google";
 import Header from "@/components/common/header";
 import Footer from "@/components/common/footer";
+import { ScrollToTop } from "@/components/ui/ScrollToTop";
 import "./globals.css";
 
 const plusJakarta = Plus_Jakarta_Sans({
@@ -70,6 +71,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${plusJakarta.variable} ${shantellSans.variable} antialiased`}>
+        <ScrollToTop />
         <Header />
         <main>{children}</main>
         <Footer />
