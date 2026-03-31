@@ -20,7 +20,7 @@ export const ErrorAlert: React.FC<ErrorAlertProps> = ({ error, onRetry }) => {
       exit="hidden"
       className="mb-12 max-w-2xl mx-auto w-full"
     >
-      <div className="flex flex-col items-center justify-center p-8 md:p-12 bg-gradient-to-br from-red-50 to-red-100/50 border border-red-200 rounded-2xl shadow-md">
+      <div className="flex flex-col items-center justify-center p-8 md:p-12 bg-linear-to-br from-red-50 to-red-100/50 border border-red-200 rounded-2xl shadow-md">
         <div className="text-6xl md:text-7xl mb-4">⚠️</div>
         <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2 text-center">
           Unable to load blogs
