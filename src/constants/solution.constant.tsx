@@ -9,78 +9,84 @@ import {
 export const FEATURES = [
   {
     number: "01",
-    title: "One Workspace. Every Board Organized.",
-    description: "Create focused boards for every project, client, or idea. Keep your workspace clean and intentional.",
+    title: "Structured Boards on One Workspace.",
+    description:
+      "Create specific boards for each client, project, or an idea.  Stay focused and keep your workspace organised.",
     // description:
     //   "Create focused boards for every project, client, or idea. Keep your workspace clean and intentional.",
     // bulletsheading:"Create boards with custom names & emojis",
     bullets: [
-      "Create boards with custom names & emojis",
-      "Edit board details anytime",
-      "Move inactive boards to trash or permanently delete",
+      "Name your boards",
+      "Edit board details",
+      "Delete inactive boards",
     ],
-    tagline: "No more messy folders. No more lost discussions.",
+    tagline:
+      "Keep track of every completed project via boards. Organised data with structured workspace.",
     icon: <LayoutGrid size={22} strokeWidth={1.8} />,
   },
   {
     number: "02",
-    title: "Controlled Collaboration & Member Management",
-    description: "Keep control over who can access and contribute, so teamwork stays organized and secure.",
+    title: "Team Collaboration & Access Management",
+    description:
+      "Keep track of assigned roles, completed tasks, and level of team engagement in every project.",
     // description:
     //   "Admins can invite members, assign roles, and manage permissions so collaboration stays organized and secure.",
     //   bulletsheading:"Admins manage boards and team members",
     bullets: [
-      "Admins manage boards and members",
-      "Editors modify content; viewers stay informed",
-      "Invite teammates and update roles anytime",
+      "Manage team members and boards",
+      "Control level of access to each member",
+      "Update tasks progress and track productivity",
     ],
-    tagline: "Structured collaboration without confusion.",
+    tagline: "Enhance team collaboration for impactful performance.",
     icon: <ShieldCheck size={22} strokeWidth={1.8} />,
   },
   {
     number: "03",
-    title: "Rich Content All In One Place",
-    description: "Bring all your project materials together in one organized board, so nothing is ever lost.",
+    title: "Organise Content at One Place",
+    description:
+      "Upload all the relevant material of the project on the designated board and provide access to team members for organised working.",
     // description:
     //   "From quick notes to important resources, SwiftBoard keeps all content connected so nothing gets lost.",
     //     bulletsheading:"Add text notes, links, and references",
     bullets: [
-      "Add notes, links, images, videos, and files",
-      "Record and share audio directly",
-      "Keep everything connected in one place",
+      "Add text, documents, videos, links, and notes",
+      "Record audio and share with team members",
+      "Connect everything for enhanced productivity",
     ],
-    tagline: "All your content, organized together.",
+    tagline: "Structured content, increased performance.",
     icon: <Layers size={22} strokeWidth={1.8} />,
   },
   {
     number: "04",
-    title: "Built In Messaging For Every Board",
-    description: "Discuss work exactly where it happens, keeping communication tied to projects.",
+    title: "Onboard Discussion for Team Engagement",
+    description:
+      "Brainstorm ideas, discuss with your team members and keep communication connected with the relevant project.",
     // description:
     //   "SwiftBoard includes board-based messaging so team members can collaborate, share updates, and reference content without leaving the workspace.",
     //   bulletsheading:"Chat directly inside each board",
     bullets: [
-      "Chat inside each board and share content instantly",
-      "Keep discussions in context",
-      "Collaborate in real time with teammates",
+      "Chat via in-built messaging",
+      "Keep track of discussions context",
+      "Real-time collaboration with team members",
     ],
-    tagline: "Communication stays connected to the work.",
+    tagline: "Align your conversations with the work.",
     icon: <MessageSquare size={22} strokeWidth={1.8} />,
   },
   {
     number: "05",
-    title: "Real Time Activity & Complete Account Control",
-    description: "Stay informed about every change across boards while managing your account and settings with ease.",
+    title: "Track Activity & Control Account",
+    description:
+      "Customise the setting of your account and keep track of activities across the boards.",
     // description:
     //   "SwiftBoard's Activity section tracks all board updates. Latest messages automatically rise to the top using real-time sockets.",
     //   bulletsheading:"Real-time activity updates across boards",
     bullets: [
-      "Real-time updates across boards",
-      "Filter activities by board, user, or type",
-      "Update profile info, access help, or manage trash",
+      "Edit profile details, manage unnecessary data, access help",
+      "Filter activities smartly across the boards",
+      "Real-time updates with notifications",
     ],
-    tagline: "Visibility, control, and transparency all in one place.",
+    tagline:
+      "Maintain transparency, proper control, and visibility in the workspace.",
     icon: <Zap size={22} strokeWidth={1.8} />,
   },
- 
 ];

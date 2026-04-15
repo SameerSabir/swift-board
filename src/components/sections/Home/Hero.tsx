@@ -8,12 +8,11 @@ import React, { useState } from "react";
 
 const impactTexts = [
   <>
-    Your Boards <br /> Anywhere You Type
+    Organise Your Team <br /> Through One Platform
   </>,
   <>
-    Stop Switching Tools. <br /> Start Working In One Place.
+    Transform Leads into <br /> Smart Decisions in Minutes
   </>,
-  <>Your Content. Your Boards. Anywhere You Type.</>,
 ];
 
 export default function Hero() {
@@ -75,8 +74,8 @@ export default function Hero() {
              text-lg max-w-3xl mx-auto w-full
               "
             >
-              Create, organize, and share content with your team and access
-              everything instantly from your keyboard on iOS and Android.
+              Create ideas, get instant voting, and make clear decisions quickly
+              - available right on your keyboard on Android or iOS.
             </p>
 
             <div className="anim-center [animation-delay:0.55s]">

@@ -3,9 +3,9 @@
 import ThemeButton from "@/components/ui/ThemeButton";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import frame from "@/assets/frame.png"
-import Lottie from 'lottie-react'
-import animationData from "@/assets/arrow-up.json"
+import frame from "@/assets/frame.png";
+import Lottie from "lottie-react";
+import animationData from "@/assets/arrow-up.json";
 
 export default function Features() {
   const [visible, setVisible] = useState(false);
@@ -16,7 +16,10 @@ export default function Features() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-secondary flex flex-col items-center lg:py-20 py-10" aria-label="Features">
+    <section
+      className="relative overflow-hidden bg-secondary flex flex-col items-center lg:py-20 py-10"
+      aria-label="Features"
+    >
       <div className="absolute top-0 left-1/2 -translate-x-1/2  bg-[radial-gradient(ellipse,rgba(155,50,255,0.18)_0%,transparent_70%)] pointer-events-none" />
 
       <div
@@ -37,14 +40,14 @@ export default function Features() {
           `}
         >
           <h2 className="font-extrabold text-white leading-tight mb-4 text-3xl md:text-4xl lg:text-5xl">
-            Collaboration{" "}
-            <span className="text-primary">Made Swift.</span>
+            Collaboration made Easy with{" "}
+            <span className="text-primary">SwiftBoard</span>
             <br className="hidden sm:block" />
-            <span className="block sm:inline"> Organize. Share. Execute.</span>
+            <span className="block sm:inline"> Brainstorm, Share, Decide</span>
           </h2>
           <p className="text-sm sm:text-lg max-w-3xl text-white/80 mx-auto leading-relaxed px-2">
-            Create boards, add content, assign roles, and collaborate instantly
-            with real-time activity and smart notifications.
+            Develop customised boards, add tasks, assign roles, and track
+            real-time team collaboration with smart notifications.
           </p>
         </div>
 
@@ -71,7 +74,12 @@ export default function Features() {
           `}
         >
           <div className="relative flex flex-col items-center gap-y-1 justify-center">
-            <Lottie animationData={animationData} className={'w-20'} loop={true} autoplay={true} />
+            <Lottie
+              animationData={animationData}
+              className={"w-20"}
+              loop={true}
+              autoplay={true}
+            />
 
             <p className="text-sm text-white/80 text-center font-medium">
               everything in <br /> one place
@@ -83,7 +91,8 @@ export default function Features() {
           className={`
             w-full
             transition-all duration-1000 delay-300
-            ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            ${
+              visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }
           `}
         >

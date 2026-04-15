@@ -14,16 +14,17 @@ export default function Problem() {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary ">
             The{" "}
             <span className="inline-block bg-primary text-white px-2 py-1 rounded-lg">
-              Problem
+              Hidden Flaws
             </span>{" "}
-            With Current
+            of Current
             <br />
-            Productivity Apps
+            Productivity Tools
           </h2>
         </div>
 
         <p className="text-center text-secondary text-sm md:text-lg mb-10 sm:mb-14">
-          and Why They&apos;re Not Working For You
+          and Why <span className="font-bold  ">More Apps</span> Make You{" "}
+          <span className="font-bold  ">Less Productive</span>
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">

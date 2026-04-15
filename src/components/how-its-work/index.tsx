@@ -14,10 +14,10 @@ import step7 from "@/assets/how-its-work/access-boards-keyboards.webp";
 const stepsData = [
   {
     number: "01",
-    title2: "Create",
-    title: "your board",
+    title2: "Make",
+    title: "Customised Board",
     description:
-      "Start by creating a dedicated board for your project, client, or idea. Give it a name, add an emoji, and instantly set up a focused workspace. Every project begins with clarity.",
+      "Start your project with a clear roadmap. Create a board for an idea, client, or project based on specific requirements to follow. Name the board and set up a focused workspace.",
     image: step1,
   },
   {
@@ -31,41 +31,41 @@ const stepsData = [
   {
     number: "03",
     title2: "Invite",
-    title: "your team",
+    title: "Team on Board",
     description:
-      "Collaboration is just one click away. Add members to your board and assign roles such as Admin, Editor, or Viewer so everyone has the right level of access. Full control with clear responsibilities.",
+      "Add team members and assign tasks with specific roles. Provide the assignee the right level of access. Track progress with full control over responsibilities.",
     image: step3,
   },
   {
     number: "04",
-    title2: "Chat Inside",
-    title: "the board",
+    title2: "Chat",
+    title: "within the Board",
     description:
-      "Discuss work where it happens. Every board includes built in messaging so members can communicate in context, share updates, clarify tasks, and reference content without leaving the workspace. Conversations stay connected to the project.",
+      "Stay connected with your team without leaving the workspace. No need to change the platforms to discuss the ideas. Communicate, share updates, and clarify the tasks of your ongoing project while staying at one platform.",
     image: step4,
   },
   {
     number: "05",
-    title2: "Duplicate",
-    title: "when needed",
+    title2: "Create",
+    title: "Duplicate Board Easily",
     description:
-      "Need to reuse a structure. Duplicate boards instantly to repeat workflows, templates, or recurring projects. This saves time and keeps consistency across teams.",
+      "Maintain consistency among teams with duplicate boards. Repeat templates, workflows, and recurring projects to save time. Reuse the structure to keep projects cohesive in the workspace.",
     image: step5,
   },
   {
     number: "06",
     title2: "Keep",
-    title: "things clean",
+    title: "Workspace Organised",
     description:
-      "When a project is complete, move the board to the trash. You can restore it anytime or permanently delete it when it is no longer needed. Stay organized while keeping full control.",
+      "Move boards to bin when no longer needed. You can retrieve them when required or can remove them permanently. Make your workspace clutter-free before the start of new projects.",
     image: step6,
   },
   {
     number: "07",
-    title2: "Access Your Boards",
-    title: "from the keyboard",
+    title2: "Navigate",
+    title: "Boards from Keyboard",
     description:
-      "Select any board from the SwiftBoard keyboard on iOS or Android. Tap the content  including text, images, videos, links, documents, or recordings to share instantly without leaving your app.",
+      "Access your boards anytime from the keyboard. Your images, recordings, documents, text, and links will be just a tap away. Click and share them instantly with your team while staying in the app.",
     image: step7,
   },
 ];

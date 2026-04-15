@@ -57,7 +57,6 @@ function FeatureCard({
           {feature.description}
         </p>
         <ul>
-
           <ul className="flex flex-col gap-2.5">
             {/* <p className="text-sm  text-neutral-800 ">{feature.bulletsheading}</p> */}
             {feature.bullets.map((b, j) => (
@@ -140,10 +139,12 @@ export default function Solutions() {
                 className="mb-4"
               >
                 <h2 className="text-center sm:text-left text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
-                  The Features{" "}
+                  Make Your Chaotic{" "}
                   <span className="block mt-1">
-                    Collaboration {" "}
-                    <span className="text-primary">Without The Chaos</span>
+                    Workspace{" "}
+                    <span className="text-primary">
+                      Organised with Swiftboard
+                    </span>
                   </span>
                 </h2>
               </motion.div>
@@ -154,9 +155,9 @@ export default function Solutions() {
                 transition={{ duration: 0.5, delay: 0.16 }}
                 className="text-secondary text-sm md:text-lg max-w-md text-center sm:text-left"
               >
-                Most tools scatter your team across chats, files, and apps.
-                SwiftBoard brings everything into structured boards with clear
-                roles, real-time updates, and controlled access.
+                Manage your scattered teams, content, and tasks with structured
+                boards of Swiftboard. Assign clear roles, track tasks, get
+                real-time updates, and controlled access over everything.
               </motion.p>
             </div>
           </div>

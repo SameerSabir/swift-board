@@ -1,20 +1,20 @@
 export const problems = [
   {
     number: "01",
-    title: "Your Work Is Scattered Across Too Many Tools",
+    title: "Multiple Apps Scatter Work",
     description:
-      "Most teams use one app for files, another for chat, another for notes, and another for sharing links.Ideas get lost. Files get buried. Communication breaks. Productivity drops.",
+      "Using different tools for official files, chat, notes, and links often leads to less productivity. Finding files becomes chaotic, ideas vanish, and conversations lost which ultimately results in weak outcomes. ",
   },
   {
     number: "02",
-    title: "They Don't Control Who Does What…",
+    title: "Give No Control Over Tasks",
     description:
-      "Many board and content apps let everyone edit everything  or restrict too much.Without clear roles like Admin, Editor, and Viewer, collaboration turns into confusion.",
+      "Navigation across different apps often turns collaboration into confusion. One workspace allows everyone to comprehend their roles perfectly and provides full control over assigned tasks.",
   },
   {
     number: "03",
-    title: "They Store Content  But Don't Structure It…",
+    title: "Disorganised Workspace",
     description:
-      "Uploading files is easy. Organizing them properly isn't.Without structured boards, real-time updates, and clear activity tracking, teamwork becomes messy and reactive.",
+      "Scattered work across different apps cannot boost productivity. Structured boards, clear activity tracking, and real-time updates organise your team and workspace at one platform.",
   },
 ];
