@@ -2,6 +2,7 @@ import Image from "next/image";
 import left from "@/assets/left-start.webp";
 import right from "@/assets/start-right.webp";
 import ArrowLottie from "@/components/ui/arrowLottie";
+import Link from "next/link";
 
 export default function GetStarted() {
   return (
@@ -62,7 +63,7 @@ export default function GetStarted() {
         </Link> */}
 
         <div className="flex items-center gap-6 pt-4">
-          <a
+          <Link
             href="https://apps.apple.com/us/app/swiftboard-work-keyboard/id6757534203"
             target="_blank"
             aria-label="Download on App Store"
@@ -80,7 +81,36 @@ export default function GetStarted() {
                 fill="black"
               />
             </svg>
-          </a>
+          </Link>
+          <Link
+            href="https://play.google.com/store/apps/details?id=com.easymt.swiftboard.contentkeyboard"
+            target="_blank"
+            aria-label="Download on Google Play"
+          >
+            <svg
+              width="48"
+              height="48"
+              viewBox="0 0 512 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill="#00A0FF"
+                d="M61.1 1.7c-3.6 3.9-5.9 10-5.9 18.3v472c0 8.3 2.3 14.4 5.9 18.3l.9.9L310.5 256 62 .8z"
+              />
+              <path
+                fill="#00E676"
+                d="M372.1 318.5L310.5 256 62 511.2c5.7 6.1 15.2 7.6 26.1 1.5l284-164.2z"
+              />
+              <path
+                fill="#FFEA00"
+                d="M372.1 193.5L88.1 29.3c-10.9-6.1-20.4-4.6-26.1 1.5L310.5 256l61.6-62.5z"
+              />
+              <path
+                fill="#FF3D00"
+                d="M451.9 233.9l-79.8-40.4L310.5 256l61.6 62.5 79.8-40.4c21.4-10.8 21.4-33.4 0-44.2z"
+              />
+            </svg>
+          </Link>
         </div>
       </div>
     </section>

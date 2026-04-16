@@ -6,7 +6,7 @@ interface ThemeButtonProps {
   onClick?: () => void;
   icon?: ReactNode;
   className?: string;
-  variant?: "shimmer" | "primary" | "glow";
+  variant?: "shimmer" | "primary" | "glow" | "outline";
   as?: "a" | "button";
   href?: string; // Only needed if as="a"
   ariaLabel?: string;
@@ -35,9 +35,13 @@ const ThemeButton: React.FC<ThemeButtonProps> = ({
 
   const glowClasses = `px-8 sm:px-10 py-3.5 sm:py-4 rounded-full font-bold text-lg text-white bg-primary hover:bg-purple-600 shadow-[0_0_32px_rgba(155,50,255,0.4)] hover:shadow-[0_0_52px_rgba(155,50,255,0.65)]`;
 
+  const outlineClasses =
+    "rounded-full border-2 border-secondary text-secondary hover:bg-secondary hover:text-white px-8 py-3 text-lg font-semibold leading-7 transition-colors";
+
   let variantClasses = primaryClasses;
   if (variant === "shimmer") variantClasses = shimmerClasses;
   if (variant === "glow") variantClasses = glowClasses;
+  if (variant === "outline") variantClasses = outlineClasses;
 
   if (as === "a") {
     const isInternal = href?.startsWith("/") || href?.startsWith("#");

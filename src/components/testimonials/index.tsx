@@ -151,7 +151,7 @@ export default function Testimonials() {
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 170 40"
               preserveAspectRatio="xMidYMid meet"
-              className="absolute left-[5%] w-[90%] -bottom-4 lg:-bottom-7 h-auto block"
+              className="absolute left-[7.5%] w-[85%] -bottom-4 lg:-bottom-7 h-auto block"
             >
               <defs>
                 <style>{`
@@ -196,13 +196,7 @@ export default function Testimonials() {
 
               <g clipPath="url(#lottie-clip)">
                 <g mask="url(#wave-mask)">
-                  <rect
-                    x="0"
-                    y="0"
-                    width="100%"
-                    height="40"
-                    fill="rgb(71,71,71)"
-                  />
+                  <rect x="0" y="0" width="100%" height="40" fill="#9b32ff" />
                 </g>
               </g>
             </svg>

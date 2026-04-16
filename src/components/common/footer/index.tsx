@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
+import googlePlayIcon from "@/assets/google-play.svg";
 
 export default function Footer() {
   const scrollToSection = (id: string) => {
@@ -158,7 +160,11 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-white text-sm md:text-base leading-relaxed">
-             Empowering teams to <span className="font-shantell-sans ml-px text-xl text-amber-300 ">organize, control, and collaborate </span> seamlessly.
+              Empowering teams to{" "}
+              <span className="font-shantell-sans ml-px text-xl text-amber-300 ">
+                organize, control, and collaborate{" "}
+              </span>{" "}
+              seamlessly.
             </p>
           </div>
 
@@ -231,7 +237,7 @@ export default function Footer() {
             </p>
             <ul className="space-y-2">
               <li>
-                <a
+                <Link
                   href="https://apps.apple.com/us/app/swiftboard-work-keyboard/id6757534203"
                   target="_blank"
                   className="inline-flex items-center gap-3 px-8 py-2 bg-black text-white rounded-xl transition duration-300"
@@ -253,7 +259,27 @@ export default function Footer() {
                     <span className="text-[10px]">Download on the</span>
                     <span className="font-semibold text-sm">App Store</span>
                   </div>
-                </a>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="https://play.google.com/store/apps/details?id=com.easymt.swiftboard.contentkeyboard"
+                  target="_blank"
+                  className="inline-flex items-center gap-3 px-8 py-2 bg-black text-white rounded-xl transition duration-300"
+                >
+                  <span className="w-7 h-7 flex items-center justify-center shrink-0">
+                    <Image
+                      src={googlePlayIcon}
+                      alt="Google Play"
+                      width={26}
+                      height={26}
+                    />
+                  </span>
+                  <div className="flex flex-col leading-tight">
+                    <span className="text-[10px]">Get it on</span>
+                    <span className="font-semibold text-sm">Google Play</span>
+                  </div>
+                </Link>
               </li>
             </ul>
           </div>

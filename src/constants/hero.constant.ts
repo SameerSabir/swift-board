@@ -133,7 +133,7 @@ export const VERT_LINES: VertLine[] = [
 
 //  Particle config
 export const PARTICLE_CONFIG = {
-  count: 55,
+  count: 35,
   minSpeed: 0.25,
   maxSpeed: 0.35,
   minOpacity: 0.12,
