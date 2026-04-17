@@ -235,6 +235,7 @@ export default function HowItWorks() {
                   alt={`Step ${step.number}: ${step.title2} ${step.title}`}
                   width={420}
                   height={420}
+                  style={{ height: "auto" }}
                   className="relative z-10 shadow-[0_10px_20px_rgba(0,0,0,0.05)] rounded-2xl"
                 />
               </div>
@@ -245,6 +246,7 @@ export default function HowItWorks() {
             alt="arrow down"
             width={180}
             height={180}
+            style={{ height: "auto" }}
             className="absolute -bottom-78 left-1/2 -translate-x-1/2 hidden  lg:block z-10 pointer-events-none"
           />
         </div>

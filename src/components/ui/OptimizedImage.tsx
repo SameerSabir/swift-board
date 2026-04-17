@@ -26,6 +26,12 @@ export default function OptimizedImage({
 }: OptimizedImageProps) {
   const [isLoading, setIsLoading] = useState(true);
 
+  // Maintain aspect ratio if only width or height is set
+  const style: React.CSSProperties = {};
+  if (!fill) {
+    if (width && !height) style.height = "auto";
+    if (height && !width) style.width = "auto";
+  }
   return (
     <div className={`relative ${className}`}>
       <Image
@@ -37,6 +43,7 @@ export default function OptimizedImage({
         priority={priority}
         quality={85}
         onLoad={() => setIsLoading(false)}
+        style={style}
         className={`duration-700 ${imageclassName}  ease-in-out ${
           isLoading ? "blur-2xl grayscale" : "blur-0 grayscale-0"
         } ${fill ? "object-cover" : ""}`}
